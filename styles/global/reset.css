@@ -1,0 +1,14 @@
+html, body{
+  padding: 0;
+  margin: 0;
+  background: #FAE6E7;
+}
+
+* {
+  animation: fadeIn 1.5s;
+  box-sizing: border-box;
+}
+
+img {
+  max-width: 100%;
+}
