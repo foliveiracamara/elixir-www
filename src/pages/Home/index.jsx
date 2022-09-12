@@ -1,9 +1,10 @@
-import styles from './style.module.scss';
+import React from "react";
+import styles from "./style.module.scss";
 
 export default function Home() {
   return (
     <div className={styles.container}>
-    Hello World
+      <p>Hello world!</p>
     </div>
-      )
+  );
 }
