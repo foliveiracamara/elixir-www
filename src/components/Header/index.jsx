@@ -7,7 +7,7 @@ export default function Header() {
     <header className={style.container}>
       <div className={style.logo}>
         <img src='/images/elixir-logo.svg' className={style.img} alt="Elixir logo"/>
-        <span style={style.elixir}>elixir</span>
+        <span className={style.elixir}>elixir</span>
       </div>
       <div className={style.navbar}>
         <ul className={style.options}>
