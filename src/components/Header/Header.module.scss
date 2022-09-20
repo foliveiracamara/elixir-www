@@ -1,0 +1,50 @@
+.container {
+  margin-top: 16px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  
+  .logo {
+    display: flex;
+    align-items: center;
+
+    .img {
+      width: 60px;
+      cursor: pointer;
+    }
+
+    .elixir {
+      cursor: pointer;
+    }
+  }
+  
+  .navbar {
+    font-size: 16px;
+    font-weight: normal;
+
+    .options {
+      display: flex;
+      justify-content: space-between;
+      width: 550px;
+      list-style: none;
+      
+      li{
+        cursor: pointer;
+      }
+    }
+  }
+
+  .buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 280px;
+    font-size: 16px;
+    font-weight: normal;
+
+    .login {
+      cursor: pointer;
+    }
+  }
+}
