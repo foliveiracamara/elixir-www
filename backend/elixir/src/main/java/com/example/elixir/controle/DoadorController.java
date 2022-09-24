@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/doador")
@@ -31,43 +32,47 @@ public class DoadorController {
     // Buscar por ID
     @GetMapping("/{idDoador}")
     public Doador buscarPorId(@PathVariable Integer id) {
-        var clienteOptional = repository.findById(id);
-//        if (clienteOptional.isEmpty()) {
-//            throw new ResponseStatusException(HttpStatus.NOT_FOUND);
-//        }
-        return clienteOptional.get();
+        var usuario = repository.findById(id);
+        return usuario.get();
     }
 
     // Exclusão de usuario
     @DeleteMapping("/{idDoador}")
     public void excluirPorId(@PathVariable Integer idDoador) {
-        var clienteOptional = repository.findById(idDoador);
-//        if (clienteOptional.isEmpty()) {
-//            throw new ResponseStatusException(HttpStatus.NOT_FOUND);
-//        }
-        repository.delete(clienteOptional.get());
+        var usuario = repository.findById(idDoador);
+        repository.delete(usuario.get());
     }
 
     // Atualizar por ID
     @PutMapping("/{idDoador}")
-    public Doador atualizarPorId(@PathVariable Integer idDoador, @RequestBody Doador doador) {
-        repository.findById(idDoador);
-//        if (clienteOptional.isEmpty()) {
-//            throw new ResponseStatusException(HttpStatus.NOT_FOUND);
-//        }
-        doador.setIdDoador(idDoador);
-        return repository.save(doador);
-    }
-
+    public ResponseEntity atualizarPorId(@PathVariable Integer idDoador, @RequestBody Doador doador) {
+            doador.setIdDoador(idDoador);
+            repository.save(doador);
+            return ResponseEntity.status(200).body("Usuario alterado");
+}
 
     @PostMapping("/acesso/{email}/{senha}")
-    public ResponseEntity<String> logonUsuario(@PathVariable String email,
+    public ResponseEntity<Doador> logonUsuario(@PathVariable String email,
                                                @PathVariable String senha) {
-        if(email.equals(repository.findByEmail(email)) && senha.equals(repository.findBySenha(senha))){
-            return ResponseEntity.status(200)
-                    .body("Usuario logado com sucesso!");
+        Optional<Doador> doador = repository.findByEmail(email);
+        Optional<Doador> password = repository.findBySenha(senha);
+
+            if (doador.isPresent() && password.isPresent()) {
+                return ResponseEntity.ok().build();
+            }
+
+        return ResponseEntity.status(401).build();
+    }
+
+    @DeleteMapping("/desloga/{email}/{senha}")
+    public ResponseEntity<Doador> logooffUsuario(@PathVariable String email,
+                                                 @PathVariable String senha) {
+        Optional<Doador> doador = repository.findByEmail(email);
+        Optional<Doador> password = repository.findBySenha(senha);
+
+        if (doador.isPresent() && password.isPresent()) {
+            return ResponseEntity.ok().build();
         }
-        return ResponseEntity.status(403)
-                .body("Email ou senha invalidos");
+        return ResponseEntity.status(401).build();
     }
 }

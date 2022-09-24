@@ -7,7 +7,12 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Past;
+import javax.validation.constraints.PastOrPresent;
+import java.time.LocalDate;
+import java.util.Date;
 
 @Entity
 public class Doador {
@@ -16,19 +21,47 @@ public class Doador {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idDoador;
 
-    @Column(nullable = false, length = 100)
+    @Column
+    @NotBlank
     private String nome;
 
-    @CPF
+//    @CPF
     @Column
+    @NotBlank
     private String cpf;
 
     @Column(unique = true)
-    @NotNull
+    @NotBlank
     private String email;
 
-    @Column(nullable = false)
+    @Column
+    @NotBlank
     private String senha;
+
+    @Column
+    @NotBlank
+    private String sexo;
+
+    @Column
+    @NotBlank
+    private String tipoSanguineo;
+
+    @Column
+    @NotBlank
+    private String doadorOrgao;
+
+    @Column
+    @NotBlank
+    private String imagemPessooa;
+
+    @Column
+//    @PastOrPresent
+    private LocalDate dtDoacao;
+
+    @Column
+//    @Past
+    private LocalDate dtNascimento;
+
 
     public Integer getIdDoador() {
         return idDoador;
@@ -62,11 +95,61 @@ public class Doador {
         this.email = email;
     }
 
-    public String getSenha() {
-        return senha;
-    }
+//    public String getSenha() {
+//        return senha;
+//    }
 
     public void setSenha(String senha) {
         this.senha = senha;
     }
+
+    public String getSexo() {
+        return sexo;
+    }
+
+    public void setSexo(String sexo) {
+        this.sexo = sexo;
+    }
+
+    public String getTipoSanguineo() {
+        return tipoSanguineo;
+    }
+
+    public void setTipoSanguineo(String tipoSanguineo) {
+        this.tipoSanguineo = tipoSanguineo;
+    }
+
+    public String getDoadorOrgao() {
+        return doadorOrgao;
+    }
+
+    public void setDoadorOrgao(String doadorOrgao) {
+        this.doadorOrgao = doadorOrgao;
+    }
+
+    public String getImagemPessooa() {
+        return imagemPessooa;
+    }
+
+    public void setImagemPessooa(String imagemPessooa) {
+        this.imagemPessooa = imagemPessooa;
+    }
+
+    public LocalDate getDtDoacao() {
+        return dtDoacao;
+    }
+
+    public void setDtDoacao(LocalDate dtDoacao) {
+        this.dtDoacao = dtDoacao;
+    }
+
+    public LocalDate getDtNascimento() {
+        return dtNascimento;
+    }
+
+    public void setDtNascimento(LocalDate dtNascimento) {
+        this.dtNascimento = dtNascimento;
+    }
+
+
 }
