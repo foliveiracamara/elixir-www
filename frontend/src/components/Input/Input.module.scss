@@ -1,0 +1,13 @@
+.input {
+  width: 240px;
+  height: 40px;
+  border-radius: 10px;
+  border: none;
+  font-family: Poppins;
+  background-color: $blue-400;
+}
+
+.input::placeholder {
+  color: $grey-800;
+  padding-left: 10px;
+}
