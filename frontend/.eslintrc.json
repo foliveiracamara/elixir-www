@@ -27,6 +27,7 @@
       "camelcase": "off",
       "import/no-unresolved": "error",
       "react/function-component-definition": [
+        1,
           {
             "namedComponents": "function-declaration"
           }
