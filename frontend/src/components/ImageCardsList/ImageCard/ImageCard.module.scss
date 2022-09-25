@@ -1,0 +1,49 @@
+.container {
+  width: 300px;
+
+  .top {
+    .img {
+      border-radius: 10px;
+    }
+  }
+
+  .bottom {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-left: 10px;
+
+    .dash {
+      border: $red-900 solid 2px;
+      border-radius: 3px;
+      width: 40px;
+      height: 1px;
+      margin-top: 30px;
+    }
+
+    .text {
+      width: 80%;
+
+      .head {
+        .title {
+          font-size: 20px;
+          font-weight: bold;
+        }
+      }
+
+      .anchor {
+        display: flex;
+        align-items: center;
+        font-size: 16px;
+        font-weight: normal;
+        color: $grey-600;
+
+        .arrow {
+          font-size: 14px;
+          margin-left: 5px;
+        }
+      }
+
+    }
+  }
+}

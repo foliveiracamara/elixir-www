@@ -1,9 +1,9 @@
-import BlueCard from '../BlueCard';
+import BlueCard from './BlueCard';
 import style from './CardsList.module.scss';
 
-export default function CardsList() {
+export default function BlueCardsList() {
 
-  const blueCardData = [
+  const listData = [
     {
       imgSource: '/images/paper.svg',
       title: 'Monte seu perfil',
@@ -23,7 +23,7 @@ export default function CardsList() {
   
   return (
     <section className={style.container}>
-      {blueCardData.map((card, index) => (
+      {listData.map((card, index) => (
         <BlueCard
           key={index}
           imgSource={card.imgSource}
