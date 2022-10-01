@@ -1,4 +1,4 @@
-import WhiteButton from '../WhiteButton/index';
+import WhiteButton from '../Button/index';
 
 import style from './Header.module.scss';
 
@@ -20,7 +20,7 @@ export default function Header() {
       </div>
       <div className={style.buttons}>
         <span className={style.login}>Entrar</span>
-        <WhiteButton children={"Seja um doador(a)"}/>
+        <WhiteButton children={"Seja um doador(a)"} backgroundColor={"#FFF"} />
       </div>
     </header>
   );
