@@ -19,30 +19,31 @@
         right: 100px;
       }
 
-    
-      .h2 {
-        font-family: PoppinsBolder;
-        color: $black;
-        line-height: 80px;
-        font-size: 80px;
-        margin: 0px;
-      }
+      .text {
+        margin-top: 50px;
+        .h2 {
+          font-family: PoppinsBolder;
+          color: $black;
+          line-height: 80px;
+          font-size: 80px;
+          margin: 0px;
+        }
 
-      .h1 {
-        font-family: PoppinsBolder;
-        color: $black;
-        font-size: 120px;
-        color: $blue-700;
-        margin: 0px;
+        .h1 {
+          font-family: PoppinsBolder;
+          color: $black;
+          font-size: 120px;
+          color: $blue-700;
+          margin: 0px;
+        }
       }
 
       .redirect {
-        margin-top: 150px;
+        margin-top: 70px;
         .label {
           font-size: 24px;
         }
       }
-
     }
 
     .right_side {

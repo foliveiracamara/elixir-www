@@ -11,11 +11,13 @@ export default function Hero() {
       <Header />
       <div className={style.content}>
         <div className={style.left_side}>
-          <BlueShadow right={100}/>
-          <RedShadow />
-          <BlueShadow left={600}/>
-          <span className={style.h2}>conheça, aprenda</span>
-          <p className={style.h1}>doe</p>
+          {/* <BlueShadow right={100} /> */}
+          {/* <RedShadow /> */}
+          {/* <BlueShadow left={600} /> */}
+          <div className={style.text}>
+            <span className={style.h2}>conheça, aprenda</span>
+            <p className={style.h1}>doe</p>
+          </div>
           <div className={style.redirect}>
             <label className={style.label}>
               Você precisa de doação de sangue?
