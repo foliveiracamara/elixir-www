@@ -21,8 +21,9 @@ export default function ImageCardsList() {
   
   return (
     <section className={style.container}>
-      {listData.map((card, index) => (
+      {listData.map(card => (
         <ImageCard
+         key={card.title}
          imgSource={card.imgSource}
          title={card.title}
         />

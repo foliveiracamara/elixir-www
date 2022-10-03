@@ -8,15 +8,15 @@ import style from './Geolocation.module.scss';
 export default function Geolocation() {
   return (
     <section className={style.container}>
-      <RedShadow       
+      {/* <RedShadow       
         right={700}
         bottom={100}
-      />
-      <RedShadow 
+      /> */}
+      {/* <RedShadow 
         right={0}
         bottom={0}
         top={300}
-      />
+      /> */}
       <div className={style.text}>
         <Title 
           children={'Localizar hemocentros com mapa de geolocalização'} 
