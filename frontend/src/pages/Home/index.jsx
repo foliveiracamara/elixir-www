@@ -1,11 +1,12 @@
-import Hero from './components/Hero';
-
+import Hero from './Hero';
+import Geolocation from './Geolocation';
 import styles from './style.module.scss';
 
 export default function Home() {
   return (
     <div className={styles.container}>
-      <Hero />
+      {/* <Hero /> */}
+      <Geolocation />
     </div>
   );
 }
