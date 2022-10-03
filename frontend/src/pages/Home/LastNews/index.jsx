@@ -1,4 +1,4 @@
-import ImageCardsList from "../ImageCardsList";
+import ImageCardsList from "../components/ImageCardsList";
 
 import style from './LastNews.module.scss';
 
