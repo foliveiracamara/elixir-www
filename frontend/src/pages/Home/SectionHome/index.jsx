@@ -35,7 +35,6 @@ export default function SectionHome() {
       <div className={style.ContainerBlueCard}>
         {listData.map((card, index) => (
           <div>
-            <BlueShadow/>
             <BlueCard
               key={index}
               imgSource={card.imgSource}
