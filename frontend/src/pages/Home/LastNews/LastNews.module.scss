@@ -1,0 +1,15 @@
+.container {
+  position: relative;
+
+  .title {
+    font-weight: bold;
+    margin-left: 85px;
+  }
+
+  .image {
+    position: absolute;
+    width: 130px;
+    top: 0;
+    right: 40px;
+  }
+}

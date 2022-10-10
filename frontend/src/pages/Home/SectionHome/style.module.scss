@@ -1,0 +1,27 @@
+.container {
+  margin-top: 5%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 5%;
+
+  .text {
+    .h2{
+      color: $red-900;
+    }
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    margin-bottom: 5%;
+  }
+
+  .ContainerBlueCard{
+   display: flex;
+   margin-bottom: 5%;
+   justify-content: center;
+   flex-direction: column;
+   width: 100%;
+  }
+
+  
+}

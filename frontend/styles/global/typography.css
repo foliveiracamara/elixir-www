@@ -10,19 +10,19 @@ a {
 }
 
 @font-face {
-  font-family: Poppins;
+  font-family: PoppinsBolder;
   src: url(/fonts/Poppins-ExtraBold.ttf);
   font-weight: bolder;
 }
 
 @font-face {
-  font-family: Poppins;
+  font-family: PoppinsNormal;
   src: url(/fonts/Poppins-Regular.ttf);
   font-weight: normal;
 }
 
 @font-face {
-  font-family: Poppins;
+  font-family: PoppinsBold;
   src: url(/fonts/Poppins-SemiBold.ttf);
   font-weight: bold;
 }

@@ -1,9 +1,14 @@
 package com.example.elixir.dominio;
 
+import com.example.elixir.repositorio.InsigniaDoadorRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class InsigniaDoador {
+
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -12,8 +17,6 @@ public class InsigniaDoador {
     @Column
     private Integer fkInsignia;
 
-    @Column
-    private Integer fkDoador;
 
     public Integer getFkInsignia() {
         return fkInsignia;
@@ -23,11 +26,4 @@ public class InsigniaDoador {
         this.fkInsignia = fkInsignia;
     }
 
-    public Integer getFkDoador() {
-        return fkDoador;
-    }
-
-    public void setFkDoador(Integer fkDoador) {
-        this.fkDoador = fkDoador;
-    }
 }

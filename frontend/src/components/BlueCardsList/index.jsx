@@ -1,5 +1,5 @@
 import BlueCard from './BlueCard';
-import style from './CardsList.module.scss';
+import style from './BlueCardsList.module.scss';
 
 export default function BlueCardsList() {
 
@@ -22,7 +22,8 @@ export default function BlueCardsList() {
   ];
   
   return (
-    <section className={style.container}>
+    <div>
+    <div className={style.container}>
       {listData.map((card, index) => (
         <BlueCard
           key={index}
@@ -31,6 +32,8 @@ export default function BlueCardsList() {
           description={card.description}
         />
       ))}
-    </section>
+
+    </div>
+    </div>
   )
 }

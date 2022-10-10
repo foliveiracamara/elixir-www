@@ -2,6 +2,7 @@ package com.example.elixir.dominio;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
+import java.util.List;
 
 @Entity
 public class Insignia {
@@ -20,6 +21,9 @@ public class Insignia {
 
     @Column
     private String imagem;
+
+    @ManyToMany
+    private List<Doador> fkDoador;
 
     public Integer getIdInsignia() {
         return idInsignia;
@@ -51,5 +55,13 @@ public class Insignia {
 
     public void setImagem(String imagem) {
         this.imagem = imagem;
+    }
+
+    public List<Doador> getFkDoador() {
+        return fkDoador;
+    }
+
+    public void setFkDoador(List<Doador> fkDoador) {
+        this.fkDoador = fkDoador;
     }
 }

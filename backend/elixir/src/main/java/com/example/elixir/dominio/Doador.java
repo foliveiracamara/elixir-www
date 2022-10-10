@@ -2,17 +2,15 @@ package com.example.elixir.dominio;
 
 import org.hibernate.validator.constraints.br.CPF;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
 import javax.validation.constraints.PastOrPresent;
 import java.time.LocalDate;
 import java.util.Date;
+import java.util.List;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Doador {
@@ -62,6 +60,26 @@ public class Doador {
 //    @Past
     private LocalDate dtNascimento;
 
+    @ManyToOne
+    private Publicacao publicacoes;
+
+    @ManyToMany
+    private List<InsigniaDoador> insigniaDoador;
+
+    public Doador(Integer idDoador, String nome, String cpf, String email, String senha, String sexo, String tipoSanguineo, String doadorOrgao, String imagemPessooa, LocalDate dtDoacao, LocalDate dtNascimento, Publicacao publicacoes) {
+        this.idDoador = idDoador;
+        this.nome = nome;
+        this.cpf = cpf;
+        this.email = email;
+        this.senha = senha;
+        this.sexo = sexo;
+        this.tipoSanguineo = tipoSanguineo;
+        this.doadorOrgao = doadorOrgao;
+        this.imagemPessooa = imagemPessooa;
+        this.dtDoacao = dtDoacao;
+        this.dtNascimento = dtNascimento;
+        this.publicacoes = publicacoes;
+    }
 
     public Integer getIdDoador() {
         return idDoador;
@@ -151,5 +169,11 @@ public class Doador {
         this.dtNascimento = dtNascimento;
     }
 
+    public Publicacao getPublicacoes() {
+        return publicacoes;
+    }
 
+    public void setPublicacoes(Publicacao publicacoes) {
+        this.publicacoes = publicacoes;
+    }
 }
