@@ -23,7 +23,7 @@ public class Doador {
     @NotBlank
     private String nome;
 
-//    @CPF
+    //    @CPF
     @Column
     @NotBlank
     private String cpf;
@@ -49,7 +49,7 @@ public class Doador {
     private String doadorOrgao;
 
     @Column
-    @NotBlank
+    //  @NotBlank
     private String imagemPessooa;
 
     @Column

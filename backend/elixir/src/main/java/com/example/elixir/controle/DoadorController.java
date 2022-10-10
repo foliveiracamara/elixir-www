@@ -1,5 +1,7 @@
 package com.example.elixir.controle;
 
+import com.example.elixir.arquivos.ArqCsv;
+import com.example.elixir.arquivos.ListaObj;
 import com.example.elixir.dominio.Doador;
 import com.example.elixir.repositorio.DoadorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,6 +9,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -17,11 +20,39 @@ public class DoadorController {
     @Autowired
     private DoadorRepository repository;
 
+    ListaObj<Doador> listaLeads = new ListaObj<Doador>(100);
+
     @PostMapping
     @ResponseStatus(code = HttpStatus.CREATED)
-    public Doador cadastrar(@RequestBody Doador doador) {
-        return repository.save(doador);
+    public ResponseEntity<Doador> cadastrar(@RequestBody Doador doador) {
+        repository.save(doador);
+        return ResponseEntity.status(201).body(doador);
     }
+
+    //Lista Leads
+    @GetMapping("/lista-leads")
+    public ResponseEntity<List<Doador>> buscarLeads() {
+        List<Doador> buscandoDaBase = repository.findAll();
+        for (Doador d : buscandoDaBase){
+            listaLeads.adiciona(d);
+        }
+        for (int i = 0; i < listaLeads.getTamanho(); i++) {
+            listaLeads.getElemento(i).setCpf("null");
+            listaLeads.getElemento(i).setSenha("null");
+            listaLeads.getElemento(i).setDoadorOrgao("null");
+            listaLeads.getElemento(i).setDtDoacao(null);
+            listaLeads.getElemento(i).setDtNascimento(null);
+            listaLeads.getElemento(i).setImagemPessooa(null);
+        }
+        return ResponseEntity.status(200).body(buscandoDaBase);
+    }
+
+    @GetMapping("/download-csv")
+    public ResponseEntity<List<Doador>> downloadCsv() {
+        ArqCsv.gravaArquivoCsv(listaLeads, "Lista de Doador");
+        return ResponseEntity.status(200).build();
+    }
+
 
     // Listar usuarios
     @GetMapping
