@@ -6,6 +6,7 @@ import styles from './style.module.scss';
 import SectionHome from './SectionHome';
 import BlueCardsList from '../../components/BlueCardsList';
 import Sponsors from './Sponsors';
+import Footer from './Footer';
 
 export default function Home() {
   return (
@@ -15,6 +16,7 @@ export default function Home() {
       <Geolocation />
       <Sponsors/>
       <LastNews />
+      <Footer/>
     </div>
   );
 }

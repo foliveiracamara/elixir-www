@@ -18,7 +18,8 @@
   .ContainerBlueCard{
    display: flex;
    margin-bottom: 5%;
-   justify-content: space-evenly;
+   justify-content: center;
+   flex-direction: column;
    width: 100%;
   }
 
