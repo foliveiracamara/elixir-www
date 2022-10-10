@@ -3,6 +3,7 @@ import Title from "../../../components/Title";
 import style from "./style.module.scss";
 
 export default function SectionHome() {
+
   return (
     <div className={style.container}>
       <div className={style.text}>
