@@ -2,7 +2,7 @@ import WhiteButton from '../Button/index';
 
 import style from './Header.module.scss';
 
-export default function Header() {
+export default function Header({textColor}) {
   return (
     <header className={style.container}>
       <div className={style.logo}>
@@ -19,7 +19,7 @@ export default function Header() {
         </ul>
       </div>
       <div className={style.buttons}>
-        <span className={style.login}>Entrar</span>
+        <span className={style.login} style={{color: textColor}}>Entrar</span>
         <WhiteButton children={"Seja um doador(a)"} backgroundColor={"#FFF"} />
       </div>
     </header>

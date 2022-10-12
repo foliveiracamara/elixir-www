@@ -8,12 +8,9 @@ import style from './Hero.module.scss';
 export default function Hero() {
   return (
     <section className={style.container}>
-      <Header />
+      <Header textColor={'#FFF'}/>
       <div className={style.content}>
         <div className={style.left_side}>
-          {/* <BlueShadow right={100} /> */}
-          {/* <RedShadow /> */}
-          {/* <BlueShadow left={600} /> */}
           <div className={style.text}>
             <span className={style.h2}>conheça, aprenda</span>
             <p className={style.h1}>doe</p>

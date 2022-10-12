@@ -15,6 +15,10 @@ module.exports = {
         {
           source: '/',
           destination: '/Home'
+        },
+        {
+          source: '/login',
+          destination: '/Login'
         }
       ]
   }
