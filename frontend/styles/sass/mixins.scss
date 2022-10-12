@@ -1,6 +1,6 @@
 /** Media Query / Responsivity **/
 @mixin mobile {
-  @media (max-width: $mobile) { @content; }
+  @media (min-width: $mobile) and (max-width: 990px) { @content; }
 }
 
 @mixin tablet {

@@ -1,9 +1,9 @@
 import style from './Input.module.scss'
 
-export default function Input({ placeholder  }) {
+export default function Input({ placeholder, type  }) {
   return (
     <input 
-      type='text'
+      type={type}
       className={style.input}
       placeholder={placeholder}
     />
