@@ -16,7 +16,7 @@ export default function Header({textColor}) {
           setViewport(150)
          
         } else if (window.innerWidth >= 1440) {
-          setViewport(56)
+          setViewport(160)
         }
     }
 }, [])
