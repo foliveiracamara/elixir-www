@@ -1,13 +1,21 @@
+import { useEffect } from 'react';
 import RedShadow from '../../../components/RedShadow';
 import Title from '../../../components/Title';
 import Subtitle from '../../../components/Subtitle';
 import Button from '../../../components/Button';
+import Aos from 'aos';
+import 'aos/dist/aos.css';
 
 import style from './Geolocation.module.scss';
 
 export default function Geolocation() {
+
+  useEffect(() => {
+    Aos.init({ duration: 2000 });
+  }, []);
+
   return (
-    <section className={style.container}>
+    <section className={style.container} data-aos="fade">
       {/* <RedShadow       
         right={700}
         bottom={100}

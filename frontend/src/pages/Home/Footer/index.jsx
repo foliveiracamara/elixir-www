@@ -1,12 +1,21 @@
+import { useEffect } from "react";
 import FooterComponent from "../../../components/FooterComponent";
 import Subtitle from "../../../components/Subtitle";
 import Title from "../../../components/Title";
+import Aos from 'aos';
+import 'aos/dist/aos.css';
+
 import style from "./Footer.module.scss";
 
 export default function Footer() {
+
+  useEffect(() => {
+    Aos.init({ duration: 2000 });
+  }, []);
+
   return (
     <div>
-      <div className={style.container}>
+      <div className={style.container} data-aos="fade">
         <div className={style.text}>
           <Title>
             <div className={style.content}>
