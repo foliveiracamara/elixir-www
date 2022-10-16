@@ -50,7 +50,7 @@ public class Doador {
 
     @Column
     //  @NotBlank
-    private String imagemPessooa;
+    private String imagemPessoa;
 
     @Column
 //    @PastOrPresent
@@ -132,11 +132,11 @@ public class Doador {
     }
 
     public String getImagemPessooa() {
-        return imagemPessooa;
+        return imagemPessoa;
     }
 
     public void setImagemPessooa(String imagemPessooa) {
-        this.imagemPessooa = imagemPessooa;
+        this.imagemPessoa = imagemPessooa;
     }
 
     public LocalDate getDtDoacao() {
