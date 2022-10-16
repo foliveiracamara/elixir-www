@@ -14,7 +14,7 @@ import java.time.LocalDate;
 import java.util.List;
 
 @RestController
-@RequestMapping("/pubicacao")
+@RequestMapping("/publicacao")
 public class PublicacaoController {
 
     @Autowired
