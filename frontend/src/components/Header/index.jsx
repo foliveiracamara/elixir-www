@@ -1,8 +1,25 @@
+import { useEffect, useState } from 'react';
 import WhiteButton from '../Button/index';
 
 import style from './Header.module.scss';
 
 export default function Header({textColor}) {
+  const [viewport, setViewport] = useState();
+
+  useEffect(() => {
+    if (typeof window != "undefined") {
+      console.log(window.innerWidth)
+        if (window.innerWidth <= 768) {
+            setViewport(24)
+
+        } else if (window.innerWidth <= 1024) {
+          setViewport(150)
+         
+        } else if (window.innerWidth >= 1440) {
+          setViewport(56)
+        }
+    }
+}, [])
   return (
     <header className={style.container}>
       <div className={style.logo}>
@@ -20,7 +37,11 @@ export default function Header({textColor}) {
       </div>
       <div className={style.buttons}>
         <span className={style.login} style={{color: textColor}}>Entrar</span>
-        <WhiteButton children={"Seja um doador(a)"} backgroundColor={"#FFF"} />
+        <WhiteButton 
+          children={"Seja um doador(a)"} 
+          backgroundColor={"#FFF"} 
+          width={viewport}
+        />
       </div>
     </header>
   );
