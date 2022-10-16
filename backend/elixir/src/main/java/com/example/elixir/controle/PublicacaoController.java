@@ -1,6 +1,8 @@
 package com.example.elixir.controle;
 
+import com.example.elixir.arquivos.ListaObj;
 import com.example.elixir.dominio.Publicacao;
+import com.example.elixir.dominio.Receptor;
 import com.example.elixir.repositorio.PublicacaoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -8,6 +10,7 @@ import org.springframework.scheduling.support.SimpleTriggerContext;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.time.LocalDate;
 import java.util.List;
 
 @RestController
@@ -23,12 +26,9 @@ public class PublicacaoController {
         return ResponseEntity.status(201).body(novaPublicacao);
     }
 
-    @GetMapping
-    public ResponseEntity<List<Publicacao>> get() {
-        List<Publicacao> lista = repository.findAll();
-        return lista.isEmpty()
-                ? ResponseEntity.status(204).build()
-                : ResponseEntity.status(200).body(lista);
+    @GetMapping("/{dtPublicacao}") // localhost:8080/publicacao?dtPublicacao
+    public ResponseEntity<Publicacao> getOrdenado(@RequestParam(required = false) int dtPublicacao) {
+        return getOrdenado(dtPublicacao);
     }
 
     @GetMapping("/{id}")
