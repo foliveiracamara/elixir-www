@@ -66,20 +66,6 @@ public class Doador {
     @ManyToMany
     private List<InsigniaDoador> insigniaDoador;
 
-    public Doador(Integer idDoador, String nome, String cpf, String email, String senha, String sexo, String tipoSanguineo, String doadorOrgao, String imagemPessooa, LocalDate dtDoacao, LocalDate dtNascimento, Publicacao publicacoes) {
-        this.idDoador = idDoador;
-        this.nome = nome;
-        this.cpf = cpf;
-        this.email = email;
-        this.senha = senha;
-        this.sexo = sexo;
-        this.tipoSanguineo = tipoSanguineo;
-        this.doadorOrgao = doadorOrgao;
-        this.imagemPessooa = imagemPessooa;
-        this.dtDoacao = dtDoacao;
-        this.dtNascimento = dtNascimento;
-        this.publicacoes = publicacoes;
-    }
 
     public Integer getIdDoador() {
         return idDoador;
