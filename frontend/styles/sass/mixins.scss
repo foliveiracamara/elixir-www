@@ -4,7 +4,7 @@
 }
 
 @mixin tablet {
-  @media (min-width: $mobile) and (max-width:$desktop) { @content; }
+  @media (min-width: $tablet) and (max-width:$desktop) { @content; }
 }
 
 @mixin desktop {

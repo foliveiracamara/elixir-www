@@ -7,10 +7,10 @@ export default function LastNews({title}) {
     <section className={style.container}>
       <h1 className={style.title}>{title}</h1>
       <ImageCardsList />
-      <img 
+      {/* <img 
         src={'/images/square-dotted.svg'}
         className={style.image}  
-      />
+      /> */}
     </section>
   )
 }

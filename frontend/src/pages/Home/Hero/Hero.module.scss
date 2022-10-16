@@ -21,12 +21,17 @@
 
       .text {
         margin-top: 50px;
+
         .h2 {
           font-family: PoppinsBolder;
           color: $black;
           line-height: 80px;
           font-size: 80px;
           margin: 0px;
+
+          @include tablet {
+            font-size: 64px;
+          }
         }
 
         .h1 {
@@ -35,13 +40,22 @@
           font-size: 120px;
           color: $blue-700;
           margin: 0px;
+
+          @include tablet {
+            font-size: 80px;
+          }
         }
       }
 
       .redirect {
         margin-top: 70px;
+
         .label {
           font-size: 24px;
+        }
+
+        @include tablet {
+          margin-top: 30px;
         }
       }
     }
@@ -59,6 +73,10 @@
         height: 100%;
         background-color: $red-900;
         width: 50%;
+
+        @include tablet {
+          width: 55%;
+        }
       }
 
       .doctor {
@@ -72,6 +90,11 @@
         z-index: 2;
         width: 200px;
         animation: float 2s infinite alternate;
+
+        @include tablet {
+          bottom: 350px;
+          width: 150px;
+        }
       }
 
       .pott {
@@ -80,7 +103,13 @@
         z-index: 2;
         width: 200px;
         animation: float 2s infinite alternate;
+        
+        @include tablet {
+          bottom: 50px;
+          width: 150px;
+        }
       }
+
       .icon {
         position: absolute;
         bottom: 450px;
@@ -88,6 +117,12 @@
         z-index: 2;
         width: 200px;
         animation: float 2s infinite alternate;
+
+        @include tablet {
+          bottom: 400px;
+          margin-right: 330px;
+          width: 150px;
+        }
       }
     }
   }

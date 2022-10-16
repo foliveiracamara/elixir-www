@@ -21,6 +21,15 @@
       font-weight: bolder;
       font-size: 32px;
       cursor: pointer;
+
+      @include tablet {
+        font-size: 24px;
+      }
+    }
+
+    @include tablet {
+      width: 40px;
+      font-size: 14px;
     }
   }
 
@@ -51,6 +60,14 @@
     .login {
       cursor: pointer;
       font-weight: bold;
+
+      @include tablet {
+        margin-right: 30px;
+      }
+    }
+
+    @include tablet {
+      width: 190px;
     }
   }
 }

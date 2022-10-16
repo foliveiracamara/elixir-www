@@ -8,6 +8,7 @@ import style from './Login.module.scss';
 
 export default function Login() {
   const [viewport, setViewport] = useState();
+  const [btnWidth, setBtnWidth] = useState();
 
   useEffect(() => {
     if (typeof window != "undefined") {
@@ -17,7 +18,7 @@ export default function Login() {
 
         } else if (window.innerWidth <= 1024) {
           setViewport(32)
-         
+          setBtnWidth(150) 
         } else if (window.innerWidth >= 1440) {
           setViewport(56)
         }
@@ -54,6 +55,7 @@ console.log(viewport)
             children={'Entrar'}
             backgroundColor={'#FF2939'}
             textColor={'#FFF'}
+            width={btnWidth}
           />
         </div>
       </div>
