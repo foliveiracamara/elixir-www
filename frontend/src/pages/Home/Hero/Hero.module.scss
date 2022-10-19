@@ -1,5 +1,4 @@
 .container {
-  display: flex;
   justify-content: center;
   .content {
     display: flex;
@@ -20,38 +19,39 @@
       }
 
       .text {
-        margin-top: 50px;
+        margin-top: 5%;
 
         .h2 {
           font-family: PoppinsBolder;
           color: $black;
           line-height: 80px;
-          font-size: 80px;
+          font-size: 75px;
           margin: 0px;
 
           @include tablet {
             font-size: 64px;
           }
         }
+      }
+      .h1 {
+        font-family: PoppinsBolder;
+        color: $black;
+        font-size: 90px;
+        color: $blue-700;
+        margin: 0px;
 
-        .h1 {
-          font-family: PoppinsBolder;
-          color: $black;
-          font-size: 120px;
-          color: $blue-700;
-          margin: 0px;
-
-          @include tablet {
-            font-size: 80px;
-          }
+        @include tablet {
+          font-size: 80px;
         }
       }
 
       .redirect {
-        margin-top: 70px;
+        margin-top: 25px;
+        margin-bottom: 3%;
+        font-family: "PoppinsBolder";
 
         .label {
-          font-size: 24px;
+          font-size: 16px;
         }
 
         @include tablet {
@@ -72,7 +72,8 @@
         position: absolute;
         height: 100%;
         background-color: $red-900;
-        width: 50%;
+        width: 60%;
+        justify-content: flex-end;
 
         @include tablet {
           width: 55%;
@@ -86,9 +87,9 @@
 
       .blood_bag {
         position: absolute;
-        bottom: 450px;
+        bottom: 50%;
         z-index: 2;
-        width: 200px;
+        width: 180px;
         animation: float 2s infinite alternate;
 
         @include tablet {
@@ -99,11 +100,11 @@
 
       .pott {
         position: absolute;
-        bottom: 60px;
+        bottom: 2%;
         z-index: 2;
-        width: 200px;
+        width: 180px;
         animation: float 2s infinite alternate;
-        
+
         @include tablet {
           bottom: 50px;
           width: 150px;
@@ -112,10 +113,10 @@
 
       .icon {
         position: absolute;
-        bottom: 450px;
-        margin-right: 480px;
+        bottom: 60%;
+        margin-right: 60%;
         z-index: 2;
-        width: 200px;
+        width: 180px;
         animation: float 2s infinite alternate;
 
         @include tablet {

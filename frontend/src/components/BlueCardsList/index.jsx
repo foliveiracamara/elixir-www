@@ -6,18 +6,18 @@ export default function BlueCardsList() {
   const listData = [
     {
       imgSource: '/images/paper.svg',
-      title: 'Monte seu perfil',
-      description: 'is simply dummy text of the printing and typesetting industry. ',
+      title: 'Ajudar o próximo',
+      description: 'A partir da nossa lista de receptores, você tem acesso à informações de pessoas que necessitam da sua ajuda com doação sanguínea.',
     },
     {
       imgSource: '/images/Ambulance.svg',
-      title: 'Localizar hemocentros',
-      description: 'is simply dummy text of the printing and typesetting industry. ',
+      title: 'Verificar suas doações',
+      description: 'É possível visualizar a data da próxima doação, bem como procurar hemocentros próximos e também liberar conquistas.',
     },
     {
       imgSource: '/images/Masker.svg',
-      title: 'Seus dados seguros',
-      description: 'is simply dummy text of the printing and typesetting industry. kjshdfchkfsdb lkqbf lhqbhasb  ',
+      title: 'Entender mais sobre a causa',
+      description: 'Aqui você aprende sobre doação sanguínea de forma verdadeira, podendo divulgar informações seguras e claras sobre a necessidade de doar.',
     },
   ];
   

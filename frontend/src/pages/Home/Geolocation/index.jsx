@@ -30,7 +30,7 @@ export default function Geolocation() {
           children={'Localizar hemocentros com mapa de geolocalização'} 
         />
         <Subtitle
-          children={'Geolocalizar hemocentros com mapa de geolocalização'}
+          label={'Geolocalizar hemocentros com mapa de geolocalização'}
         />
       </div>
       <img 
@@ -43,10 +43,11 @@ export default function Geolocation() {
           children={"Quer saber mais sobre nossa plataforma?"}
         />
         <Button 
-          children={"Acesse nossa FAQ"}
+          label="Acesse nossa FAQ"
           backgroundColor={"#FF2939"}
           textColor={"#FFF"}  
           width={400}
+          fontFamily="PoppinsBolder"
         />
       </div>
     </section>

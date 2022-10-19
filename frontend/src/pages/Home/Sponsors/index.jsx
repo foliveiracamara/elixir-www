@@ -14,7 +14,7 @@ export default function Sponsors() {
 
   return (
     <div className={style.container} data-aos="fade">
-      <Title children={"Patrocinadores"} />
+      <Title children={"Patrocinadores"} fontSize={40}/>
       <Patrocinadores/>
     </div>
   );
