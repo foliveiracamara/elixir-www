@@ -16,7 +16,7 @@ export default function Header({textColor}) {
           setViewport(150)
          
         } else if (window.innerWidth >= 1440) {
-          setViewport(160)
+          setViewport(200)
         }
     }
 }, [])
@@ -28,7 +28,7 @@ export default function Header({textColor}) {
       </div>
       <div className={style.navbar}>
         <ul className={style.options}>
-          <li>Início</li>
+          <li className={style.active}>Início</li>
           <li>Sobre</li>
           <li>Blog</li>
           <li>FAQ</li>
@@ -38,9 +38,10 @@ export default function Header({textColor}) {
       <div className={style.buttons}>
         <span className={style.login} style={{color: textColor}}>Entrar</span>
         <WhiteButton 
-          children={"Seja um doador(a)"} 
+          label="Seja um doador(a)"
           backgroundColor={"#FFF"} 
           width={viewport}
+          fontFamily={"PoppinsBold"}
         />
       </div>
     </header>

@@ -37,7 +37,7 @@ console.log(viewport)
             <h3>Você não possui uma conta?</h3>
           </div>
           <Button
-            children={'Cadastre-se'}
+            label='Cadastre-se'
             backgroundColor={'#FF2939'}
             textColor={'#FFF'}
           />
@@ -52,7 +52,7 @@ console.log(viewport)
           <Input type={'password'} placeholder={'••••••••••'} />
           <p className={style.markdown}>Esqueceu sua senha?</p>
           <Button
-            children={'Entrar'}
+            label='Entrar'
             backgroundColor={'#FF2939'}
             textColor={'#FFF'}
             width={btnWidth}

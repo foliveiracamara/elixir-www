@@ -23,7 +23,7 @@ export default function Footer() {
               <div className={style.subtitle}>
                 <Subtitle
                   fontSize={16}
-                  children={
+                  label={
                     "I say chap thats suing lavatory chip shop gosh off his smashing boot are you taking the piss posh loo brilliant."
                   }
                 />

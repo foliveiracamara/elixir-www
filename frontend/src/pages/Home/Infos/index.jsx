@@ -17,10 +17,12 @@ export default function Infos() {
         <div className={style.text}>
           <h3 className={style.title}>Obtenha dicas e informações sobre a doação de sangue</h3>
           <Button 
-            children={"Visualizar guia"}
-            width={300}
+            label="Visualize nosso guia"
+            width={350}
             backgroundColor={"#1E344F"}
             textColor={"#FFF"}
+            fontFamily="PoppinsBolder"
+            fontSize={22}
           />
         </div>
         <div className={style.image}>
