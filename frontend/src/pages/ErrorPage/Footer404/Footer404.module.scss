@@ -1,0 +1,36 @@
+
+.container {
+  align-items: center;
+  display: flex;
+  .text {
+    display: flex;
+    margin-left: 20%;
+  }
+  .content {
+    font-size: 45px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    text-align: right;
+    margin-top: 10%;
+  }
+  
+  .button {
+    margin-top: 5%;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-left: 60%;
+  }
+
+  .girl {
+    width:32%;
+    display: flex;
+    justify-content: center;
+    margin-top: 8%;
+    img {
+      width: 80%;
+    }
+  }
+  
+}

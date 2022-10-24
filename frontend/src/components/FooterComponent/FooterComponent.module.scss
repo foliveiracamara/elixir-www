@@ -4,7 +4,7 @@
   width: 95%;
   background-color: #1e344f;
   margin-left: 2.5%;
-  min-height: 290px;
+  min-height: 190px;
   flex-direction: row;
 
   .container {
@@ -48,7 +48,7 @@
     }
   }
   .logo {
-    margin-top: 290px;
+    margin-top: 160px;
     width: 27%;
     display: flex;
     align-items: center;
@@ -57,7 +57,7 @@
   }
 
   .subtitleContainer {
-    height: 350px;
+    height: 240px;
     display: flex;
     align-items: center;
     justify-content: flex-end;
@@ -65,8 +65,8 @@
     .optionsSubtitle {
       display: flex;
       flex-direction: column;
-      margin-bottom: 30%;
-      margin-top: 76px;
+      margin-bottom: 16%;
+      margin-top: 62px;
 
       b {
         font-size: 18px;
