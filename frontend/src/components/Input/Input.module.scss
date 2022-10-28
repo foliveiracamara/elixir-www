@@ -1,13 +1,28 @@
-.input {
-  width: 300px;
-  height: 50px;
-  border-radius: 10px;
-  border: none;
-  font-family: Poppins;
-  background-color: $blue-400;
-  padding-left: 15px;
+.container {
+  font-family: PoppinsNormal;
+  margin-top: 5px;
+
+  label {
+    margin-bottom: 10px;
+  }
+
+  .error {
+    width: 100%;
+    color: $red-900;
+    font-size: 12px;
+    margin-top: 5px;
+    font-family: PoppinsBold;
+  }
+
+  .input {
+    border-radius: 10px;
+    border: none;
+    background-color: $blue-400;
+    padding-left: 15px;
+  }
+  
+  .input::placeholder {
+    color: $grey-600;
+  }
 }
 
-.input::placeholder {
-  color: $grey-800;
-}

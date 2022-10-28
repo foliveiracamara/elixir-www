@@ -11,6 +11,7 @@
   "dependencies": {
     "@emotion/react": "^11.10.4",
     "@emotion/styled": "^11.10.4",
+    "@hookform/resolvers": "^2.9.10",
     "@mui/icons-material": "^5.10.6",
     "@mui/material": "^5.10.6",
     "aos": "^3.0.0-beta.6",
@@ -19,8 +20,10 @@
     "primereact": "^8.6.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-hook-form": "^7.38.0",
     "sass": "^1.54.4",
-    "scss": "^0.2.4"
+    "scss": "^0.2.4",
+    "yup": "^0.32.11"
   },
   "devDependencies": {
     "eslint": "^7.32.0 || ^8.2.0",
