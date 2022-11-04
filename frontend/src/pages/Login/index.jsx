@@ -31,14 +31,23 @@ export default function Login() {
       <div className={style.content}>
         <div className={style.left_side}>
           <div className={style.text}>
-            <Title children={'Faça seu login.'} fontSize={viewport} />
+            <Title 
+            children={'Faça seu login.'} 
+            fontSize={65} 
+            fontFamily={"PoppinsBold"}
+            textAlign={"right"}
+
+ />
             <h3>Você não possui uma conta?</h3>
           </div>
           <Button
             label='Cadastre-se'
+            fontFamily={"PoppinsBold"}
             backgroundColor={'#FF2939'}
             textColor={'#FFF'}
+            marginRight={-48}
           />
+
         </div>
         <div className={style.middle}>
           <img src="/images/blood-bag.svg" className={style.blood_bag_top} />
@@ -51,6 +60,7 @@ export default function Login() {
           <p className={style.markdown}>Esqueceu sua senha?</p>
           <Button
             label='Entrar'
+            fontFamily={"PoppinsBold"}
             backgroundColor={'#FF2939'}
             textColor={'#FFF'}
             width={btnWidth}

@@ -1,13 +1,21 @@
-import style from './Input.module.scss'
+import style from "./Input.module.scss";
 
-export default function Input({ placeholder, type, name, value, onChange, register,  ... inputProps  }) {
+export default function Input({
+  errors,
+  title,
+  id,
+  ...rest
+}) {
   return (
-    <input 
-      className={style.input}
-      placeholder={placeholder}
-      onChange={onChange}
-      ref={register}
-      { ... inputProps }
-    />
-  )
+    <div className={style.container}>
+      <div>
+        <label htmlFor={id}>{title}</label>
+      </div>
+
+      <input {...rest} id={id} className={style.input} />
+
+      <div className={style.error}>{errors?.message}</div>
+    </div>
+  );
 }
+

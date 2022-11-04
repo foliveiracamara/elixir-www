@@ -1,3 +1,4 @@
+import Link from "next/link";
 import Button from "../../../components/Button";
 import Header from "../../../components/Header";
 import Subtitle from "../../../components/Subtitle";
@@ -28,14 +29,16 @@ export default function Hero() {
             </label>
           </div>
 
-          <Button
-            label="Solicite aqui"
-            backgroundColor={"#FF2939"}
-            textColor={"#FFF"}
-            width={250}
-            fontFamily={"PoppinsNormal"}
-            marginRight={20}
-          />
+          <Link href="/ReceiverOrder">
+            <Button
+              label="Solicite aqui"
+              backgroundColor={"#FF2939"}
+              textColor={"#FFF"}
+              width={250}
+              fontFamily={"PoppinsNormal"}
+              marginRight={20}
+            />
+          </Link>
         </div>
 
         <div className={style.right_side}>
