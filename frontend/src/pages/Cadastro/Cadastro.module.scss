@@ -1,0 +1,106 @@
+.container {
+  .content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    height: 100vh;
+
+    .left_side {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin-left: 50px;
+
+      @include desktop {
+        margin-left: 0px;
+        justify-content: left;
+      }
+
+      .text {
+        text-align: center;
+        width: 350px;
+      }
+    }
+
+    .middle {
+      display: flex;
+      flex-direction: column;
+      position: relative;
+
+      @include mobile {
+        display: none;
+      }
+
+      .woman {
+        width: 500px;
+      }
+
+      .blood_bag_top {
+        width: 180px;
+        top: 50px;
+        left: 30px;
+        position: absolute;
+        transform: rotate(320deg);
+
+        @include tablet {
+          top: 0;
+          width: 90px;
+        }
+      }
+
+      .blood_bag_bottom {
+        width: 180px;
+        position: absolute;
+        bottom: 100px;
+        right: 20px;
+        transform: rotate(20deg);
+
+        @include tablet {
+          bottom: 40px;
+          right: 30px;
+          width: 90px;
+        }
+      }
+    }
+
+    .right_side {
+      display: flex;
+      flex-direction: column;
+      margin-right: 50px;
+
+      @include desktop {
+        margin-right: 20px;
+      }
+
+      .markdown {
+        font-weight: regular;
+        font-size: 16px;
+      }
+
+      .forms {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 300px;
+        max-width: 300px;
+        
+        .label {
+          margin: 10px 0 0 10px;
+        }
+      }
+
+      .btn_stepper {
+        display: flex;
+        flex-direction: column;
+        margin-top: 30px;
+      }
+
+      .terms {
+        margin-top: 15px;
+        font-size: 13px;
+      }
+    }
+  }
+}
