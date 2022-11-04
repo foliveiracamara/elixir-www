@@ -1,6 +1,6 @@
 import style from './Button.module.scss';
 
-export default function Button({ label, onClick, backgroundColor, textColor, width, fontFamily, fontSize, marginRight}) {
+export default function Button({ label, onClick, backgroundColor, textColor, width, fontFamily, fontSize, marginRight, type}) {
   return (
     <button 
       className={style.button}
@@ -10,7 +10,8 @@ export default function Button({ label, onClick, backgroundColor, textColor, wid
           width: width,
           fontFamily: fontFamily,
           fontSize: fontSize,
-          marginRight: marginRight
+          marginRight: marginRight,
+          type: type,
       }} 
       onClick={onClick}>
       {label}

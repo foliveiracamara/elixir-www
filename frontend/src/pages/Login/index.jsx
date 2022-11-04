@@ -12,7 +12,7 @@ export default function Login() {
 
   useEffect(() => {
     if (typeof window != "undefined") {
-      console.log(window.innerWidth)
+      // console.log(window.innerWidth)
         if (window.innerWidth <= 768) {
             setViewport(24)
 
@@ -24,8 +24,6 @@ export default function Login() {
         }
     }
 }, [])
-
-console.log(viewport)
 
   return (
     <section className={style.container}>

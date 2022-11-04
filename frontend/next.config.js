@@ -14,11 +14,15 @@ module.exports = {
       return [
         {
           source: '/',
-          destination: '/Home'
+          destination: '/'
         },
         {
           source: '/login',
-          destination: '/Login'
+          destination: '/login'
+        },
+        {
+          source: '/cadastro',
+          destination: '/cadastro'
         }
       ]
   }
