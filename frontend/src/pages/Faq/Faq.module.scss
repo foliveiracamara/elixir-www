@@ -1,0 +1,132 @@
+.container {
+  justify-content: center;
+  .content {
+    display: flex;
+    flex-direction: row;
+
+    .left_side {
+      width: 88%;
+      height: 100vh;
+      flex-direction: column;
+      position: relative;
+
+    }
+
+    
+    .card1 {
+        display: flex;
+        position: absolute;
+        margin-top: 16%;
+        left: 8%;
+        background-color: #ff2939;
+        border-radius: 10px;
+        height: 14%;
+        width: 50%;
+        
+        align-items: center;
+        justify-content: center;
+        color: #FFFF;
+        font-family: "PoppinsBolder";
+        font-size: 20px;
+    }
+    .card2 {
+        display: flex;
+        position: absolute;
+        margin-top: 32%;
+        left: 8%;
+        background-color: #ff2939;
+        border-radius: 10px;
+        width: 50%;
+        height: 14%;
+        border-radius: 10px;
+
+        align-items: center;
+        justify-content: center;
+        color: #FFFF;
+        font-family: "PoppinsBolder";
+        font-size: 20px;
+    }
+    .card3 {
+        display: flex;
+        position: absolute;
+        z-index: 2;
+        background-color: #1E344F;
+        border-radius: 10px;
+        margin-top: 24%;
+        left: 44%;
+        width: 50%;
+        height: 14%;
+
+        align-items: center;
+        justify-content: center;
+        color: #FFFF;
+        font-family: "PoppinsBolder";
+        font-size: 18px;
+    }
+    .card4 {
+        display: flex;
+        position: absolute;
+        z-index: 2;
+        background-color: #1E344F;
+        border-radius: 10px;
+        margin-top: 40%;
+        left: 44%;
+        width: 50%;
+        height: 14%;
+
+        align-items: center;
+        justify-content: center;
+        color: #FFFF;
+        font-family: "PoppinsBolder";
+        font-size: 20px;
+    }
+    
+
+    .text {
+      margin-top: 14%;
+    }
+
+    .right_side {
+      position: relative;
+      display: flex;
+      justify-content: right;
+      height: 100vh;
+
+      .block {
+        z-index: 1;
+        position: absolute;
+        height: 100vh;
+        background-color: #ff2939;
+        width: 80%;
+        justify-content: flex-end;
+
+        @include tablet {
+          width: 55%;
+        }
+      }
+
+      .blood_bag {
+        position: absolute;
+        bottom: -1%;
+        right: 216%;
+        z-index: 2;
+        width: 164px;
+        animation: float 2s infinite alternate;
+
+        @include tablet {
+          bottom: 350px;
+          width: 150px;
+        }
+      }
+      
+      .pott {
+        z-index: 2;
+        width: 32%;
+        margin-bottom: 64%;
+        margin-right: 32%;
+      }
+
+      
+    }
+  }
+}
