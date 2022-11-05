@@ -22,7 +22,7 @@ module.exports = {
       {
         source: '/cadastro',
         destination: '/cadastro'
-      }
+      },
       {
         source: "/ReceiverOrder",
         destination: "/receiverOrder",
