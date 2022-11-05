@@ -17,7 +17,7 @@ module.exports = {
       },
       {
         source: "/login",
-        destination: "/Login",
+        destination: "/login",
       },
       {
         source: '/cadastro',

@@ -16,6 +16,7 @@ export default function Cadastro() {
   const [btnWidth, setBtnWidth] = useState();
   const [page, setPage] = useState(0);
 
+
   const onSubmit = (e) => {
     api
       .post('http://localhost:8080/doador', e)
@@ -27,6 +28,7 @@ export default function Cadastro() {
       });
   };
 
+
   useEffect(() => {}, [page]);
 
   const {
@@ -37,7 +39,6 @@ export default function Cadastro() {
   } = useForm({
     resolver: yupResolver(schema),
   });
-
 
   return (
     <section className={style.container}>
