@@ -23,8 +23,9 @@ public class Publicacao {
     @PastOrPresent
     private LocalDate dtPublicacao;
 
-    @OneToMany
-    private List<Doador> fkDoador;
+    @ManyToOne
+    private Doador doador;
+
 
     public Integer getOrdenado(@NotNull Integer[] dtPublicacao) {
 
@@ -56,13 +57,6 @@ public class Publicacao {
         this.descricao = descricao;
     }
 
-    public List<Doador> getFkDoador() {
-        return fkDoador;
-    }
-
-    public void setFkDoador(List<Doador> fkDoador) {
-        this.fkDoador = fkDoador;
-    }
 
     public LocalDate getDtPublicacao() {
         return dtPublicacao;
@@ -70,5 +64,13 @@ public class Publicacao {
 
     public void setDtPublicacao(LocalDate dtPublicacao) {
         this.dtPublicacao = dtPublicacao;
+    }
+
+    public Doador getDoador() {
+        return doador;
+    }
+
+    public void setDoador(Doador doador) {
+        this.doador = doador;
     }
 }
