@@ -85,7 +85,24 @@
         justify-content: space-between;
         height: 300px;
         max-width: 300px;
-        
+
+        .next {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          box-shadow: $black-transparent 0px 3px 8px;
+          border-color: transparent;
+          background-color: $red-900;
+          color: $white;
+          height: 50px;
+          padding: 0px 20px 0px 20px;
+          border-radius: 10px;
+          font-size: 16px;
+          font-family: Poppins;
+          font-weight: bold;
+          cursor: pointer;
+        }
+
         .label {
           margin: 10px 0 0 10px;
         }

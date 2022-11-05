@@ -1,8 +1,10 @@
+import { yupResolver } from '@hookform/resolvers/yup';
 import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
+import { schema } from './validation';
 import Button from '../../components/Button';
 import Header from '../../components/Header';
-import Input from '../../components/Input';
+import InputControlled from '../../components/InputControlled';
 import Title from '../../components/Title';
 import Stepper from './components/Stepper';
 import api from '../../service/axios';
@@ -13,19 +15,10 @@ export default function Cadastro() {
   const [viewport, setViewport] = useState();
   const [btnWidth, setBtnWidth] = useState();
   const [page, setPage] = useState(0);
-  const { register, handleSubmit } = useForm();
 
-  const mock = {
-    nome: 'felipe',
-    email: 'felipe@gmail.com',
-    cpf: '430.473.090-90',
-    senha: '123456',
-    sexo: 'masculino',
-  };
-
-  const registerUser = (e) => {
+  const onSubmit = (e) => {
     api
-      .post('http://localhost:8080/doador', register)
+      .post('http://localhost:8080/doador', e)
       .then((res) => {
         console.log('cadastrado!', res);
       })
@@ -34,9 +27,17 @@ export default function Cadastro() {
       });
   };
 
-  useEffect(() => {
-    // registerUser();
-  }, [page]);
+  useEffect(() => {}, [page]);
+
+  const {
+    formState: { errors },
+    control,
+    handleSubmit,
+    setValue,
+  } = useForm({
+    resolver: yupResolver(schema),
+  });
+
 
   return (
     <section className={style.container}>
@@ -60,54 +61,98 @@ export default function Cadastro() {
           <img src="/images/blood-bag.svg" className={style.blood_bag_bottom} />
         </div>
         <div className={style.right_side}>
-          <form onSubmit={handleSubmit(registerUser)}>
+          <form onSubmit={handleSubmit(onSubmit)}>
             {page == 0 ? (
               <div className={style.forms}>
-                <label className={style.label}>Nome completo:</label>
-                <Input
-                  type={'text'}
-                  placeholder={'Ex: João Silva'}
-                  name={'nome'} 
-                  register={register}
-                  onChange={() => console.log(handleSubmit)}
+                <InputControlled
+                  title="Nome Completo:"
+                  name="nome"
+                  id="nome"
+                  placeholder="João Silva"
+                  errors={errors.nome}
+                  control={control}
                 />
 
-                <label className={style.label}>CPF: </label>
-                <Input type={'password'} placeholder={'Ex: 000.000.000-00'} />
+                <InputControlled
+                  title="CPF:"
+                  name="cpf"
+                  id="cpf"
+                  placeholder="000.000.000-90"
+                  errors={errors.cpf}
+                  control={control}
+                />
 
-                <label className={style.label}>Genêro: </label>
-                <Input type={'text'} placeholder={'Selecione'} />
+                <InputControlled
+                  title="Gênero:"
+                  name="genero"
+                  id="genero"
+                  placeholder="Gênero"
+                  errors={errors.genero}
+                  control={control}
+                />
+                <div className={style.btn_stepper}>
+                  <div className={style.next} onClick={() => setPage(1)}>Prosseguir</div>
+                  <Stepper
+                    display1={page == 1 ? 'none' : ''}
+                    display2={page == 0 ? 'none' : ''}
+                  />
+                  <span onClick={() => setPage(0)}>voltar</span>
+                  <span style={{ display: 'none' }} className={style.terms}>
+                    Ao Cadastrar você aceita os termos e condições da
+                    plataforma.
+                  </span>
+                </div>
               </div>
             ) : (
               <div className={style.forms}>
-                <label className={style.label}>E-mail:</label>
-                <Input type={'text'} placeholder={'Email'} />
+                <InputControlled
+                  title="Email:"
+                  name="email"
+                  id="email"
+                  placeholder="joao@gmail.com"
+                  errors={errors.email}
+                  control={control}
+                />
 
-                <label className={style.label}>Senha: </label>
-                <Input type={'password'} placeholder={'••••••••••'} />
+                <InputControlled
+                  title="Senha:"
+                  name="senha"
+                  id="senha"
+                  placeholder="••••••••••"
+                  errors={errors.senha}
+                  control={control}
+                />
 
-                <label className={style.label}>Confirme senha: </label>
-                <Input type={'password'} placeholder={'••••••••••'} />
+                <InputControlled
+                  title="Confirme sua senha:"
+                  name="confirmeSenha"
+                  id="senha"
+                  placeholder="••••••••••"
+                  errors={errors.senha}
+                  control={control}
+                />
+                <div className={style.btn_stepper}>
+                  <Button
+                    label='Cadastrar'
+                    type='submit'
+                    backgroundColor={'#FF2939'}
+                    textColor={'#FFF'}
+                    width={btnWidth}
+                    onClick={() => setPage(1)}
+                  />
+                  <Stepper
+                    display1={page == 1 ? 'none' : ''}
+                    display2={page == 0 ? 'none' : ''}
+                  />
+                  <span onClick={() => setPage(0)}>voltar</span>
+                  <span style={{ display: 'none' }} className={style.terms}>
+                    Ao Cadastrar você aceita os termos e condições da
+                    plataforma.
+                  </span>
+                </div>
               </div>
             )}
           </form>
-          <div className={style.btn_stepper}>
-            <Button
-              label={page == 0 ? 'Prosseguir' : 'Cadastrar'}
-              type={page == 0 ? '' : 'submit'}
-              backgroundColor={'#FF2939'}
-              textColor={'#FFF'}
-              width={btnWidth}
-              onClick={() => setPage(1)}
-            />
-            <Stepper
-              display1={page == 1 ? 'none' : ''}
-              display2={page == 0 ? 'none' : ''}
-            />
-            <span style={{ display: 'none' }} className={style.terms}>
-              Ao Cadastrar você aceita os termos e condições da plataforma.
-            </span>
-          </div>
         </div>
       </div>
     </section>
