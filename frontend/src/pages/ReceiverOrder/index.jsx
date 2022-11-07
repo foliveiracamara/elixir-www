@@ -1,14 +1,15 @@
 import { useForm } from "react-hook-form";
 import Button from "../../components/Button";
 import Header from "../../components/Header";
-import Input from "../../components/Input";
 import InputControlled from "../../components/InputControlled";
-import Select from "../../components/Select";
+// import Select from "../../components/Select";
 import Title from "../../components/Title";
 import style from "./ReceiverOrder.module.scss";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { schema } from "./validation";
 import Subtitle from "../../components/Subtitle";
+
+import DropdownControlled from "../../components/DropdownControlled";
 
 export default function ReceiverOrder() {
   const {
@@ -19,6 +20,22 @@ export default function ReceiverOrder() {
   } = useForm({
     resolver: yupResolver(schema),
   });
+
+  const bloodtypes = [
+    { label: "A+", value: "NY" },
+    { label: "B+", value: "RM" },
+    { label: "AB+", value: "LDN" },
+    { label: "O+", value: "IST" },
+    { label: "A-", value: "PRS" },
+    { label: "B-", value: "PRS" },
+    { label: "AB-", value: "PRS" },
+    { label: "O-", value: "PRS" },
+  ];
+
+  const others = [
+    { label: "Masculino", value: "M" },
+    { label: "Feminino", value: "F" },
+  ];
 
   const onSubmit = (data) => {
     console.log(data);
@@ -86,23 +103,21 @@ export default function ReceiverOrder() {
 
             <div className={style.otherQuestionsBlood}>
               <div className={style.name}>
-                <InputControlled
-                  title="Tipo Sanguíneo:"
+                <DropdownControlled
                   name="tipoSanguineo"
-                  id="tipoSanguineo"
-                  placeholder="Select"
-                  errors={errors.tipoSanguineo}
+                  title="Tipo Sanguíneo:"
                   control={control}
+                  options={bloodtypes}
+                  errors={errors.tipoSanguineo}
                 />
               </div>
               <div className={style.name}>
-                <InputControlled
-                  title="Genero:"
+                <DropdownControlled
                   name="genero"
-                  id="genero"
-                  placeholder="Maria Luiza Amorim"
-                  errors={errors.genero}
+                  title="Gênero:"
                   control={control}
+                  options={others}
+                  errors={errors.genero}
                 />
               </div>
               <div className={style.name}>

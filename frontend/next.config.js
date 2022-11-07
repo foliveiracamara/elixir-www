@@ -21,7 +21,7 @@ module.exports = {
       },
       {
         source: "/ReceiverOrder",
-        destination: "/receiverOrder",
+        destination: "/receiver-order",
       },
     ];
   },
