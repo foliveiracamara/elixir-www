@@ -1,0 +1,59 @@
+.container {
+  
+  .stepper_1 {
+    margin-top: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .first {
+      display: flex;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      margin-right: 30px;
+      background: $red-900;
+      align-items: center;
+      text-align: center;
+      
+    }
+
+    .second {
+      background: $grey-600;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      text-align: center;
+    }
+  }
+
+  .stepper_2 {
+    margin-top: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    .first {
+      background: $grey-600;
+      width: 10px;
+      height: 10px;
+      margin-right: 30px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      text-align: center;
+    }
+
+    .second {
+      display: flex;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: $red-900;
+      align-items: center;
+      text-align: center;
+    }
+  }
+}

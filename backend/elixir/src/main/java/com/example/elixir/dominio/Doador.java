@@ -60,11 +60,6 @@ public class Doador {
 //    @Past
     private LocalDate dtNascimento;
 
-    @ManyToOne
-    private Publicacao publicacoes;
-
-    @ManyToMany
-    private List<InsigniaDoador> insigniaDoador;
 
 
     public Integer getIdDoador() {
@@ -155,11 +150,12 @@ public class Doador {
         this.dtNascimento = dtNascimento;
     }
 
-    public Publicacao getPublicacoes() {
-        return publicacoes;
-    }
+//    public Publicacao getPublicacoes() {
+//        return publicacoes;
+//    }
+//
+//    public void setPublicacoes(Publicacao publicacoes) {
+//        this.publicacoes = publicacoes;
+//    }
 
-    public void setPublicacoes(Publicacao publicacoes) {
-        this.publicacoes = publicacoes;
-    }
 }

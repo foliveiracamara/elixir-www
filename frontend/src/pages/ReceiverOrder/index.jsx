@@ -1,14 +1,15 @@
 import { useForm } from "react-hook-form";
 import Button from "../../components/Button";
 import Header from "../../components/Header";
+
+import Input from "../../components/Input";
 import InputControlled from "../../components/InputControlled";
-// import Select from "../../components/Select";
+import Select from "../../components/Select";
 import Title from "../../components/Title";
 import style from "./ReceiverOrder.module.scss";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { schema } from "./validation";
 import Subtitle from "../../components/Subtitle";
-
 import DropdownControlled from "../../components/DropdownControlled";
 
 export default function ReceiverOrder() {
@@ -20,6 +21,7 @@ export default function ReceiverOrder() {
   } = useForm({
     resolver: yupResolver(schema),
   });
+
 
   const bloodtypes = [
     { label: "A+", value: "NY" },
@@ -103,6 +105,7 @@ export default function ReceiverOrder() {
 
             <div className={style.otherQuestionsBlood}>
               <div className={style.name}>
+
                 <DropdownControlled
                   name="tipoSanguineo"
                   title="Tipo Sanguíneo:"
@@ -118,6 +121,24 @@ export default function ReceiverOrder() {
                   control={control}
                   options={others}
                   errors={errors.genero}
+                 />
+                <InputControlled
+                  title="Tipo Sanguíneo:"
+                  name="tipoSanguineo"
+                  id="tipoSanguineo"
+                  placeholder="Select"
+                  errors={errors.tipoSanguineo}
+                  control={control}
+                />
+              </div>
+              <div className={style.name}>
+                <InputControlled
+                  title="Genero:"
+                  name="genero"
+                  id="genero"
+                  placeholder="Maria Luiza Amorim"
+                  errors={errors.genero}
+                  control={control}
                 />
               </div>
               <div className={style.name}>

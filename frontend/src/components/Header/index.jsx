@@ -8,7 +8,7 @@ export default function Header({textColor}) {
 
   useEffect(() => {
     if (typeof window != "undefined") {
-      console.log(window.innerWidth)
+      // console.log(window.innerWidth)
         if (window.innerWidth <= 768) {
             setViewport(24)
 
