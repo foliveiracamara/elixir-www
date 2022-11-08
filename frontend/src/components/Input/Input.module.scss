@@ -15,12 +15,10 @@
   }
 
   .input {
-    border-radius: 5px;
+    border-radius: 10px;
     border: none;
     background-color: $blue-400;
     padding-left: 15px;
-    width: 300px;
-    height: 40px;
   }
   
   .input::placeholder {

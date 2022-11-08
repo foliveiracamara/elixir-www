@@ -11,7 +11,9 @@ export default function Input({
       <div>
         <label htmlFor={id}>{title}</label>
       </div>
+
       <input {...rest} id={id} className={style.input} />
+
       <div className={style.error}>{errors?.message}</div>
     </div>
   );
