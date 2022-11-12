@@ -2,17 +2,44 @@ import { useForm } from "react-hook-form";
 import Button from "../../components/Button";
 import Header from "../../components/Header";
 
-import Input from "../../components/Input";
 import InputControlled from "../../components/InputControlled";
-import Select from "../../components/Select";
 import Title from "../../components/Title";
 import style from "./ReceiverOrder.module.scss";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { schema } from "./validation";
 import Subtitle from "../../components/Subtitle";
 import DropdownControlled from "../../components/DropdownControlled";
+import api from "../../service/axios";
+import { Toast } from "primereact/toast";
+import React, { useRef } from "react";
 
 export default function ReceiverOrder() {
+  const toast = useRef(null);
+
+  const onSubmit = (data) => {
+    api
+      .post("http://localhost:8080/receptor", data)
+      .then((res) => {
+        console.log(res);
+        toast.current.show({
+          severity: "success",
+          summary: "Doação Solicitada com sucesso",
+          detail: "Seus dados foram registrados com sucesso",
+          life: 3000,
+        });
+      })
+      .catch((err) => {
+        console.log(err);
+        toast.current.show({
+          severity: "error",
+          summary: "Doação não foi solicidata",
+          detail:
+            "Seu pedido de doação não foi solicitado, entrar em contato com a empresa",
+          life: 3000,
+        });
+      });
+  };
+
   const {
     formState: { errors },
     control,
@@ -22,16 +49,15 @@ export default function ReceiverOrder() {
     resolver: yupResolver(schema),
   });
 
-
   const bloodtypes = [
-    { label: "A+", value: "NY" },
-    { label: "B+", value: "RM" },
-    { label: "AB+", value: "LDN" },
-    { label: "O+", value: "IST" },
-    { label: "A-", value: "PRS" },
-    { label: "B-", value: "PRS" },
-    { label: "AB-", value: "PRS" },
-    { label: "O-", value: "PRS" },
+    { label: "A+", value: "A+" },
+    { label: "B+", value: "B+" },
+    { label: "AB+", value: "AB+" },
+    { label: "O+", value: "O+" },
+    { label: "A-", value: "A-" },
+    { label: "B-", value: "B-" },
+    { label: "AB-", value: "AB-" },
+    { label: "O-", value: "O-" },
   ];
 
   const others = [
@@ -39,12 +65,13 @@ export default function ReceiverOrder() {
     { label: "Feminino", value: "F" },
   ];
 
-  const onSubmit = (data) => {
-    console.log(data);
-  };
+  // const onSubmit = (data) => {
+  //   console.log(data);
+  // };
 
   return (
     <div className={style.container}>
+      <Toast ref={toast} position="bottom-center" />
       <div className={style.rigth_side}>
         <div className={style.block}></div>
         <img src={"/images/DoctorOrder.png"} className={style.doctor} />
@@ -91,7 +118,7 @@ export default function ReceiverOrder() {
                   control={control}
                 />
               </div>
-              <div className={style.name}>
+              {/* <div className={style.name}>
                 <InputControlled
                   title="Telefone:"
                   name="tel"
@@ -100,12 +127,11 @@ export default function ReceiverOrder() {
                   errors={errors.tel}
                   control={control}
                 />
-              </div>
+              </div> */}
             </div>
 
             <div className={style.otherQuestionsBlood}>
               <div className={style.name}>
-
                 <DropdownControlled
                   name="tipoSanguineo"
                   title="Tipo Sanguíneo:"
@@ -114,40 +140,23 @@ export default function ReceiverOrder() {
                   errors={errors.tipoSanguineo}
                 />
               </div>
-              <div className={style.name}>
+              {/* <div className={style.name}>
                 <DropdownControlled
                   name="genero"
                   title="Gênero:"
                   control={control}
                   options={others}
                   errors={errors.genero}
-                 />
-                <InputControlled
-                  title="Tipo Sanguíneo:"
-                  name="tipoSanguineo"
-                  id="tipoSanguineo"
-                  placeholder="Select"
-                  errors={errors.tipoSanguineo}
-                  control={control}
                 />
-              </div>
-              <div className={style.name}>
-                <InputControlled
-                  title="Genero:"
-                  name="genero"
-                  id="genero"
-                  placeholder="Maria Luiza Amorim"
-                  errors={errors.genero}
-                  control={control}
-                />
-              </div>
+              </div> */}
+
               <div className={style.name}>
                 <InputControlled
                   title="CEP do Hospital:"
-                  name="cepHospital"
-                  id="cepHospital"
+                  name="cep"
+                  id="cep"
                   placeholder="09540-300"
-                  errors={errors.cepHospital}
+                  errors={errors.cep}
                   control={control}
                 />
               </div>

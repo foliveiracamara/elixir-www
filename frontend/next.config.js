@@ -13,7 +13,7 @@ module.exports = {
     return [
       {
         source: "/",
-        destination: "/home",
+        destination: "/Home",
       },
       {
         source: "/login",
@@ -21,7 +21,7 @@ module.exports = {
       },
       {
         source: '/cadastro',
-        destination: '/cadastro'
+        destination: '/Cadastro'
       },
       {
         source: "/ReceiverOrder",
