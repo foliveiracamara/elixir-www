@@ -157,5 +157,4 @@ public class Doador {
 //    public void setPublicacoes(Publicacao publicacoes) {
 //        this.publicacoes = publicacoes;
 //    }
-
 }
