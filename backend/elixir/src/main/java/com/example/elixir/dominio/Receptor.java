@@ -20,7 +20,6 @@ public class Receptor {
 
     @Column
     @NotBlank
-    @CPF
     private String cpf;
 
     @Column
@@ -39,14 +38,10 @@ public class Receptor {
     @NotBlank
     private String tipoSanguineo;
 
-    public Integer getIdReceptor() {
-        return idReceptor;
-    }
 
     public void setIdReceptor(Integer idReceptor) {
         this.idReceptor = idReceptor;
     }
-
     public String getNome() {
         return nome;
     }
