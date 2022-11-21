@@ -1,0 +1,80 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  z-index: 5;
+  position: absolute;
+  width: 100%;
+  background-color: $red-900;
+  height: 10%;
+
+  .logo {
+    display: flex;
+    align-items: center;
+
+    .img {
+      width: 60px;
+      cursor: pointer;
+    }
+
+    .elixir {
+      font-family: PoppinsBolder;
+      font-weight: bolder;
+      font-size: 32px;
+      cursor: pointer;
+      color: $white;
+
+      @include tablet {
+        font-size: 24px;
+      }
+    }
+
+    @include tablet {
+      width: 40px;
+      font-size: 14px;
+    }
+  }
+
+  .navbar {
+    font-size: 14px;
+    font-weight: normal;
+
+    .options {
+      display: flex;
+      justify-content: space-evenly;
+      width: 400px;
+      list-style: none;
+
+      li {
+        cursor: pointer;
+        font-family: PoppinsBold;
+        color: $white;
+      }
+    }
+  }
+ 
+
+  .buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 280px;
+    font-size: 16px;
+    font-weight: normal;
+
+    .login {
+      cursor: pointer;
+      font-weight: bold;
+      font-family: PoppinsBold;
+
+      @include tablet {
+        margin-right: 30px;
+      }
+    }
+
+    @include tablet {
+      width: 190px;
+    }
+  }
+}
