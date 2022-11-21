@@ -1,15 +1,15 @@
 package com.example.elixir.arquivos;
 
-public class FilaObj<T> {
+public class FilaObj<Publicacao> {
 
     // Atributos
     private int tamanho;
-    private T[] fila;
+    private Publicacao[] fila;
 
     // Construtor
     public FilaObj(int capacidade) {
         tamanho = 0;
-        fila = (T[]) new Object[capacidade];
+        fila = (Publicacao []) new Object[capacidade];
     }
 
     // Métodos
@@ -27,7 +27,7 @@ public class FilaObj<T> {
     /* Método insert - recebe um elemento e insere esse elemento na fila
                        no índice tamanho, e incrementa tamanho
      */
-    public void insert(T info) {
+    public void insert(Publicacao info) {
         if (isFull()) {
             System.out.println("Fila cheia");
         }
@@ -37,15 +37,15 @@ public class FilaObj<T> {
     }
 
     /* Método peek - retorna o primeiro elemento da fila, sem removê-lo */
-    public T peek() {
+    public Publicacao peek() {
         return fila[0];
     }
 
     /* Método poll - remove e retorna o primeiro elemento da fila, se a fila não estiver
        vazia. Quando um elemento é removido, a fila "anda", e tamanho é decrementado
      */
-    public T poll() {
-        T primeiro = peek(); // salva o primeiro elemento da fila
+    public Publicacao poll() {
+        Publicacao primeiro = peek(); // salva o primeiro elemento da fila
 
         if (!isEmpty()) { // se a fila não está vazia
             // faz a fila andar
