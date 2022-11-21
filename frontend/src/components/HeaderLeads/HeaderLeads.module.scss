@@ -1,5 +1,4 @@
 .container {
-  margin-top: 16px;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -7,6 +6,8 @@
   z-index: 5;
   position: absolute;
   width: 100%;
+  background-color: $red-900;
+  height: 10%;
 
   .logo {
     display: flex;
@@ -22,6 +23,7 @@
       font-weight: bolder;
       font-size: 32px;
       cursor: pointer;
+      color: $white;
 
       @include tablet {
         font-size: 24px;
@@ -35,24 +37,23 @@
   }
 
   .navbar {
-    font-size: 18px;
+    font-size: 14px;
     font-weight: normal;
 
     .options {
       display: flex;
-      justify-content: space-between;
-      width: 550px;
+      justify-content: space-evenly;
+      width: 400px;
       list-style: none;
 
       li {
         cursor: pointer;
         font-family: PoppinsBold;
+        color: $white;
       }
     }
   }
-  .active {
-    color: red;
-  }
+ 
 
   .buttons {
     display: flex;

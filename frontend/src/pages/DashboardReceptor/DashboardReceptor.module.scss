@@ -1,0 +1,229 @@
+.container {
+  background-color: $blue-400;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+
+  .header {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
+    background-color: $red-900;
+    height: 30%;
+    width: 100%;
+    position: absolute;
+    border-radius: 0 0 70px 70px;
+
+    .navbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 65%;
+      font-family: PoppinsBolder;
+
+      .options {
+        display: flex;
+        justify-content: space-evenly;
+        color: $white;
+        font-weight: bold;
+        font-size: 16px;
+        width: 350px;
+
+        li {
+          cursor: pointer;
+          list-style: none;
+        }
+      }
+
+      .logo {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+
+        .elixir {
+          font-family: PoppinsBolder;
+          font-weight: bold;
+          color: $white;
+          font-size: 32px;
+        }
+      }
+    }
+  }
+
+  .content {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    position: relative;
+    margin-top: 5%;
+    width: 70%;
+    margin-inline: auto;
+
+    .agregator {
+      display: flex;
+      flex-direction: row;
+
+      .right_content {
+        padding-left: 20px;
+        padding-top: 9px;
+
+        .top_infos {
+          font-family: PoppinsBolder;
+
+          .info_cards {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            .label {
+              font-weight: bold;
+              font-size: 24px;
+              color: $black;
+            }
+          }
+        }
+
+        .bottom_infos {
+          display: flex;
+          justify-content: space-between;
+          margin-top: 5%;
+
+          .left_bottom {
+            .label {
+              font-weight: bold;
+              font-size: 24px;
+              color: $black;
+            }
+
+            .square {
+              display: flex;
+              flex-direction: column;
+              background-color: $white;
+              border-radius: 10px;
+              width: 100%;
+              min-height: 150px;
+              margin-bottom: 20px;
+              padding: 10px 20px 10px 20px;
+
+              .square_title {
+                font-family: PoppinsBolder;
+                color: $blue-700;
+              }
+              .square_div {
+                padding: 10px 20px 10px 20px;
+                display: flex;
+                font-size: 17px;
+                flex-direction: column;
+                background-color: $grey-400;
+                border-radius: 15px;
+              }
+
+              .square_description {
+                font-family: PoppinsBold;
+              }
+
+              .square_date {
+                color: $red-900;
+                font-weight: bold;
+                font-size: 32px;
+                margin-top: 20px;
+              }
+
+              .squareFooter {
+                margin-top: 2%;
+                display: flex;
+                justify-content: flex-end;
+                font-family: PoppinsBold;
+                color: $red-900;
+                font-size: 16px;
+                cursor: pointer;
+              }
+            }
+
+            .footerDescription {
+              font-family: PoppinsNormal;
+              font-size: 12px;
+              display: flex;
+              .goOut {
+                color: $red-900;
+                margin-left: 56%;
+                cursor: pointer;
+              }
+            }
+          }
+        }
+        .mapContaier {
+          display: flex;
+          width: 100%;
+          flex-direction: row;
+
+          .mapCenter {
+            display: flex;
+            align-items: flex-start;
+            position: relative;
+            width: 50%;
+            flex-direction: row;
+
+            .label_div {
+              border-radius: 20px 20px 0px 0px;
+              background-color: $blue-700;
+              padding: 12px 20px 10px 20px;
+              position: absolute;
+              width: 100%;
+
+              .label {
+                font-family: PoppinsBold;
+                flex-wrap: wrap;
+                font-size: 18px;
+                color: $white;
+              }
+            }
+            .list_cards {
+              overflow-y: scroll;
+              max-height: 280px;
+            }
+
+            .img {
+              width: 100%;
+              margin-bottom: 31%;
+            }
+          }
+
+          .divContainerBoxes {
+            font-family: PoppinsBold;
+            width: 50%;
+            .boxOne {
+              padding: 12px 20px 10px 20px;
+              border-radius: 15px;
+              width: 95%;
+              height: 220px;
+              margin: 0px 0px 30px 19px;
+              background-color: $white;
+            }
+
+            .boxTwo {
+              padding: 12px 20px 10px 20px;
+              border-radius: 15px;
+              width: 95%;
+              height: 220px;
+              margin: 0px 0px 30px 19px;
+              background-color: $white;
+            }
+
+            .indicatorBoxes {
+              width: 5%;
+              margin-top: 40%;
+              margin-left: 95%;
+              display: flex;
+              justify-content: flex-end;
+              font-family: PoppinsBold;
+              font-size: 24px;
+              cursor: pointer;
+            }
+          }
+        }
+      }
+    }
+  }
+}

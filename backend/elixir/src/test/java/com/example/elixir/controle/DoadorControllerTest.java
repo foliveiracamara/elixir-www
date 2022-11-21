@@ -13,6 +13,16 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.util.ArrayList;
+import org.junit.jupiter.api.RepeatedTest;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
+import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.http.HttpStatus;
+import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.web.server.ResponseStatusException;
+
+import javax.validation.constraints.Email;
 import java.util.List;
 import java.util.Optional;
 
@@ -134,5 +144,6 @@ class DoadorControllerTest {
         assertEquals(200, resposta.getStatusCodeValue());
         assertNotNull(resposta.getBody());
         assertEquals(idTeste, resposta.getBody().getIdDoador());
+
     }
 }

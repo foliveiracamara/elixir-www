@@ -11,20 +11,22 @@
       display: flex;
       flex-direction: column;
       justify-content: left;
-      
+      align-items: center;
+
       .profile_pic {
-        width: 70px;
+        width: 100px;
         margin-top: 10px;
       }
 
       .name {
+        font-family: PoppinsBolder;
         font-size: 24px;
       }
 
       .infos {
+        font-family: PoppinsNormal;
         display: flex;
         flex-direction: column;
-        
       }
 
       .buttons {
@@ -36,6 +38,12 @@
       }
     }
 
+    .line {
+      width: 100%;
+      border: 0.5px solid $grey-400;
+      border-radius: 5%;
+    }
+
     .bottom {
       display: flex;
       flex-direction: column;
@@ -43,15 +51,16 @@
 
       .title {
         color: $red-900;
+        font-family: PoppinsBold;
       }
 
-      .badges{
+      .badges {
         display: flex;
         flex-direction: row;
         justify-content: center;
         flex-wrap: wrap;
 
-        .badge{
+        .badge {
           width: 50px;
           margin-bottom: 70px;
         }

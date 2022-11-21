@@ -21,7 +21,6 @@ public class Receptor {
 
     @Column
     @NotBlank
-    @CPF
     private String cpf;
 
     @Column
@@ -52,10 +51,10 @@ public class Receptor {
         return idReceptor;
     }
 
+
     public void setIdReceptor(Integer idReceptor) {
         this.idReceptor = idReceptor;
     }
-
     public String getNome() {
         return nome;
     }

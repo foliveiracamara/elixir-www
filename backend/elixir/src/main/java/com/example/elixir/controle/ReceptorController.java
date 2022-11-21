@@ -20,7 +20,7 @@ public class ReceptorController {
     private ReceptorRepository repository;
 
     @PostMapping
-    public ResponseEntity<Receptor> post(@RequestBody @Valid Receptor novoReceptor) {
+    public ResponseEntity<Receptor> post(@RequestBody Receptor novoReceptor) {
         repository.save(novoReceptor);
         return ResponseEntity.status(201).body(novoReceptor);
     }

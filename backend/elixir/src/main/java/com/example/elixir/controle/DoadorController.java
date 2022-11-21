@@ -100,6 +100,13 @@ public class DoadorController {
         Optional<Doador> doador = repository.findByEmail(email);
         Optional<Doador> password = repository.findBySenha(senha);
 
+        if (Objects.isNull(email) || Objects.isNull(senha)) {
+            throw new ResponseStatusException(
+                    HttpStatus.BAD_REQUEST,
+                    "Não insira valores nulos"
+            );
+        }
+
             if (doador.isPresent() && password.isPresent()) {
                 return ResponseEntity.ok().build();
             }
