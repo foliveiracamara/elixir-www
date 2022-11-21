@@ -8,9 +8,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 
 @RestController
@@ -87,6 +89,13 @@ public class DoadorController {
                                                @PathVariable String senha) {
         Optional<Doador> doador = repository.findByEmail(email);
         Optional<Doador> password = repository.findBySenha(senha);
+
+        if (Objects.isNull(email) || Objects.isNull(senha)) {
+            throw new ResponseStatusException(
+                    HttpStatus.BAD_REQUEST,
+                    "Não insira valores nulos"
+            );
+        }
 
             if (doador.isPresent() && password.isPresent()) {
                 return ResponseEntity.ok().build();
