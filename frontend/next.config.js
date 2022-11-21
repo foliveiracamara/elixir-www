@@ -17,21 +17,24 @@ module.exports = {
       },
       {
         source: "/login",
-        destination: "/login",
+        destination: "/Login",
       },
       {
-        source: '/cadastro',
-        destination: '/Cadastro'
+        source: "/cadastro",
+        destination: "/Cadastro",
       },
       {
         source: "/ReceiverOrder",
-        destination: "/receiver-order",
+        destination: "/receiver-order ",
       },
       {
         source: "/dashboard/infos",
         destination: "/Dashboard",
       },
+      {
+        source: "/dashboard/receptor",
+        destination: "/DashboardReceptor",
+      },
     ];
   },
 };
-
