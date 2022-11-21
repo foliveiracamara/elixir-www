@@ -10,7 +10,6 @@ import java.util.Optional;
 
 public interface PublicacaoRepository extends JpaRepository<Publicacao, Integer> {
 
-    List<Receptor> findByDtPublicacao(LocalDate dtPublicacao);
     Optional<Publicacao> findById(Integer id);
     List<Publicacao> findByDtPublicacao(LocalDate dtPublicacao);
     List<Publicacao> findByIdPublicacao(Integer idPublicacao);

@@ -1,5 +1,6 @@
 package com.example.elixir.controle;
 
+import com.example.elixir.arquivos.FilaObj;
 import com.example.elixir.arquivos.ListaObj;
 import com.example.elixir.arquivos.PilhaObj;
 import com.example.elixir.dominio.Doador;
@@ -51,13 +52,12 @@ public class PublicacaoController {
 
 
     @DeleteMapping("/{id}")
-
     public ResponseEntity<Doador> delete(@PathVariable int id){
-        if (!repository.existsById(id)) {
+        if (!publicacaoRepository.existsById(id)) {
             return ResponseEntity.status(404).build();
 
         }
-        repository.deleteById(id);
+        publicacaoRepository.deleteById(id);
         return ResponseEntity.status(200).build();
     }
 
