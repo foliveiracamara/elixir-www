@@ -5,6 +5,7 @@ import org.hibernate.validator.constraints.br.CPF;
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.PastOrPresent;
+import java.sql.Struct;
 import java.time.LocalDate;
 
 @Entity
@@ -38,6 +39,14 @@ public class Receptor {
     @Column
     @NotBlank
     private String tipoSanguineo;
+
+    @Column
+    @NotBlank
+    private String genero;
+
+    @Column
+    @NotBlank
+    private String tel;
 
     public Integer getIdReceptor() {
         return idReceptor;
@@ -93,5 +102,21 @@ public class Receptor {
 
     public void setTipoSanguineo(String tipoSanguineo) {
         this.tipoSanguineo = tipoSanguineo;
+    }
+
+    public String getGenero() {
+        return genero;
+    }
+
+    public void setGenero(String genero) {
+        this.genero = genero;
+    }
+
+    public String getTel() {
+        return tel;
+    }
+
+    public void setTel(String tel) {
+        this.tel = tel;
     }
 }
