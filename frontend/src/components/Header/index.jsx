@@ -4,7 +4,7 @@ import WhiteButton from "../Button/index";
 
 import style from "./Header.module.scss";
 
-export default function Header({ textColor }) {
+export default function Header({ textColor, labelColorOne, labelColorTwo, labelColorThree, labelColorFour, labelColorFive }) {
   const [viewport, setViewport] = useState();
 
   useEffect(() => {
@@ -34,19 +34,19 @@ export default function Header({ textColor }) {
       <div className={style.navbar}>
         <ul className={style.options}>
           <Link href={"/"}>
-            <li className={style.active}>Início</li>
+            <li style={{ color: labelColorOne }}>Início</li>
           </Link>
           <Link href={"/About"}>
-            <li>Sobre</li>
+            <li style={{ color: labelColorTwo }}>Sobre</li>
           </Link>
           <Link href="/ReceiverOrder">
-            <li>Solicite</li>
+            <li style={{ color: labelColorThree }}>Solicite</li>
           </Link>
           <Link href={"/Faq"}>
-            <li>FAQ</li>
+            <li style={{ color: labelColorFour }}>FAQ</li>
           </Link>
 
-          <li>Contato</li>
+          <li style={{ color: labelColorFive }}>Contato</li>
         </ul>
       </div>
       <div className={style.buttons}>

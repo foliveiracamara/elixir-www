@@ -11,7 +11,7 @@ export default function About() {
         <div className={style.block}></div>
         <img src={"/images/doctor-about-page.png"} className={style.doctor} />
       </div>
-      <Header textColor="white" />
+      <Header textColor="white" labelColorTwo="red" />
 
       <div className={style.content}>
         <Title fontSize={40} children={"Vamos falar sobre a elixir?"} />

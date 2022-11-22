@@ -76,7 +76,7 @@ export default function ReceiverOrder() {
         <div className={style.block}></div>
         <img src={"/images/DoctorOrder.png"} className={style.doctor} />
       </div>
-      <Header textColor="white" />
+      <Header textColor="white" labelColorThree="red" />
 
       <div className={style.content}>
         <Title fontSize={35} children={"Você precisa de transfusão?"} />
