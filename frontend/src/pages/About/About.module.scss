@@ -1,4 +1,6 @@
 .container {
+  width: 100%;
+  height: 100%;
   Header {
     position: relative;
   }
@@ -16,45 +18,11 @@
 
     h3 {
       font-family: PoppinsNormal;
-      font-size: 15px;
+      font-size: 16px;
     }
-  }
 
-
-  .questions {
-    position: relative;
-
-    width: 50%;
-    flex-direction: column;
-    align-items: center;
-    margin-left: 5%;
-
-    input {
-      width: 100%;
-      height: 35px;
-    }
-    .contentQuestions {
-      display: flex;
-      align-items: flex-start;
-
-      .otherQuestions {
-        width: 90%;
-        flex-direction: row;
-
-        input {
-          height: 35px;
-        }
-      }
-
-      .otherQuestionsBlood {
-        align-items: flex-end;
-        width: 90%;
-        margin-left: 5%;
-
-        select {
-          height: 35px;
-        }
-      }
+    .elixir{
+      font-family: PoppinsBolder;
     }
   }
 
@@ -67,12 +35,10 @@
     align-items: flex-start;
     margin-left: 13%;
     margin-top: 2%;
-    width: 100%;
 
-    .or{
+    .or {
       margin-left: 14%;
     }
-
   }
   .rigth_side {
     top: 0;
@@ -95,8 +61,7 @@
       margin-top: 8.1%;
       position: absolute;
       width: 30%;
-      height: 83%;
+      height: 82.3%;
     }
   }
 }
-

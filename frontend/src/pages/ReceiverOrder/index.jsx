@@ -76,7 +76,7 @@ export default function ReceiverOrder() {
         <div className={style.block}></div>
         <img src={"/images/DoctorOrder.png"} className={style.doctor} />
       </div>
-      <Header />
+      <Header textColor="white" labelColorThree="red" />
 
       <div className={style.content}>
         <Title fontSize={35} children={"Você precisa de transfusão?"} />
@@ -118,7 +118,7 @@ export default function ReceiverOrder() {
                   control={control}
                 />
               </div>
-              {/* <div className={style.name}>
+              <div className={style.name}>
                 <InputControlled
                   title="Telefone:"
                   name="tel"
@@ -127,7 +127,7 @@ export default function ReceiverOrder() {
                   errors={errors.tel}
                   control={control}
                 />
-              </div> */}
+              </div>
             </div>
 
             <div className={style.otherQuestionsBlood}>
@@ -140,7 +140,7 @@ export default function ReceiverOrder() {
                   errors={errors.tipoSanguineo}
                 />
               </div>
-              {/* <div className={style.name}>
+              <div className={style.name}>
                 <DropdownControlled
                   name="genero"
                   title="Gênero:"
@@ -148,7 +148,7 @@ export default function ReceiverOrder() {
                   options={others}
                   errors={errors.genero}
                 />
-              </div> */}
+              </div>
 
               <div className={style.name}>
                 <InputControlled

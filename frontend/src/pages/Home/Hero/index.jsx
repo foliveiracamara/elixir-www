@@ -8,7 +8,7 @@ import style from "./Hero.module.scss";
 export default function Hero() {
   return (
     <section className={style.container}>
-      <Header textColor={"#FFF"} />
+      <Header textColor={"#FFF"}  labelColorOne="red"/>
 
       <div className={style.content}>
         <div className={style.left_side}>
