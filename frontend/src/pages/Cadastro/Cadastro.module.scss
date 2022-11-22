@@ -19,8 +19,12 @@
       }
 
       .text {
-        text-align: center;
+        text-align: end;
         width: 350px;
+        font-size: 32px;
+      }
+      h3 {
+        font-family: PoppinsNormal;
       }
     }
 
@@ -33,14 +37,15 @@
         display: none;
       }
 
-      .woman {
+      .man {
+        margin-top: 15%;
         width: 500px;
       }
 
       .blood_bag_top {
-        width: 180px;
-        top: 50px;
-        left: 30px;
+        width: 30%;
+        top: 80px;
+        left: 10px;
         position: absolute;
         transform: rotate(320deg);
 
@@ -51,10 +56,10 @@
       }
 
       .blood_bag_bottom {
-        width: 180px;
+        width: 30%;
         position: absolute;
         bottom: 100px;
-        right: 20px;
+        right: 40px;
         transform: rotate(20deg);
 
         @include tablet {
@@ -83,9 +88,9 @@
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        height: 300px;
-        max-width: 300px;
-
+        margin-top: 20%;
+        height: 100%;
+        width: 100%;
 
         .next {
           display: flex;
@@ -107,6 +112,15 @@
         .label {
           margin: 10px 0 0 10px;
         }
+
+        input {
+          height: 35px;
+          width: 100%;
+        }
+
+        .goBack {
+          font-family: PoppinsNormal;
+        }
       }
 
       .btn_stepper {
@@ -116,8 +130,9 @@
       }
 
       .terms {
-        margin-top: 15px;
-        font-size: 13px;
+        color: $grey-800;
+        margin-top: 20px;
+        font-size: 14px;
       }
     }
   }

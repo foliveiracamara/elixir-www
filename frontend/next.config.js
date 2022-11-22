@@ -35,6 +35,14 @@ module.exports = {
         source: "/dashboard/receptor",
         destination: "/DashboardReceptor",
       },
+      {
+        source: "/fac",
+        destination: "/Fac",
+      },
+      {
+        source: "/sobre",
+        destination: "/About",
+      },
     ];
   },
 };

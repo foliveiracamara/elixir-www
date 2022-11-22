@@ -1,21 +1,22 @@
-import { useState, useEffect } from 'react';
-import { yupResolver } from '@hookform/resolvers/yup';
-import { useForm } from 'react-hook-form';
-import { schema } from './validation';
-import Button from '../../components/Button';
-import Header from '../../components/Header';
-import InputControlled from '../../components/InputControlled';
-import Title from '../../components/Title';
-import api from '../../service/axios';
+import { useState, useEffect, useRef } from "react";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { useForm } from "react-hook-form";
+import { schema } from "./validation";
+import Button from "../../components/Button";
+import Header from "../../components/Header";
+import InputControlled from "../../components/InputControlled";
+import Title from "../../components/Title";
+import api from "../../service/axios";
+import { Toast } from "primereact/toast";
 
-import style from './Login.module.scss';
+import style from "./Login.module.scss";
 
 export default function Login() {
   const [viewport, setViewport] = useState();
   const [btnWidth, setBtnWidth] = useState();
 
   useEffect(() => {
-    if (typeof window != 'undefined') {
+    if (typeof window != "undefined") {
       if (window.innerWidth <= 768) {
         setViewport(24);
       } else if (window.innerWidth <= 1024) {
@@ -27,14 +28,31 @@ export default function Login() {
     }
   }, []);
 
+  const toast = useRef(null);
+
   const onSubmit = (e) => {
     api
-      .post(`http://localhost:8080/doador/acesso/${e.email}/${e.senha}`)
+      .post(`http://localhost:8080/doador/acesso/${e.email}/${e.senha}`, e)
+      .then((res) => {
+        console.log(res);
+        toast.current.show({
+          severity: "success",
+          summary: "Doação Solicitada com sucesso",
+          detail: "Seus dados foram registrados com sucesso",
+          life: 3000,
+        });
+      })
       .catch((err) => {
-        console.log('error: ', err);
+        console.log(err);
+        toast.current.show({
+          severity: "error",
+          summary: "Doação não foi solicidata",
+          detail:
+            "Seu pedido de doação não foi solicitado, entrar em contato com a empresa",
+          life: 3000,
+        });
       });
   };
-
 
   const {
     formState: { errors },
@@ -47,24 +65,26 @@ export default function Login() {
 
   return (
     <section className={style.container}>
-      <Header />
+      <Header textColor="red" />
       <div className={style.content}>
+        <Toast ref={toast} position="bottom-center" />
         <div className={style.left_side}>
           <div className={style.text}>
             <Title
-              children={'Faça seu login.'}
+              children={"Faça seu login."}
               fontSize={65}
-              fontFamily={'PoppinsBold'}
-              textAlign={'right'}
+              fontFamily={"PoppinsBold"}
+              textAlign={"right"}
             />
             <h3>Você não possui uma conta?</h3>
           </div>
           <Button
             label="Cadastre-se"
-            fontFamily={'PoppinsBold'}
-            backgroundColor={'#FF2939'}
-            textColor={'#FFF'}
-            marginRight={-48}
+            fontFamily={"PoppinsBold"}
+            backgroundColor={"#FF2939"}
+            textColor={"#FFF"}
+            marginRight={-68}
+            width="70%"
           />
         </div>
         <div className={style.middle}>
@@ -73,33 +93,35 @@ export default function Login() {
           <img src="/images/blood-bag.svg" className={style.blood_bag_bottom} />
         </div>
         <div className={style.right_side}>
-          <form onSubmit={handleSubmit(onSubmit)}>
-            <InputControlled
-              title="Email"
-              name="email"
-              id="email"
-              placeholder="joaos@gmail.com"
-              errors={errors.email}
-              control={control}
-            />
-            <InputControlled
-              title="Senha"
-              name="senha"
-              id="senha"
-              placeholder="••••••••••"
-              errors={errors.senha}
-              control={control}
-            />
-            <p className={style.markdown}>Esqueceu sua senha?</p>
-            <Button
-              label="Entrar"
-              fontFamily={'PoppinsBold'}
-              backgroundColor={'#FF2939'}
-              textColor={'#FFF'}
-              type="submit"
-              width={btnWidth}
-            />
-          </form>
+          <div className={style.forms}>
+            <form onSubmit={handleSubmit(onSubmit)}>
+              <InputControlled
+                title="Email"
+                name="email"
+                id="email"
+                placeholder="joaos@gmail.com"
+                errors={errors.email}
+                control={control}
+              />
+              <InputControlled
+                title="Senha"
+                name="senha"
+                id="senha"
+                placeholder="••••••••••"
+                errors={errors.senha}
+                control={control}
+              />
+              <p className={style.markdown}>Esqueceu sua senha?</p>
+              <Button
+                label="Entrar"
+                fontFamily={"PoppinsBold"}
+                backgroundColor={"#FF2939"}
+                textColor={"#FFF"}
+                type="submit"
+                width="100%"
+              />
+            </form>
+          </div>
         </div>
       </div>
     </section>
