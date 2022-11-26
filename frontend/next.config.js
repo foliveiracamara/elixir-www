@@ -31,6 +31,10 @@ module.exports = {
         source: "/dashboard/infos",
         destination: "/Dashboard",
       },
+      {
+        source: "/dashboard/help-people",
+        destination: "/Dashboard/HelpPeople",
+      }
     ];
   },
 };
