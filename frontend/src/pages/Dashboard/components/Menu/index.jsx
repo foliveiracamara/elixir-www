@@ -1,8 +1,8 @@
-import { useEffect, useState } from "react";
-import Button from "../../../../components/Button";
-import api from "../../../../service/axios";
+import { useEffect, useState } from 'react';
+import Button from '../../../../components/Button';
+import api from '../../../../service/axios';
 
-import style from "./Menu.module.scss";
+import style from './Menu.module.scss';
 
 export default function Menu({
   profileName,
@@ -12,10 +12,10 @@ export default function Menu({
   organDonor,
 }) {
   const badges = [
-    { src: "/images/heart-badge.svg" },
-    { src: "/images/lung-badge.svg" },
-    { src: "/images/pott-badge.svg" },
-    { src: "/images/dna-badge.svg" },
+    { src: '/images/heart-badge.svg' },
+    { src: '/images/lung-badge.svg' },
+    { src: '/images/pott-badge.svg' },
+    { src: '/images/dna-badge.svg' },
   ];
 
   const [infoMenu, setInfoMenu] = useState([]);
@@ -36,7 +36,14 @@ export default function Menu({
       <div className={style.content}>
         {infoMenu.map((menu) => (
           <div className={style.top}>
-            <img src="/images/profile-pic.svg" className={style.profile_pic} />
+            <img
+              src={
+                menu.sexo == 'Feminino'
+                  ? '/images/girl-profile-pic.svg'
+                  : '/images/man-profile-pic.svg'
+              }
+              className={style.profile_pic}
+            />
             <h3 className={style.name}>{menu.nome}</h3>
             <div className={style.infos}>
               <span>
@@ -54,19 +61,19 @@ export default function Menu({
             </div>
             <div className={style.buttons}>
               <Button
-                backgroundColor={"#FF2939"}
-                textColor={"#FFF"}
+                backgroundColor={'#FF2939'}
+                textColor={'#FFF'}
                 fontSize={12}
                 width={220}
-                label={"Editar informações"}
+                label={'Editar informações'}
                 fontFamily="PoppinsNormal"
               />
               <Button
-                backgroundColor={"#FF2939"}
-                textColor={"#FFF"}
+                backgroundColor={'#FF2939'}
+                textColor={'#FFF'}
                 fontSize={12}
                 width={220}
-                label={"Atualizar data de doação"}
+                label={'Atualizar data de doação'}
                 fontFamily="PoppinsNormal"
               />
             </div>
