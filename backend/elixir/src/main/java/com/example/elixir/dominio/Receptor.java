@@ -46,6 +46,14 @@ public class Receptor {
     @Column
     @NotBlank
     private String tel;
+    
+    public Receptor(Integer idReceptor, String nome, String nomeHospital, String cep, String tipoSanguineo) {
+        this.idReceptor = idReceptor;
+        this.nome = nome;
+        this.nomeHospital = nomeHospital;
+        this.cep = cep;
+        this.tipoSanguineo = tipoSanguineo;
+    }
 
     public Integer getIdReceptor() {
         return idReceptor;
