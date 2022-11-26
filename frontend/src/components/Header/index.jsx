@@ -1,14 +1,21 @@
-import Link from "next/link";
-import { useEffect, useState } from "react";
-import WhiteButton from "../Button/index";
+import Link from 'next/link';
+import { useEffect, useState } from 'react';
+import WhiteButton from '../Button/index';
 
-import style from "./Header.module.scss";
+import style from './Header.module.scss';
 
-export default function Header({ textColor, labelColorOne, labelColorTwo, labelColorThree, labelColorFour, labelColorFive }) {
+export default function Header({
+  textColor,
+  labelColorOne,
+  labelColorTwo,
+  labelColorThree,
+  labelColorFour,
+  labelColorFive,
+}) {
   const [viewport, setViewport] = useState();
 
   useEffect(() => {
-    if (typeof window != "undefined") {
+    if (typeof window != 'undefined') {
       // console.log(window.innerWidth)
       if (window.innerWidth <= 768) {
         setViewport(24);
@@ -19,10 +26,11 @@ export default function Header({ textColor, labelColorOne, labelColorTwo, labelC
       }
     }
   }, []);
+
   return (
     <header className={style.container}>
       <div className={style.logo}>
-        <Link href={"/"}>
+        <Link href={'/'}>
           <img
             src="/images/elixir-logo.svg"
             className={style.img}
@@ -33,32 +41,33 @@ export default function Header({ textColor, labelColorOne, labelColorTwo, labelC
       </div>
       <div className={style.navbar}>
         <ul className={style.options}>
-          <Link href={"/"}>
+          <Link href={'/'}>
             <li style={{ color: labelColorOne }}>Início</li>
           </Link>
-          <Link href={"/About"}>
+          <Link href={'/About'}>
             <li style={{ color: labelColorTwo }}>Sobre</li>
           </Link>
           <Link href="/ReceiverOrder">
             <li style={{ color: labelColorThree }}>Solicite</li>
           </Link>
-          <Link href={"/Faq"}>
+          <Link href={'/Faq'}>
             <li style={{ color: labelColorFour }}>FAQ</li>
           </Link>
-
-          <li style={{ color: labelColorFive }}>Contato</li>
+          <Link href={'mailto:support@elixir319.zendesk.com?subject=Preciso de ajuda!&body=Olá! Você pode me ajudar a resolver um problema?'}>
+            <li style={{ color: labelColorFive }}>Contato</li>
+          </Link>
         </ul>
       </div>
       <div className={style.buttons}>
         <span className={style.login} style={{ color: textColor }}>
-          <Link href={"/Login"}>Entrar</Link>
+          <Link href={'/Login'}>Entrar</Link>
         </span>
-        <Link href={"/Cadastro"}>
+        <Link href={'/Cadastro'}>
           <WhiteButton
             label="Seja um doador(a)"
-            backgroundColor={"#FFF"}
+            backgroundColor={'#FFF'}
             width={viewport}
-            fontFamily={"PoppinsBold"}
+            fontFamily={'PoppinsBold'}
           />
         </Link>
       </div>
