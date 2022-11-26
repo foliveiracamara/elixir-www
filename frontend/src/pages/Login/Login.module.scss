@@ -24,11 +24,10 @@
         font-size: 16px;
         font-family: "PoppinsBold";
         margin-top: 40%;
-
       }
     }
 
-    .middle{
+    .middle {
       display: flex;
       flex-direction: column;
       position: relative;
@@ -43,9 +42,9 @@
       }
 
       .blood_bag_top {
-        width: 180px;
-        top: 50px;
-        left: 30px;
+        width: 30%;
+        top: 80px;
+        left: 10px;
         position: absolute;
         transform: rotate(320deg);
 
@@ -56,10 +55,10 @@
       }
 
       .blood_bag_bottom {
-        width: 180px;
+        width: 30%;
         position: absolute;
         bottom: 100px;
-        right: 20px;
+        right: 40px;
         transform: rotate(20deg);
 
         @include tablet {
@@ -74,19 +73,34 @@
       display: flex;
       flex-direction: column;
       justify-content: space-evenly;
-      margin-right: 50px;
-      margin-top: 16%;
-      height: 300px;
+      width: 25%;
 
-      @include desktop {
-        margin-right: 20px;
-      }
+      .forms {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        margin-top: 20%;
+        height: 100%;
+        
+        @include desktop {
+          margin-right: 20px;
+        }
 
-      .markdown {
-        font-weight: regular;
-        font-size: 16px; 
-        font-family: "PoppinsBold";
-        text-align: right;
+        .markdown {
+          font-weight: regular;
+          font-size: 16px;
+          font-family: "PoppinsBold";
+          text-align: right;
+          color: $grey-800;
+          margin-top: 20px;
+          font-size: 12px;
+          cursor: pointer;
+        }
+
+        input {
+          height: 35px;
+          width: 100%;
+        }
       }
     }
   }
