@@ -60,7 +60,14 @@ public class Doador {
 //    @Past
     private LocalDate dtNascimento;
 
-
+    public Doador(Integer idDoador, String nome, String email, String sexo, String tipoSanguineo) {
+        this.idDoador = idDoador;
+        this.nome = nome;
+        this.email = email;
+        this.sexo = sexo;
+        this.tipoSanguineo = tipoSanguineo;
+       // this.dtNascimento = dtNascimento;
+    }
 
     public Integer getIdDoador() {
         return idDoador;
