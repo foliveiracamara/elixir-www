@@ -104,7 +104,7 @@
           padding: 0px 20px 0px 20px;
           border-radius: 10px;
           font-size: 16px;
-          font-family: Poppins;
+          font-family: PoppinsBold;
           font-weight: bold;
           cursor: pointer;
         }
@@ -116,6 +116,15 @@
         input {
           height: 35px;
           width: 100%;
+          position: relative;
+        }
+        .passwordIcon {
+          position: absolute;
+          width: 5%;
+          display: flex;
+          margin: 7.8% 0 0 21.6%;
+          color: gray;
+          cursor: pointer;
         }
 
         .goBack {

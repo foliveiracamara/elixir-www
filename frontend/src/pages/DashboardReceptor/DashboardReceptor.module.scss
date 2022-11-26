@@ -142,14 +142,14 @@
             }
 
             .footerDescription {
-              font-family: PoppinsNormal;
+              font-family: PoppinsNdormal;
               font-size: 12px;
               display: flex;
-              .goOut {
-                color: $red-900;
-                margin-left: 56%;
-                cursor: pointer;
-              }
+            }
+            .goOut {
+              color: $red-900;
+              margin-left:69%;
+              cursor: pointer;
             }
           }
         }

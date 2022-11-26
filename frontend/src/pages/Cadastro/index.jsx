@@ -8,17 +8,22 @@ import InputControlled from "../../components/InputControlled";
 import Title from "../../components/Title";
 import Stepper from "./components/Stepper";
 import api from "../../service/axios";
+import VisibilityOutlinedIcon from "@mui/icons-material/VisibilityOutlined";
+import VisibilityOffOutlinedIcon from "@mui/icons-material/VisibilityOffOutlined";
 
 import style from "./Cadastro.module.scss";
+import DropdownControlled from "../../components/DropdownControlled";
+import Link from "next/link";
 
 export default function Cadastro() {
   const [viewport, setViewport] = useState();
   const [btnWidth, setBtnWidth] = useState();
   const [page, setPage] = useState(0);
+  const [tipo, setTipo] = useState("password");
 
   const onSubmit = (e) => {
     api
-      .post("http://localhost:8080/doador", e)
+      .post("http://localhost:8080/doador/", e)
       .then((res) => {
         console.log("cadastrado!", res);
       })
@@ -38,6 +43,19 @@ export default function Cadastro() {
     resolver: yupResolver(schema),
   });
 
+  const others = [
+    { label: "Masculino", value: "M" },
+    { label: "Feminino", value: "F" },
+  ];
+
+  function mudar() {
+    if (tipo === "password") {
+      setTipo("text");
+    } else {
+      setTipo("password");
+    }
+  }
+
   return (
     <section className={style.container}>
       <Header textColor="red" />
@@ -46,18 +64,21 @@ export default function Cadastro() {
           <div className={style.text}>
             <Title
               children={" Faça seu cadastro."}
-              fontSize={viewport}
+              fontSize={50}
               fontFamily="PoppinsBold"
             />
           </div>
           <h3>Você já possui uma conta?</h3>
-          <Button
-            label="Entrar"
-            backgroundColor={"#FF2939"}
-            textColor={"#FFF"}
-            width={200}
-            fontFamily="PoppinsBold"
-          />
+
+          <Link href={"/Login"}>
+            <Button
+              label="Entrar"
+              backgroundColor={"#FF2939"}
+              textColor={"#FFF"}
+              width={200}
+              fontFamily="PoppinsBold"
+            />
+          </Link>
         </div>
         <div className={style.middle}>
           <img src="/images/blood-bag.svg" className={style.blood_bag_top} />
@@ -85,14 +106,12 @@ export default function Cadastro() {
                   errors={errors.cpf}
                   control={control}
                 />
-
-                <InputControlled
+                <DropdownControlled
+                  name="sexo"
                   title="Gênero:"
-                  name="genero"
-                  id="genero"
-                  placeholder="Gênero"
-                  errors={errors.genero}
                   control={control}
+                  options={others}
+                  errors={errors.sexo}
                 />
                 <div className={style.btn_stepper}>
                   <div className={style.next} onClick={() => setPage(1)}>
@@ -102,7 +121,7 @@ export default function Cadastro() {
                     Ao Cadastrar você aceita os termos e condições da
                     plataforma.
                   </span>
-                  <span onClick={() => setPage(1)}>
+                  <span className={style.ball} onClick={() => setPage(1)}>
                     <Stepper
                       display1={page == 1 ? "none" : ""}
                       display2={page == 0 ? "none" : ""}
@@ -129,16 +148,34 @@ export default function Cadastro() {
                   placeholder="••••••••••"
                   errors={errors.senha}
                   control={control}
+                  type={tipo}
                 />
+                <span onClick={mudar} className={style.passwordIcon}>
+                  {tipo === "password" ? (
+                    <VisibilityOutlinedIcon />
+                  ) : (
+                    <VisibilityOffOutlinedIcon />
+                  )}
+                </span>
+                <div>
+                  <InputControlled
+                    title="Confirme sua senha:"
+                    name="confirmeSenha"
+                    id="senha"
+                    placeholder="••••••••••"
+                    errors={errors.senha}
+                    control={control}
+                    type={tipo}
+                  />
+                  {/* <span onClick={mudar} className={style.passwordIcon}>
+                    {tipo === "password" ? (
+                      <VisibilityOutlinedIcon />
+                    ) : (
+                      <VisibilityOffOutlinedIcon />
+                    )}
+                  </span> */}
+                </div>
 
-                <InputControlled
-                  title="Confirme sua senha:"
-                  name="confirmeSenha"
-                  id="senha"
-                  placeholder="••••••••••"
-                  errors={errors.senha}
-                  control={control}
-                />
                 <div className={style.btn_stepper}>
                   <Button
                     label="Cadastrar"
@@ -147,12 +184,13 @@ export default function Cadastro() {
                     textColor={"#FFF"}
                     width={btnWidth}
                     onClick={() => setPage(1)}
+                    fontFamily="PoppinsBold"
                   />
                   <span className={style.terms}>
                     Ao Cadastrar você aceita os termos e condições da
                     plataforma.
                   </span>
-                  <span onClick={() => setPage(0)}>
+                  <span className={style.ball} onClick={() => setPage(0)}>
                     <Stepper
                       display1={page == 1 ? "none" : ""}
                       display2={page == 0 ? "none" : ""}
