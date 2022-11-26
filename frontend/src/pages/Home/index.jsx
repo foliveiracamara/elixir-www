@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import Hero from './Hero';
 import Geolocation from './Geolocation';
 import LastNews from '../../pages/Home/LastNews'

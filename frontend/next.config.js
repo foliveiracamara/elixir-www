@@ -32,17 +32,9 @@ module.exports = {
         destination: "/Dashboard",
       },
       {
-        source: "/dashboard/receptor",
-        destination: "/DashboardReceptor",
-      },
-      {
-        source: "/fac",
-        destination: "/Fac",
-      },
-      {
-        source: "/sobre",
-        destination: "/About",
-      },
+        source: "/dashboard/help-people",
+        destination: "/Dashboard/HelpPeople",
+      }
     ];
   },
 };

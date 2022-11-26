@@ -1,0 +1,88 @@
+.container {
+  background-color: $blue-400;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+
+  .header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    background-color: $red-900;
+    height: 80px;
+
+    .navbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 65%;
+
+      .options {
+        display: flex;
+        justify-content: space-between;
+        color: $white;
+        font-weight: bold;
+        font-size: 24px;
+        width: 350px;
+      }
+
+      .logo {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+
+        .elixir {
+          font-weight: bold;
+          color: $white;
+          font-size: 24px;
+        }
+      }
+    }
+  }
+
+  .content {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+    .agregator {
+      display: flex;
+      flex-direction: row;
+
+      .right_content {
+        padding-left: 40px;
+
+        .top_infos {
+          display: flex;
+          flex-direction: column;
+          height: 250px;
+          padding-top: 20px;
+
+          .info_cards {
+            margin-top: 20px;
+            .label {
+              font-weight: bold;
+              font-size: 24px;
+              color: $black;
+            }
+
+            .btn_div{
+              display: flex;
+              justify-content: right;
+              padding-top: 10px;
+            }
+          }
+        }
+
+        .bottom_infos {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          overflow-y: auto;
+          height: 450px;
+        }
+      }
+    }
+  }
+}
