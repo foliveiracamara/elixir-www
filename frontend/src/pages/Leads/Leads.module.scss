@@ -1,0 +1,31 @@
+.container {
+  justify-content: center;
+  .content {
+    display: flex;
+    flex-direction: row;
+
+    .left_side {
+      width: 88%;
+      height: 100vh;
+      flex-direction: column;
+      position: relative;
+    }
+  }
+}
+.text {
+    margin-top: 16%;
+    margin-left: 16%;
+  }
+
+  .right_side {
+    position: relative;
+    display: flex;
+    justify-content: right;
+  }
+
+  .Mike {
+    width: 450px;
+    margin-right: 50%;
+  }
+
+ 

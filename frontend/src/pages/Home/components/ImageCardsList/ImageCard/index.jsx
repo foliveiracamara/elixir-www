@@ -1,8 +1,9 @@
 import EastIcon from '@mui/icons-material/East';
+import Link from 'next/link';
 
 import style from './ImageCard.module.scss';
 
-export default function ImageCard({ imgSource, title, description }) {
+export default function ImageCard({ imgSource, title, link }) {
   return (
     <div className={style.container}>
       <div className={style.top}>
@@ -15,7 +16,7 @@ export default function ImageCard({ imgSource, title, description }) {
             <h1 className={style.title}>{title}</h1>
           </div>
           <span className={style.anchor}>
-            Continue a leitura
+            <Link href={link}>Continue a leitura</Link>
             <EastIcon className={style.arrow} />
           </span>
         </div>

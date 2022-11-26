@@ -1,15 +1,15 @@
-import { useEffect } from 'react';
-import RedShadow from '../../../components/RedShadow';
-import Title from '../../../components/Title';
-import Subtitle from '../../../components/Subtitle';
-import Button from '../../../components/Button';
-import Aos from 'aos';
-import 'aos/dist/aos.css';
+import { useEffect } from "react";
+import RedShadow from "../../../components/RedShadow";
+import Title from "../../../components/Title";
+import Subtitle from "../../../components/Subtitle";
+import Button from "../../../components/Button";
+import Aos from "aos";
+import "aos/dist/aos.css";
 
-import style from './Geolocation.module.scss';
+import style from "./Geolocation.module.scss";
+import Link from "next/link";
 
 export default function Geolocation() {
-
   useEffect(() => {
     Aos.init({ duration: 2000 });
   }, []);
@@ -26,29 +26,26 @@ export default function Geolocation() {
         top={300}
       /> */}
       <div className={style.text}>
-        <Title 
-          children={'Localizar hemocentros com mapa de geolocalização'} 
-        />
+        <Title children={"Localizar hemocentros com mapa de geolocalização"} />
         <Subtitle
-          label={'Geolocalizar hemocentros com mapa de geolocalização'}
+          label={"Geolocalizar hemocentros com mapa de geolocalização"}
         />
       </div>
-      <img 
-        src="/images/map-placeholder.svg" 
-        className={style.image}
-      />
-      <div className={style.redirect}> 
-        <Title 
-          fontSize={32} 
+      <img src="/images/map-placeholder.svg" className={style.image} />
+      <div className={style.redirect}>
+        <Title
+          fontSize={32}
           children={"Quer saber mais sobre nossa plataforma?"}
         />
-        <Button 
-          label="Acesse nossa FAQ"
-          backgroundColor={"#FF2939"}
-          textColor={"#FFF"}  
-          width={400}
-          fontFamily="PoppinsBolder"
-        />
+        <Link href={"/Faq"}>
+          <Button
+            label="Acesse nossa FAQ"
+            backgroundColor={"#FF2939"}
+            textColor={"#FFF"}
+            width={400}
+            fontFamily="PoppinsBolder"
+          />
+        </Link>
       </div>
     </section>
   );

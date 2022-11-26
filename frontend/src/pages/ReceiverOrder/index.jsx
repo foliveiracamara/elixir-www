@@ -1,16 +1,46 @@
 import { useForm } from "react-hook-form";
 import Button from "../../components/Button";
 import Header from "../../components/Header";
-import Input from "../../components/Input";
+
 import InputControlled from "../../components/InputControlled";
-import Select from "../../components/Select";
 import Title from "../../components/Title";
 import style from "./ReceiverOrder.module.scss";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { schema } from "./validation";
 import Subtitle from "../../components/Subtitle";
+import DropdownControlled from "../../components/DropdownControlled";
+import api from "../../service/axios";
+import { Toast } from "primereact/toast";
+import React, { useRef } from "react";
+import Link from "next/link";
 
 export default function ReceiverOrder() {
+  const toast = useRef(null);
+
+  const onSubmit = (data) => {
+    api
+      .post("http://localhost:8080/receptor", data)
+      .then((res) => {
+        console.log(res);
+        toast.current.show({
+          severity: "success",
+          summary: "Doação Solicitada com sucesso",
+          detail: "Seus dados foram registrados com sucesso",
+          life: 3000,
+        });
+      })
+      .catch((err) => {
+        console.log(err);
+        toast.current.show({
+          severity: "error",
+          summary: "Doação não foi solicidata",
+          detail:
+            "Seu pedido de doação não foi solicitado, entrar em contato com a empresa",
+          life: 3000,
+        });
+      });
+  };
+
   const {
     formState: { errors },
     control,
@@ -20,17 +50,34 @@ export default function ReceiverOrder() {
     resolver: yupResolver(schema),
   });
 
-  const onSubmit = (data) => {
-    console.log(data);
-  };
+  const bloodtypes = [
+    { label: "A+", value: "A+" },
+    { label: "B+", value: "B+" },
+    { label: "AB+", value: "AB+" },
+    { label: "O+", value: "O+" },
+    { label: "A-", value: "A-" },
+    { label: "B-", value: "B-" },
+    { label: "AB-", value: "AB-" },
+    { label: "O-", value: "O-" },
+  ];
+
+  const others = [
+    { label: "Masculino", value: "M" },
+    { label: "Feminino", value: "F" },
+  ];
+
+  // const onSubmit = (data) => {
+  //   console.log(data);
+  // };
 
   return (
     <div className={style.container}>
+      <Toast ref={toast} position="bottom-center" />
       <div className={style.rigth_side}>
         <div className={style.block}></div>
         <img src={"/images/DoctorOrder.png"} className={style.doctor} />
       </div>
-      <Header />
+      <Header textColor="white" labelColorThree="red" />
 
       <div className={style.content}>
         <Title fontSize={35} children={"Você precisa de transfusão?"} />
@@ -86,32 +133,31 @@ export default function ReceiverOrder() {
 
             <div className={style.otherQuestionsBlood}>
               <div className={style.name}>
-                <InputControlled
-                  title="Tipo Sanguíneo:"
+                <DropdownControlled
                   name="tipoSanguineo"
-                  id="tipoSanguineo"
-                  placeholder="Select"
-                  errors={errors.tipoSanguineo}
+                  title="Tipo Sanguíneo:"
                   control={control}
+                  options={bloodtypes}
+                  errors={errors.tipoSanguineo}
                 />
               </div>
               <div className={style.name}>
-                <InputControlled
-                  title="Genero:"
+                <DropdownControlled
                   name="genero"
-                  id="genero"
-                  placeholder="Maria Luiza Amorim"
-                  errors={errors.genero}
+                  title="Gênero:"
                   control={control}
+                  options={others}
+                  errors={errors.genero}
                 />
               </div>
+
               <div className={style.name}>
                 <InputControlled
                   title="CEP do Hospital:"
-                  name="cepHospital"
-                  id="cepHospital"
+                  name="cep"
+                  id="cep"
                   placeholder="09540-300"
-                  errors={errors.cepHospital}
+                  errors={errors.cep}
                   control={control}
                 />
               </div>
@@ -133,7 +179,14 @@ export default function ReceiverOrder() {
               Somente as informações necessárias irão aparecer na lista de
               receptores na página dos doadores. Essas informações serão
               exlucídas em uma semana após a publicação. Para visualizar essa
-              lista, faça <span>login</span> ou <span>cadastre-se.</span>
+              lista, faça 
+              <Link href={"/Login"}>
+                <span> login </span>
+              </Link>
+              ou
+              <Link href={"/Cadastro"}>
+                <span> cadastre-se.</span>
+              </Link>
             </h3>
             <Button
               width="50%"

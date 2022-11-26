@@ -24,22 +24,8 @@ public class Publicacao {
     private LocalDate dtPublicacao;
 
     @ManyToOne
-    private Doador doador;
+    private Receptor receptor;
 
-
-    public Integer getOrdenado(@NotNull Integer[] dtPublicacao) {
-
-        for (int i = 0; i < dtPublicacao.length-1; i++) {
-            for (int j = i + 1; j < dtPublicacao.length; j++) {
-                if (dtPublicacao[j] < dtPublicacao[i]) {
-                    int aux = dtPublicacao[i];
-                    dtPublicacao[i] = dtPublicacao[j];
-                    dtPublicacao[j] = aux;
-                }
-            }
-        }
-        return dtPublicacao.length;
-    }
 
     public Integer getIdPublicacao() {
         return idPublicacao;
@@ -57,7 +43,6 @@ public class Publicacao {
         this.descricao = descricao;
     }
 
-
     public LocalDate getDtPublicacao() {
         return dtPublicacao;
     }
@@ -66,11 +51,11 @@ public class Publicacao {
         this.dtPublicacao = dtPublicacao;
     }
 
-    public Doador getDoador() {
-        return doador;
+    public Receptor getReceptor() {
+        return receptor;
     }
 
-    public void setDoador(Doador doador) {
-        this.doador = doador;
+    public void setReceptor(Receptor receptor) {
+        this.receptor = receptor;
     }
 }

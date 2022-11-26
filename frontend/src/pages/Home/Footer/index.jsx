@@ -24,7 +24,7 @@ export default function Footer() {
                 <Subtitle
                   fontSize={16}
                   label={
-                    "I say chap thats suing lavatory chip shop gosh off his smashing boot are you taking the piss posh loo brilliant."
+                    "Para melhor atendimento ao publico que tem interesse em doar sangue, estaremos disponiveis em todas as plataformas mobile"
                   }
                 />
               </div>

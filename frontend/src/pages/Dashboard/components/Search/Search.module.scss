@@ -1,0 +1,30 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background-color: $white;
+  height: 50px;
+  border-radius: 10px;
+  border: $grey-600 solid 1px;
+
+  .input{
+    background-color: $white;
+    height: 100%;
+    width: 80%;
+    font-family: PoppinsNormal;
+    border: none;
+    border-radius: 10px;
+  }
+
+  .icon{
+    font-size: 40px;
+  }
+}
+
+.input:focus{
+  outline: none;
+}
+
+.input::placeholder {
+  color: $grey-600;
+}

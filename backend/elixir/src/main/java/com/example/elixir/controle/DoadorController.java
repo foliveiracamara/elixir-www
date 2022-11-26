@@ -8,9 +8,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 
 @RestController
@@ -56,37 +57,55 @@ public class DoadorController {
 
     // Listar usuarios
     @GetMapping
-    public List<Doador> listar() {
-        return repository.findAll();
+    public ResponseEntity<List<Doador>> listar() {
+        List<Doador> list = repository.findAll();
+        return list.isEmpty()
+                ? ResponseEntity.status(204).build()
+                : ResponseEntity.status(200).body(list);
     }
+
 
     // Buscar por ID
     @GetMapping("/{idDoador}")
-    public Doador buscarPorId(@PathVariable Integer id) {
-        var usuario = repository.findById(id);
-        return usuario.get();
+    public ResponseEntity<Doador> listar (@PathVariable Integer id) {
+        return ResponseEntity.of(repository.findById(id));
     }
 
     // Exclusão de usuario
     @DeleteMapping("/{idDoador}")
-    public void excluirPorId(@PathVariable Integer idDoador) {
-        var usuario = repository.findById(idDoador);
-        repository.delete(usuario.get());
+    public ResponseEntity<Doador> excluirPorId(@PathVariable Integer idDoador) {
+       if (!repository.existsById(idDoador)) {
+           return ResponseEntity.status(404).build();
+       }
+        repository.deleteById(idDoador);
+       return ResponseEntity.status(200).build();
     }
+
 
     // Atualizar por ID
     @PutMapping("/{idDoador}")
-    public ResponseEntity atualizarPorId(@PathVariable Integer idDoador, @RequestBody Doador doador) {
+    public ResponseEntity<Doador> atualizarPorId(@PathVariable Integer idDoador, @RequestBody Doador doador) {
+            if(!repository.existsById(idDoador)) {
+                return ResponseEntity.status(404).build();
+            }
             doador.setIdDoador(idDoador);
             repository.save(doador);
-            return ResponseEntity.status(200).body("Usuario alterado");
+            return ResponseEntity.status(200).body(doador);
 }
+
 
     @PostMapping("/acesso/{email}/{senha}")
     public ResponseEntity<Doador> logonUsuario(@PathVariable String email,
                                                @PathVariable String senha) {
         Optional<Doador> doador = repository.findByEmail(email);
         Optional<Doador> password = repository.findBySenha(senha);
+
+        if (Objects.isNull(email) || Objects.isNull(senha)) {
+            throw new ResponseStatusException(
+                    HttpStatus.BAD_REQUEST,
+                    "Não insira valores nulos"
+            );
+        }
 
             if (doador.isPresent() && password.isPresent()) {
                 return ResponseEntity.ok().build();
@@ -101,7 +120,14 @@ public class DoadorController {
         Optional<Doador> doador = repository.findByEmail(email);
         Optional<Doador> password = repository.findBySenha(senha);
 
-        if (doador.isPresent() && password.isPresent()) {
+        if (Objects.isNull(email) || Objects.isNull(senha)) {
+            throw new ResponseStatusException(
+                    HttpStatus.BAD_REQUEST,
+                    "Não insira valores nulos"
+            );
+        }
+
+        else if (doador.isPresent() && password.isPresent()) {
             return ResponseEntity.ok().build();
         }
         return ResponseEntity.status(401).build();

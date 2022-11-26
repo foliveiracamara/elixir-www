@@ -6,7 +6,7 @@ import style from "./Faq.module.scss";
 export default function Faq() {
   return (
     <section className={style.container}>
-      <Header textColor={"#FFF"} />
+      <Header textColor={"#FFF"}  labelColorFour="red"/>
       <div className={style.content}>
         <div className={style.left_side}>
           <div className={style.text}>

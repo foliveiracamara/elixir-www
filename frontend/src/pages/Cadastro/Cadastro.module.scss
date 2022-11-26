@@ -19,8 +19,12 @@
       }
 
       .text {
-        text-align: center;
+        text-align: end;
         width: 350px;
+        font-size: 32px;
+      }
+      h3 {
+        font-family: PoppinsNormal;
       }
     }
 
@@ -33,14 +37,15 @@
         display: none;
       }
 
-      .woman {
+      .man {
+        margin-top: 15%;
         width: 500px;
       }
 
       .blood_bag_top {
-        width: 180px;
-        top: 50px;
-        left: 30px;
+        width: 30%;
+        top: 80px;
+        left: 10px;
         position: absolute;
         transform: rotate(320deg);
 
@@ -51,10 +56,10 @@
       }
 
       .blood_bag_bottom {
-        width: 180px;
+        width: 30%;
         position: absolute;
         bottom: 100px;
-        right: 20px;
+        right: 40px;
         transform: rotate(20deg);
 
         @include tablet {
@@ -83,9 +88,9 @@
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        height: 300px;
-        max-width: 300px;
-
+        margin-top: 20%;
+        height: 100%;
+        width: 100%;
 
         .next {
           display: flex;
@@ -99,13 +104,24 @@
           padding: 0px 20px 0px 20px;
           border-radius: 10px;
           font-size: 16px;
-          font-family: Poppins;
+          font-family: PoppinsBold;
           font-weight: bold;
           cursor: pointer;
         }
 
         .label {
           margin: 10px 0 0 10px;
+        }
+
+        input {
+          height: 35px;
+          width: 100%;
+          position: relative;
+        }
+ 
+   
+        .goBack {
+          font-family: PoppinsNormal;
         }
       }
 
@@ -115,10 +131,51 @@
         margin-top: 30px;
       }
 
+      .ball {
+        margin-top: 25px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        .first {
+          display: flex;
+          width: 18px;
+          height: 18px;
+          border-radius: 50%;
+          margin-right: 30px;
+          background: $red-900;
+          align-items: center;
+          text-align: center;
+        }
+
+        .second {
+          background: $grey-600;
+          width: 10px;
+          height: 10px;
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          text-align: center;
+        }
+        .secondTwo {
+          background: $grey-600;
+          width: 10px;
+          height: 10px;
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          text-align: center;
+          margin-right: 30px;
+          margin-left: 25px;
+        }
+      }
+
       .terms {
-        margin-top: 15px;
-        font-size: 13px;
+        color: $grey-800;
+        margin-top: 20px;
+        font-size: 14px;
       }
     }
   }
+  
 }

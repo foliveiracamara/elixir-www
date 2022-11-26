@@ -13,21 +13,28 @@ module.exports = {
     return [
       {
         source: "/",
-        destination: "/home",
+        destination: "/Home",
       },
       {
         source: "/login",
-        destination: "/login",
+        destination: "/Login",
       },
       {
-        source: '/cadastro',
-        destination: '/cadastro'
+        source: "/cadastro",
+        destination: "/Cadastro",
       },
       {
         source: "/ReceiverOrder",
-        destination: "/receiverOrder",
+        destination: "/receiver-order ",
       },
+      {
+        source: "/dashboard/infos",
+        destination: "/Dashboard",
+      },
+      {
+        source: "/dashboard/help-people",
+        destination: "/Dashboard/HelpPeople",
+      }
     ];
   },
 };
-
