@@ -104,7 +104,7 @@
           padding: 0px 20px 0px 20px;
           border-radius: 10px;
           font-size: 16px;
-          font-family: Poppins;
+          font-family: PoppinsBold;
           font-weight: bold;
           cursor: pointer;
         }
@@ -116,8 +116,10 @@
         input {
           height: 35px;
           width: 100%;
+          position: relative;
         }
-
+ 
+   
         .goBack {
           font-family: PoppinsNormal;
         }
@@ -129,6 +131,45 @@
         margin-top: 30px;
       }
 
+      .ball {
+        margin-top: 25px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        .first {
+          display: flex;
+          width: 18px;
+          height: 18px;
+          border-radius: 50%;
+          margin-right: 30px;
+          background: $red-900;
+          align-items: center;
+          text-align: center;
+        }
+
+        .second {
+          background: $grey-600;
+          width: 10px;
+          height: 10px;
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          text-align: center;
+        }
+        .secondTwo {
+          background: $grey-600;
+          width: 10px;
+          height: 10px;
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          text-align: center;
+          margin-right: 30px;
+          margin-left: 25px;
+        }
+      }
+
       .terms {
         color: $grey-800;
         margin-top: 20px;
@@ -136,4 +177,5 @@
       }
     }
   }
+  
 }

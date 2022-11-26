@@ -4,6 +4,7 @@ import Menu from "./components/Menu";
 import CreateIcon from "@mui/icons-material/Create";
 
 import style from "./Dashboard.module.scss";
+import Link from "next/link";
 
 export default function Dashboard() {
   return (
@@ -27,7 +28,10 @@ export default function Dashboard() {
           <div className={style.right_content}>
             <div className={style.top_infos}>
               <span>
-                <span className={style.headerMin}>Início </span>
+                <Link href={"/DashboardReceptor"}>
+                  <span className={style.headerMin}>Início </span>
+                </Link>
+
                 <span className={style.headerMax}>{">"} Minhas doações</span>
               </span>
               <div className={style.info_cards}>

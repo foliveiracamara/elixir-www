@@ -12,6 +12,7 @@ import DropdownControlled from "../../components/DropdownControlled";
 import api from "../../service/axios";
 import { Toast } from "primereact/toast";
 import React, { useRef } from "react";
+import Link from "next/link";
 
 export default function ReceiverOrder() {
   const toast = useRef(null);
@@ -178,7 +179,14 @@ export default function ReceiverOrder() {
               Somente as informações necessárias irão aparecer na lista de
               receptores na página dos doadores. Essas informações serão
               exlucídas em uma semana após a publicação. Para visualizar essa
-              lista, faça <span>login</span> ou <span>cadastre-se.</span>
+              lista, faça 
+              <Link href={"/Login"}>
+                <span> login </span>
+              </Link>
+              ou
+              <Link href={"/Cadastro"}>
+                <span> cadastre-se.</span>
+              </Link>
             </h3>
             <Button
               width="50%"

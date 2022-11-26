@@ -8,12 +8,26 @@ import InputControlled from "../../components/InputControlled";
 import Title from "../../components/Title";
 import api from "../../service/axios";
 import { Toast } from "primereact/toast";
+import VisibilityOutlinedIcon from "@mui/icons-material/VisibilityOutlined";
+import VisibilityOffOutlinedIcon from "@mui/icons-material/VisibilityOffOutlined";
+import { useRouter } from "next/router";
 
 import style from "./Login.module.scss";
+import Link from "next/link";
 
 export default function Login() {
   const [viewport, setViewport] = useState();
   const [btnWidth, setBtnWidth] = useState();
+  const [tipo, setTipo] = useState("password");
+  const router = useRouter();
+
+  function mudar() {
+    if (tipo === "password") {
+      setTipo("text");
+    } else {
+      setTipo("password");
+    }
+  }
 
   useEffect(() => {
     if (typeof window != "undefined") {
@@ -37,18 +51,18 @@ export default function Login() {
         console.log(res);
         toast.current.show({
           severity: "success",
-          summary: "Doação Solicitada com sucesso",
-          detail: "Seus dados foram registrados com sucesso",
+          summary: "Login feito com sucesso!",
           life: 3000,
         });
+
+        router.push("/DashboardReceptor");
       })
       .catch((err) => {
         console.log(err);
         toast.current.show({
           severity: "error",
-          summary: "Doação não foi solicidata",
-          detail:
-            "Seu pedido de doação não foi solicitado, entrar em contato com a empresa",
+          summary: "Login não teve sucesso",
+          detail: "Erro ao realizar o login do usuario",
           life: 3000,
         });
       });
@@ -72,20 +86,22 @@ export default function Login() {
           <div className={style.text}>
             <Title
               children={"Faça seu login."}
-              fontSize={65}
+              fontSize={50}
               fontFamily={"PoppinsBold"}
               textAlign={"right"}
             />
             <h3>Você não possui uma conta?</h3>
           </div>
-          <Button
-            label="Cadastre-se"
-            fontFamily={"PoppinsBold"}
-            backgroundColor={"#FF2939"}
-            textColor={"#FFF"}
-            marginRight={-68}
-            width="70%"
-          />
+          <Link href={"/Cadastro"}>
+            <Button
+              label="Cadastre-se"
+              fontFamily={"PoppinsBold"}
+              backgroundColor={"#FF2939"}
+              textColor={"#FFF"}
+              marginRight={-68}
+              width="70%"
+            />
+          </Link>
         </div>
         <div className={style.middle}>
           <img src="/images/blood-bag.svg" className={style.blood_bag_top} />
@@ -110,7 +126,16 @@ export default function Login() {
                 placeholder="••••••••••"
                 errors={errors.senha}
                 control={control}
+                type={tipo}
               />
+
+              <span onClick={mudar} className={style.passwordIcon}>
+                {tipo === "password" ? (
+                  <VisibilityOutlinedIcon />
+                ) : (
+                  <VisibilityOffOutlinedIcon />
+                )}
+              </span>
               <p className={style.markdown}>Esqueceu sua senha?</p>
               <Button
                 label="Entrar"

@@ -23,7 +23,7 @@
         width: 350px;
         font-size: 16px;
         font-family: "PoppinsBold";
-        margin-top: 40%;
+        
       }
     }
 
@@ -31,14 +31,13 @@
       display: flex;
       flex-direction: column;
       position: relative;
-      margin-top: 16%;
 
       @include mobile {
         display: none;
       }
 
       .woman {
-        width: 500px;
+        width: 400px;
       }
 
       .blood_bag_top {
@@ -79,7 +78,6 @@
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        margin-top: 20%;
         height: 100%;
         
         @include desktop {
@@ -100,6 +98,15 @@
         input {
           height: 35px;
           width: 100%;
+        }
+
+        .passwordIcon {
+          position: absolute;
+          width: 5%;
+          display: flex;
+          margin: 7.8% 0 0 21.6%;
+          color: gray;
+          cursor: pointer;
         }
       }
     }
