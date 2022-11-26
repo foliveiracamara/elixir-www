@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import Button from "../../../../components/Button";
 import api from "../../../../service/axios";
+import getAge from "../../../../service/ageFormatter"
 
 import style from "./Menu.module.scss";
 
@@ -24,7 +25,7 @@ export default function Menu({
     api
       .get(`http://localhost:8080/doador/`)
       .then((res) => {
-        setInfoMenu(res.data.reverse());
+        setInfoMenu(res.data);
       })
       .catch((erro) => {
         console.log(erro);
@@ -40,16 +41,10 @@ export default function Menu({
             <h3 className={style.name}>{menu.nome}</h3>
             <div className={style.infos}>
               <span>
-                Idade: <b>{menu.dtNascimento}</b>
+                Idade: <b>{getAge(menu.dtNascimento)}</b><br/>
               </span>
               <span>
                 Tipo sanguíneo: <b>{menu.tipoSanguineo}</b>
-              </span>
-              <span>
-                Doador de medula: <b>Sim</b>
-              </span>
-              <span>
-                Doador de orgãos: <b>Sim</b>
               </span>
             </div>
             <div className={style.buttons}>

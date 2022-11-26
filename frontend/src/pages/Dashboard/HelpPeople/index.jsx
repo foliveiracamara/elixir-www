@@ -15,8 +15,6 @@ export default function Dashboard() {
     api.get('http://localhost:8080/receptor')
     .then((res) => {
       setReceiverList(res.data)
-      console.log(res.data)
-      console.log(receiverList)
     })
     .catch((err) => {
       console.log('error: ', err)
