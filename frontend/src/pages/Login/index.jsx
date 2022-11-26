@@ -8,6 +8,9 @@ import InputControlled from "../../components/InputControlled";
 import Title from "../../components/Title";
 import api from "../../service/axios";
 import { Toast } from "primereact/toast";
+import VisibilityOutlinedIcon from "@mui/icons-material/VisibilityOutlined";
+import VisibilityOffOutlinedIcon from "@mui/icons-material/VisibilityOffOutlined";
+import { useRouter } from "next/router";
 
 import style from "./Login.module.scss";
 import Link from "next/link";
@@ -15,6 +18,16 @@ import Link from "next/link";
 export default function Login() {
   const [viewport, setViewport] = useState();
   const [btnWidth, setBtnWidth] = useState();
+  const [tipo, setTipo] = useState("password");
+  const router = useRouter();
+
+  function mudar() {
+    if (tipo === "password") {
+      setTipo("text");
+    } else {
+      setTipo("password");
+    }
+  }
 
   useEffect(() => {
     if (typeof window != "undefined") {
@@ -41,14 +54,15 @@ export default function Login() {
           summary: "Login feito com sucesso!",
           life: 3000,
         });
+
+        router.push("/DashboardReceptor");
       })
       .catch((err) => {
         console.log(err);
         toast.current.show({
           severity: "error",
           summary: "Login não teve sucesso",
-          detail:
-            "Erro ao realizar o login do usuario",
+          detail: "Erro ao realizar o login do usuario",
           life: 3000,
         });
       });
@@ -112,7 +126,16 @@ export default function Login() {
                 placeholder="••••••••••"
                 errors={errors.senha}
                 control={control}
+                type={tipo}
               />
+
+              <span onClick={mudar} className={style.passwordIcon}>
+                {tipo === "password" ? (
+                  <VisibilityOutlinedIcon />
+                ) : (
+                  <VisibilityOffOutlinedIcon />
+                )}
+              </span>
               <p className={style.markdown}>Esqueceu sua senha?</p>
               <Button
                 label="Entrar"

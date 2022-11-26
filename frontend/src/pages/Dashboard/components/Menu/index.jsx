@@ -1,4 +1,6 @@
+import { useEffect, useState } from "react";
 import Button from "../../../../components/Button";
+import api from "../../../../service/axios";
 
 import style from "./Menu.module.scss";
 
@@ -16,46 +18,61 @@ export default function Menu({
     { src: "/images/dna-badge.svg" },
   ];
 
+  const [infoMenu, setInfoMenu] = useState([]);
+
+  useEffect(() => {
+    api
+      .get(`http://localhost:8080/doador/`)
+      .then((res) => {
+        setInfoMenu(res.data.reverse());
+      })
+      .catch((erro) => {
+        console.log(erro);
+      });
+  }, []);
+
   return (
     <div className={style.container}>
       <div className={style.content}>
-        <div className={style.top}>
-          <img src="/images/profile-pic.svg" className={style.profile_pic} />
-          <h3 className={style.name}>Lilian Oliveira</h3>
-          <div className={style.infos}>
-            <span>
-              Idade: <b>23</b>
-            </span>
-            <span>
-              Tipo sanguíneo: <b>O+</b>
-            </span>
-            <span>
-              Doador de medula: <b>Sim</b>
-            </span>
-            <span>
-              Doador de orgãos: <b>Sim</b>
-            </span>
+        {infoMenu.map((menu) => (
+          <div className={style.top}>
+            <img src="/images/profile-pic.svg" className={style.profile_pic} />
+            <h3 className={style.name}>{menu.nome}</h3>
+            <div className={style.infos}>
+              <span>
+                Idade: <b>{menu.dtNascimento}</b>
+              </span>
+              <span>
+                Tipo sanguíneo: <b>{menu.tipoSanguineo}</b>
+              </span>
+              <span>
+                Doador de medula: <b>Sim</b>
+              </span>
+              <span>
+                Doador de orgãos: <b>Sim</b>
+              </span>
+            </div>
+            <div className={style.buttons}>
+              <Button
+                backgroundColor={"#FF2939"}
+                textColor={"#FFF"}
+                fontSize={12}
+                width={220}
+                label={"Editar informações"}
+                fontFamily="PoppinsNormal"
+              />
+              <Button
+                backgroundColor={"#FF2939"}
+                textColor={"#FFF"}
+                fontSize={12}
+                width={220}
+                label={"Atualizar data de doação"}
+                fontFamily="PoppinsNormal"
+              />
+            </div>
+            <hr />
           </div>
-          <div className={style.buttons}>
-            <Button
-              backgroundColor={"#FF2939"}
-              textColor={"#FFF"}
-              fontSize={12}
-              width={220}
-              label={"Editar informações"}
-              fontFamily="PoppinsNormal"
-            />
-            <Button
-              backgroundColor={"#FF2939"}
-              textColor={"#FFF"}
-              fontSize={12}
-              width={220}
-              label={"Atualizar data de doação"}
-              fontFamily="PoppinsNormal"
-            />
-          </div>
-          <hr />
-        </div>
+        ))}
         <div className={style.line} />
         <div className={style.bottom}>
           <h3 className={style.title}>Minhas insígnias</h3>

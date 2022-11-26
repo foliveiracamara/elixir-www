@@ -6,20 +6,34 @@ import Button from "../../components/Button";
 import Header from "../../components/Header";
 import InputControlled from "../../components/InputControlled";
 import Title from "../../components/Title";
-import Stepper from "./components/Stepper";
 import api from "../../service/axios";
-import VisibilityOutlinedIcon from "@mui/icons-material/VisibilityOutlined";
-import VisibilityOffOutlinedIcon from "@mui/icons-material/VisibilityOffOutlined";
-
 import style from "./Cadastro.module.scss";
 import DropdownControlled from "../../components/DropdownControlled";
 import Link from "next/link";
 
 export default function Cadastro() {
-  const [viewport, setViewport] = useState();
   const [btnWidth, setBtnWidth] = useState();
   const [page, setPage] = useState(0);
-  const [tipo, setTipo] = useState("password");
+  const [currentStep, setCurrentStep] = useState(0);
+
+  const steps = [
+    {
+      id: "REGISTER1",
+      title: "",
+    },
+    {
+      id: "REGISTER2",
+      title: "",
+    },
+  ];
+
+  function handlePrevius() {
+    setCurrentStep((prevState) => prevState - 1);
+  }
+
+  function handleNext() {
+    setCurrentStep((prevState) => prevState + 1);
+  }
 
   const onSubmit = (e) => {
     api
@@ -48,14 +62,6 @@ export default function Cadastro() {
     { label: "Feminino", value: "F" },
   ];
 
-  function mudar() {
-    if (tipo === "password") {
-      setTipo("text");
-    } else {
-      setTipo("password");
-    }
-  }
-
   return (
     <section className={style.container}>
       <Header textColor="red" />
@@ -80,14 +86,16 @@ export default function Cadastro() {
             />
           </Link>
         </div>
+
         <div className={style.middle}>
           <img src="/images/blood-bag.svg" className={style.blood_bag_top} />
           <img src="/images/ImgCadastro.png" className={style.man} />
           <img src="/images/blood-bag.svg" className={style.blood_bag_bottom} />
         </div>
+
         <div className={style.right_side}>
           <form onSubmit={handleSubmit(onSubmit)}>
-            {page == 0 ? (
+            {steps[currentStep].id === "REGISTER1" && (
               <div className={style.forms}>
                 <InputControlled
                   title="Nome Completo:"
@@ -106,6 +114,7 @@ export default function Cadastro() {
                   errors={errors.cpf}
                   control={control}
                 />
+
                 <DropdownControlled
                   name="sexo"
                   title="Gênero:"
@@ -113,24 +122,26 @@ export default function Cadastro() {
                   options={others}
                   errors={errors.sexo}
                 />
+
                 <div className={style.btn_stepper}>
-                  <div className={style.next} onClick={() => setPage(1)}>
-                    Prosseguir
-                  </div>
+                  {currentStep < steps.length - 1 && (
+                    <div className={style.next} onClick={handleNext}>
+                      Prosseguir
+                    </div>
+                  )}
                   <span className={style.terms}>
                     Ao Cadastrar você aceita os termos e condições da
                     plataforma.
                   </span>
-                  <span className={style.ball} onClick={() => setPage(1)}>
-                    <Stepper
-                      display1={page == 1 ? "none" : ""}
-                      display2={page == 0 ? "none" : ""}
-                    />
+
+                  <span className={style.ball} onClick={handleNext}>
+                    <div className={style.first}></div>
+                    <div className={style.second}></div>
                   </span>
-                  {/* <span onClick={() => setPage(0)}>voltar</span> */}
                 </div>
               </div>
-            ) : (
+            )}
+            {steps[currentStep].id === "REGISTER2" && (
               <div className={style.forms}>
                 <InputControlled
                   title="Email:"
@@ -148,15 +159,8 @@ export default function Cadastro() {
                   placeholder="••••••••••"
                   errors={errors.senha}
                   control={control}
-                  type={tipo}
                 />
-                <span onClick={mudar} className={style.passwordIcon}>
-                  {tipo === "password" ? (
-                    <VisibilityOutlinedIcon />
-                  ) : (
-                    <VisibilityOffOutlinedIcon />
-                  )}
-                </span>
+
                 <div>
                   <InputControlled
                     title="Confirme sua senha:"
@@ -165,15 +169,7 @@ export default function Cadastro() {
                     placeholder="••••••••••"
                     errors={errors.senha}
                     control={control}
-                    type={tipo}
                   />
-                  {/* <span onClick={mudar} className={style.passwordIcon}>
-                    {tipo === "password" ? (
-                      <VisibilityOutlinedIcon />
-                    ) : (
-                      <VisibilityOffOutlinedIcon />
-                    )}
-                  </span> */}
                 </div>
 
                 <div className={style.btn_stepper}>
@@ -190,14 +186,10 @@ export default function Cadastro() {
                     Ao Cadastrar você aceita os termos e condições da
                     plataforma.
                   </span>
-                  <span className={style.ball} onClick={() => setPage(0)}>
-                    <Stepper
-                      display1={page == 1 ? "none" : ""}
-                      display2={page == 0 ? "none" : ""}
-                    />
+                  <span className={style.ball} onClick={handlePrevius}>
+                    <div className={style.secondTwo}></div>
+                    <div className={style.first}></div>
                   </span>
-
-                  {/* <span onClick={() => setPage(0)}>voltar</span> */}
                 </div>
               </div>
             )}

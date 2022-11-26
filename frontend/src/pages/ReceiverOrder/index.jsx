@@ -179,13 +179,13 @@ export default function ReceiverOrder() {
               Somente as informações necessárias irão aparecer na lista de
               receptores na página dos doadores. Essas informações serão
               exlucídas em uma semana após a publicação. Para visualizar essa
-              lista, faça
+              lista, faça 
               <Link href={"/Login"}>
-                <span>login</span>
+                <span> login </span>
               </Link>
               ou
               <Link href={"/Cadastro"}>
-                <span>cadastre-se.</span>
+                <span> cadastre-se.</span>
               </Link>
             </h3>
             <Button

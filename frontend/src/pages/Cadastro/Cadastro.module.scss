@@ -118,15 +118,8 @@
           width: 100%;
           position: relative;
         }
-        .passwordIcon {
-          position: absolute;
-          width: 5%;
-          display: flex;
-          margin: 7.8% 0 0 21.6%;
-          color: gray;
-          cursor: pointer;
-        }
-
+ 
+   
         .goBack {
           font-family: PoppinsNormal;
         }
@@ -138,6 +131,45 @@
         margin-top: 30px;
       }
 
+      .ball {
+        margin-top: 25px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        .first {
+          display: flex;
+          width: 18px;
+          height: 18px;
+          border-radius: 50%;
+          margin-right: 30px;
+          background: $red-900;
+          align-items: center;
+          text-align: center;
+        }
+
+        .second {
+          background: $grey-600;
+          width: 10px;
+          height: 10px;
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          text-align: center;
+        }
+        .secondTwo {
+          background: $grey-600;
+          width: 10px;
+          height: 10px;
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          text-align: center;
+          margin-right: 30px;
+          margin-left: 25px;
+        }
+      }
+
       .terms {
         color: $grey-800;
         margin-top: 20px;
@@ -145,4 +177,5 @@
       }
     }
   }
+  
 }
