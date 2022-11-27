@@ -55,6 +55,10 @@ public class Receptor {
         this.tipoSanguineo = tipoSanguineo;
     }
 
+    public Receptor() {
+
+    }
+
     public Integer getIdReceptor() {
         return idReceptor;
     }
