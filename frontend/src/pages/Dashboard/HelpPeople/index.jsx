@@ -1,27 +1,33 @@
-import { useEffect, useState } from 'react';
-import Menu from '../components/Menu';
-import Receiver from '../components/Receiver';
-import Search from '../components/Search';
-import Button from '../../../components/Button';
-import api from '../../../service/axios';
-import Link from 'next/link';
+import { useEffect, useState } from "react";
+import Menu from "../components/Menu";
+import Receiver from "../components/Receiver";
+import Search from "../components/Search";
+import Button from "../../../components/Button";
+import api from "../../../service/axios";
+import Link from "next/link";
+import { saveAs } from "file-saver";
 
-import style from './HelpPeople.module.scss';
+import style from "./HelpPeople.module.scss";
 
 export default function Dashboard() {
-  const [receiverList, setReceiverList] = useState([])
+  const [receiverList, setReceiverList] = useState([]);
 
   useEffect(() => {
-    api.get('http://localhost:8080/receptor')
-    .then((res) => {
-      setReceiverList(res.data)
-      console.log(res.data)
-      console.log(receiverList)
-    })
-    .catch((err) => {
-      console.log('error: ', err)
-    })
-  }, [])
+    api
+      .get("http://localhost:8080/receptor")
+      .then((res) => {
+        setReceiverList(res.data);
+        console.log(res.data);
+        console.log(receiverList);
+      })
+      .catch((err) => {
+        console.log("error: ", err);
+      });
+  }, []);
+
+  const downloadImage = () => {
+    saveAs("http://localhost:8080/doador/download-csv");
+  };
 
   return (
     <div className={style.container}>
@@ -43,36 +49,49 @@ export default function Dashboard() {
           <Menu />
           <div className={style.right_content}>
             <div className={style.top_infos}>
-              <span><Link href={'/dashboard/infos'}>Início</Link> {'>'} <b>Lista de receptores</b></span>
+              <span>
+                <Link href={"/dashboard/infos"}>Início</Link> {">"}{" "}
+                <b>Lista de receptores</b>
+              </span>
               <div className={style.info_cards}>
-                <label className={style.label}>Essas pessoas precisam da sua ajuda: </label>
-                <Search placeholder={"Pesquise pelo endereço, nome da pessoa ou hospital"} />
+                <label className={style.label}>
+                  Essas pessoas precisam da sua ajuda:{" "}
+                </label>
+                <Search
+                  placeholder={
+                    "Pesquise pelo endereço, nome da pessoa ou hospital"
+                  }
+                />
                 <div className={style.btn_div}>
-                <Link href="http://localhost:8080/doador/download-csv">
-                  <Button 
+                  {/* <Link href="http://localhost:8080/doador/download-csv"> */}
+                  <Button
                     label={"Exportar"}
                     width={110}
                     height={30}
-                    backgroundColor={'#FF2939'}
-                    textColor={'#FFF'}
+                    backgroundColor={"#FF2939"}
+                    textColor={"#FFF"}
+                    onClick={downloadImage}
                   />
-                  </Link>
+                  {/* </Link> */}
                 </div>
               </div>
             </div>
             <div className={style.bottom_infos}>
-              {receiverList.length > 0 ?
-              Array.isArray(receiverList)
-              ? receiverList.map(item => (
-                <Receiver 
-                  nome={item.nome}
-                  bloodType={item.tipoSanguineo}
-                  donationPlace={item.nomeHospital}
-                  uf={item.uf}
-                  cep={item.cep}
-                />
-              )) : null :
-              <b>Nenhuma publicação realizada até agora...</b>}
+              {receiverList.length > 0 ? (
+                Array.isArray(receiverList) ? (
+                  receiverList.map((item) => (
+                    <Receiver
+                      nome={item.nome}
+                      bloodType={item.tipoSanguineo}
+                      donationPlace={item.nomeHospital}
+                      uf={item.uf}
+                      cep={item.cep}
+                    />
+                  ))
+                ) : null
+              ) : (
+                <b>Nenhuma publicação realizada até agora...</b>
+              )}
             </div>
           </div>
         </div>

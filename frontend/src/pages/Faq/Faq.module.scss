@@ -3,6 +3,7 @@
   .content {
     display: flex;
     flex-direction: row;
+    align-items: center;
 
     .left_side {
       width: 88%;
@@ -14,8 +15,7 @@
     .card1 {
       display: flex;
       position: absolute;
-      margin-top: 12.5%;
-      left: 8%;
+      margin: 0% 0% 17% 5%;
       background-color: #ff2939;
       border-radius: 10px;
       height: 14%;
@@ -30,8 +30,7 @@
     .card2 {
       display: flex;
       position: absolute;
-      margin-top: 27.5%;
-      left: 8%;
+      margin: 19% 0% 0% 5%;
       background-color: #ff2939;
       border-radius: 10px;
       width: 50%;
@@ -47,11 +46,10 @@
     .card3 {
       display: flex;
       position: absolute;
+      margin: 35% 0% 0% 45%;
       z-index: 2;
       background-color: #1e344f;
       border-radius: 10px;
-      margin-top: 20%;
-      left: 44%;
       width: 50%;
       height: 14%;
 
@@ -67,8 +65,7 @@
       z-index: 2;
       background-color: #1e344f;
       border-radius: 10px;
-      margin-top: 35%;
-      left: 44%;
+      margin: 40% 0% 37% 45%;
       width: 50%;
       height: 14%;
 

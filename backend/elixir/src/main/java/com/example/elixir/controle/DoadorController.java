@@ -34,7 +34,7 @@ public class DoadorController {
     @GetMapping("/lista-leads")
     public ResponseEntity<List<Doador>> buscarLeads() {
         List<Doador> buscandoDaBase = repository.findAll();
-        for (Doador d : buscandoDaBase){
+        for (Doador d : buscandoDaBase) {
             listaLeads.adiciona(d);
         }
         for (int i = 0; i < listaLeads.getTamanho(); i++) {
@@ -67,49 +67,42 @@ public class DoadorController {
 
     // Buscar por ID
     @GetMapping("/{idDoador}")
-    public ResponseEntity<Doador> listar (@PathVariable Integer id) {
+    public ResponseEntity<Doador> listar(@PathVariable Integer id) {
         return ResponseEntity.of(repository.findById(id));
     }
 
     // Exclusão de usuario
     @DeleteMapping("/{idDoador}")
     public ResponseEntity<Doador> excluirPorId(@PathVariable Integer idDoador) {
-       if (!repository.existsById(idDoador)) {
-           return ResponseEntity.status(404).build();
-       }
+        if (!repository.existsById(idDoador)) {
+            return ResponseEntity.status(404).build();
+        }
         repository.deleteById(idDoador);
-       return ResponseEntity.status(200).build();
+        return ResponseEntity.status(200).build();
     }
 
 
     // Atualizar por ID
     @PutMapping("/{idDoador}")
     public ResponseEntity<Doador> atualizarPorId(@PathVariable Integer idDoador, @RequestBody Doador doador) {
-            if(!repository.existsById(idDoador)) {
-                return ResponseEntity.status(404).build();
-            }
-            doador.setIdDoador(idDoador);
-            repository.save(doador);
-            return ResponseEntity.status(200).body(doador);
-}
+        if (!repository.existsById(idDoador)) {
+            return ResponseEntity.status(404).build();
+        }
+        doador.setIdDoador(idDoador);
+        repository.save(doador);
+        return ResponseEntity.status(200).body(doador);
+    }
 
 
     @PostMapping("/acesso/{email}/{senha}")
     public ResponseEntity<Doador> logonUsuario(@PathVariable String email,
                                                @PathVariable String senha) {
-        Optional<Doador> doador = repository.findByEmail(email);
-        Optional<Doador> password = repository.findBySenha(senha);
 
-        if (Objects.isNull(email) || Objects.isNull(senha)) {
-            throw new ResponseStatusException(
-                    HttpStatus.BAD_REQUEST,
-                    "Não insira valores nulos"
-            );
+        Optional<Doador> doador = repository.findByEmailAndSenha(email, senha);
+
+        if (doador.isPresent()) {
+            return ResponseEntity.ok().body(doador.get());
         }
-
-            if (doador.isPresent() && password.isPresent()) {
-                return ResponseEntity.ok().build();
-            }
 
         return ResponseEntity.status(401).build();
     }
@@ -125,9 +118,7 @@ public class DoadorController {
                     HttpStatus.BAD_REQUEST,
                     "Não insira valores nulos"
             );
-        }
-
-        else if (doador.isPresent() && password.isPresent()) {
+        } else if (doador.isPresent() && password.isPresent()) {
             return ResponseEntity.ok().build();
         }
         return ResponseEntity.status(401).build();

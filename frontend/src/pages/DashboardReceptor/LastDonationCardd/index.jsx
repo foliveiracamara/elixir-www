@@ -1,3 +1,4 @@
+import Link from "next/link";
 import style from "./LastDonationCardd.module.scss";
 
 export default function LastDonationCardd({ text, date, footer }) {
@@ -5,7 +6,9 @@ export default function LastDonationCardd({ text, date, footer }) {
     <div className={style.card}>
       {text}:<span className={style.date}>{date}</span>
       <div className={style.divFooter}>
-        <span className={style.footer}>{footer}</span>
+        <Link href={"/Dashboard/HelpPeople"}>
+          <span className={style.footer}>{footer}</span>
+        </Link>
       </div>
     </div>
   );

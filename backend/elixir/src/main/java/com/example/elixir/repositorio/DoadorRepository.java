@@ -10,8 +10,12 @@ import java.util.Optional;
 public interface DoadorRepository extends JpaRepository<Doador, Integer> {
 
     Optional<Doador> findByIdDoador(Integer idDoador);
+
     Optional<Doador> findByEmail(String email);
+
     Optional<Doador> findBySenha(String senha);
+
+    Optional<Doador> findByEmailAndSenha(String email, String senha);
 
     String findByNome(String nome);
 

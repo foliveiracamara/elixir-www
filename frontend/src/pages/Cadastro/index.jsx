@@ -1,5 +1,5 @@
 import { yupResolver } from "@hookform/resolvers/yup";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { useForm } from "react-hook-form";
 import { schema } from "./validation";
 import Button from "../../components/Button";
@@ -10,11 +10,16 @@ import api from "../../service/axios";
 import style from "./Cadastro.module.scss";
 import DropdownControlled from "../../components/DropdownControlled";
 import Link from "next/link";
+import { Toast } from "primereact/toast";
+import { useRouter } from "next/router";
 
 export default function Cadastro() {
   const [btnWidth, setBtnWidth] = useState();
   const [page, setPage] = useState(0);
   const [currentStep, setCurrentStep] = useState(0);
+  const router = useRouter();
+
+  const toast = useRef(null);
 
   const steps = [
     {
@@ -35,15 +40,42 @@ export default function Cadastro() {
     setCurrentStep((prevState) => prevState + 1);
   }
 
-  const onSubmit = (e) => {
+  const onSubmit = (data) => {
+    
+    let payload = {
+      nome: data.nome,
+      cpf: data.cpf,
+      email: data.email,
+      senha: data.senha,
+      confirmSenha: data.confirmeSenha,
+      sexo: data.sexo,
+      tipoSanguineo: "A+",
+      doadorOrgao: "Não",
+      imagemPessoa: true,
+      dtDoacao: "2020-11-24",
+      dtNascimento: "2001-11-24",
+    };
+
+    console.log(data);
+
     api
-      .post("http://localhost:8080/doador/", e)
+      .post("http://localhost:8080/doador/", payload)
       .then((res) => {
         console.log("cadastrado!", res);
+
+        router.push("/Login");
+
+        toast.current.show({
+          severity: "success",
+          summary: "Cadastro feito com sucesso!",
+          detail: "Você foi redirecionado",
+          life: 4000,
+        });
       })
       .catch((err) => {
         console.log("error: ", err);
       });
+
   };
 
   useEffect(() => {}, [page]);
@@ -65,6 +97,7 @@ export default function Cadastro() {
   return (
     <section className={style.container}>
       <Header textColor="red" />
+      <Toast ref={toast} position="bottom-center" />
       <div className={style.content}>
         <div className={style.left_side}>
           <div className={style.text}>

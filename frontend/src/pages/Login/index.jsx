@@ -48,7 +48,17 @@ export default function Login() {
     api
       .post(`http://localhost:8080/doador/acesso/${e.email}/${e.senha}`, e)
       .then((res) => {
-        console.log(res);
+        sessionStorage.setItem("idDoador", res.data.idDoador);
+        sessionStorage.setItem("nome", res.data.nome);
+        sessionStorage.setItem("cpf", res.data.cpf);
+        sessionStorage.setItem("email", res.data.email);
+        sessionStorage.setItem("sexo", res.data.sexo);
+        sessionStorage.setItem("tipoSanguineo", res.data.tipoSanguineo);
+        sessionStorage.setItem("doadorOrgao", res.data.doadorOrgao);
+        sessionStorage.setItem("dtDoacao", res.data.dtDoacao);
+        sessionStorage.setItem("dtNascimento", res.data.dtNascimento);
+
+        console.log(res.data);
         toast.current.show({
           severity: "success",
           summary: "Login feito com sucesso!",

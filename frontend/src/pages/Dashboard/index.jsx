@@ -18,7 +18,9 @@ export default function Dashboard() {
           <div className={style.options}>
             <li>Início</li>
             <li>Contato</li>
-            <li>Sair</li>
+            <Link href={"/"}>
+              <li onClick={() => sessionStorage.clear()}>Sair</li>
+            </Link>
           </div>
         </div>
       </div>

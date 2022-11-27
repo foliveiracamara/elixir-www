@@ -18,17 +18,24 @@ export default function Menu({
     { src: "/images/dna-badge.svg" },
   ];
 
-  const [infoMenu, setInfoMenu] = useState([]);
+  const [infoMenu, setInfoMenu] = useState([
+    {
+      nome: sessionStorage.getItem("nome"),
+      tipoSanguineo: sessionStorage.getItem("tipoSanguineo"),
+      dtNascimento: sessionStorage.getItem("dtNascimento"),
+    },
+  ]);
 
   useEffect(() => {
-    api
-      .get(`http://localhost:8080/doador/`)
-      .then((res) => {
-        setInfoMenu(res.data.reverse());
-      })
-      .catch((erro) => {
-        console.log(erro);
-      });
+    // api
+    //   .get(`http://localhost:8080/doador/`)
+    //   .then((res) => {
+    //     console.log(res.data);
+    //     setInfoMenu(res.data.reverse());
+    //   })
+    //   .catch((erro) => {
+    //     console.log(erro);
+    //   });
   }, []);
 
   return (
