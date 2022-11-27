@@ -41,11 +41,11 @@ public class Doador {
     private String sexo;
 
     @Column
-    @NotBlank
+//    @NotBlank
     private String tipoSanguineo;
 
     @Column
-    @NotBlank
+//    @NotBlank
     private String doadorOrgao;
 
     @Column
@@ -67,6 +67,10 @@ public class Doador {
         this.sexo = sexo;
         this.tipoSanguineo = tipoSanguineo;
        // this.dtNascimento = dtNascimento;
+    }
+
+    public Doador() {
+
     }
 
     public Integer getIdDoador() {
