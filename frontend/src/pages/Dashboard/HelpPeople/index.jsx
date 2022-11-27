@@ -6,6 +6,7 @@ import Button from "../../../components/Button";
 import api from "../../../service/axios";
 import Link from "next/link";
 import { saveAs } from "file-saver";
+import FileDownloadOutlinedIcon from "@mui/icons-material/FileDownloadOutlined";
 
 import style from "./HelpPeople.module.scss";
 
@@ -13,7 +14,6 @@ export default function Dashboard() {
   const [receiverList, setReceiverList] = useState([]);
 
   useEffect(() => {
-
     api
       .get("http://localhost:8080/receptor")
       .then((res) => {
@@ -30,7 +30,6 @@ export default function Dashboard() {
     saveAs("http://localhost:8080/doador/download-csv");
   };
 
-
   return (
     <div className={style.container}>
       <div className={style.header}>
@@ -42,7 +41,9 @@ export default function Dashboard() {
           <div className={style.options}>
             <span>Início</span>
             <span>Contato</span>
-            <span>Sair</span>
+            <Link href={"/"}>
+              <li onClick={() => sessionStorage.clear()}>Sair</li>
+            </Link>
           </div>
         </div>
       </div>
@@ -51,7 +52,7 @@ export default function Dashboard() {
           <Menu />
           <div className={style.right_content}>
             <div className={style.top_infos}>
-              <span>
+              <span className={style.pagination}>
                 <Link href={"/dashboard/infos"}>Início</Link> {">"}{" "}
                 <b>Lista de receptores</b>
               </span>
@@ -67,13 +68,16 @@ export default function Dashboard() {
                 <div className={style.btn_div}>
                   {/* <Link href="http://localhost:8080/doador/download-csv"> */}
                   <Button
-                    label={"Exportar"}
-                    width={110}
-                    height={30}
+                    label={"Exportar lista"}
+                    width="30%"
+                    height={40}
                     backgroundColor={"#FF2939"}
                     textColor={"#FFF"}
                     onClick={downloadImage}
+                    fontFamily="PoppinsNormal"
+                    icon={<FileDownloadOutlinedIcon />}
                   />
+
                   {/* </Link> */}
                 </div>
               </div>
@@ -92,7 +96,9 @@ export default function Dashboard() {
                   ))
                 ) : null
               ) : (
-                <b>Nenhuma publicação realizada até agora...</b>
+                <Receiver>
+                  <span>Nenhuma publicação realizada até agora...</span>
+                </Receiver>
               )}
             </div>
           </div>

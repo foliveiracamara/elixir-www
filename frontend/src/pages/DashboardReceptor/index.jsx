@@ -1,13 +1,16 @@
 import Menu from "../Dashboard/components/Menu";
 import style from "./DashboardReceptor.module.scss";
-import CreateIcon from "@mui/icons-material/Create";
 import ExitToAppIcon from "@mui/icons-material/ExitToApp";
+import "primeicons/primeicons.css";
+import "primereact/resources/themes/lara-light-indigo/theme.css";
+import "primereact/resources/primereact.css";
 
 import LastDonationCard from "./LastDonationCard";
 import LastDonationCardd from "./LastDonationCardd";
 import Link from "next/link";
 
 export default function DashboardReceptor() {
+
   return (
     <div className={style.container}>
       <div className={style.header}>

@@ -41,7 +41,6 @@ export default function Cadastro() {
   }
 
   const onSubmit = (data) => {
-    
     let payload = {
       nome: data.nome,
       cpf: data.cpf,
@@ -75,7 +74,6 @@ export default function Cadastro() {
       .catch((err) => {
         console.log("error: ", err);
       });
-
   };
 
   useEffect(() => {}, [page]);
