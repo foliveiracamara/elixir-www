@@ -8,6 +8,9 @@ import "primereact/resources/primereact.css";
 import LastDonationCard from "./LastDonationCard";
 import LastDonationCardd from "./LastDonationCardd";
 import Link from "next/link";
+import PopUp from "../../components/Modal";
+import Mapbox from "../Dashboard/components/Mapbox";
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 
 export default function DashboardReceptor() {
 
@@ -76,7 +79,9 @@ export default function DashboardReceptor() {
               <div className={style.mapCenter}>
                 <div className={style.label_div}>
                   <label className={style.label}>
-                    Localizar Hemocentros próximos {">"}
+                    <PopUp trigger={
+                      <span className={style.map_label}>Localizar Hemocentros próximos <ArrowForwardIcon className={style.map_icon}/></span>
+                    }><Mapbox></Mapbox></PopUp>
                   </label>
                 </div>
                 <img className={style.img} src={"/images/MapDashBoard.png"} />
