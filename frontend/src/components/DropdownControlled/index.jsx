@@ -1,7 +1,7 @@
 import { Control, Controller } from "react-hook-form";
 import Dropdown from "../Dropdown";
 
-const DropdownControlled = ({ name, control, ...rest }) => {
+const DropdownControlled = ({ defaultValue, name, control, ...rest }) => {
   return (
     <Controller
       control={control}
@@ -13,6 +13,7 @@ const DropdownControlled = ({ name, control, ...rest }) => {
           onBlur={onBlur}
           onChange={onChange}
           ref={ref}
+          defaultValue={defaultValue}
         />
       )}
     />

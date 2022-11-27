@@ -1,6 +1,5 @@
 .button {
   height: 50px;
-  padding: 0px 20px 0px 20px;
   border-radius: 10px;
   font-size: 16px;
   box-shadow: $black-transparent 0px 3px 8px;
@@ -11,10 +10,18 @@
   font-weight: bold;
   cursor: pointer;
   transition: 700ms all ease;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  gap: 0.5rem;
+
+ 
 }
 
 .button:hover {
   transform: scale(1.1);
 
 }
+
+
 

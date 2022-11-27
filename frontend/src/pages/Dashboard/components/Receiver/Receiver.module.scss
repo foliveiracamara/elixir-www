@@ -2,16 +2,22 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  background-color: $white;
+  background-color: #fff;
   border: rgb(215, 215, 215) solid 1px;
-  padding: 10px;
+  padding: 10px 20px 10px 20px;
   width: 620px;
   border-radius: 10px;
-  font-size: 16px;
-  padding-left: 10px;
+  font-size: 14px;
   margin-bottom: 10px;
+  box-shadow: 3px 3px 0px 1px #00000050;
+  justify-content: space-between;
+
+  b{
+    margin-right: 3px;
+    font-family: PoppinsBold;
+  }
 
   .right {
-    margin: 25px 0px 0px 50px;
+  position: relative;
   }
 }

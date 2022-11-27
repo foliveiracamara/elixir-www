@@ -8,7 +8,7 @@ import style from "./Hero.module.scss";
 export default function Hero() {
   return (
     <section className={style.container}>
-      <Header textColor={"#FFF"}  labelColorOne="red"/>
+      <Header textColor={"#FFF"} labelColorOne="red" />
 
       <div className={style.content}>
         <div className={style.left_side}>
@@ -28,17 +28,18 @@ export default function Hero() {
               Você precisa de doação de sangue?
             </label>
           </div>
-
-          <Link href="/ReceiverOrder">
-            <Button
-              label="Solicite aqui"
-              backgroundColor={"#FF2939"}
-              textColor={"#FFF"}
-              width={250}
-              fontFamily={"PoppinsNormal"}
-              marginRight={20}
-            />
-          </Link>
+          <div className={style.divButton}>
+            <Link href="/ReceiverOrder">
+              <Button
+                label="Solicite aqui"
+                backgroundColor={"#FF2939"}
+                textColor={"#FFF"}
+                width={250}
+                fontFamily={"PoppinsNormal"}
+                marginRight={25}
+              />
+            </Link>
+          </div>
         </div>
 
         <div className={style.right_side}>

@@ -1,6 +1,7 @@
 .container {
   background-color: $blue-400;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   display: flex;
   flex-direction: column;
 
@@ -20,22 +21,28 @@
 
       .options {
         display: flex;
-        justify-content: space-between;
+        justify-content: space-evenly;
         color: $white;
-        font-weight: bold;
-        font-size: 24px;
-        width: 350px;
+        font-size: 16px;
+        width: 310px;
+        font-family: PoppinsBolder;
+
+        li {
+          cursor: pointer;
+          list-style: none;
+        }
       }
 
       .logo {
         display: flex;
         flex-direction: row;
         align-items: center;
+        font-family: PoppinsBolder;
 
         .elixir {
           font-weight: bold;
           color: $white;
-          font-size: 24px;
+          font-size: 32px;
         }
       }
     }
@@ -45,6 +52,7 @@
     display: flex;
     flex-direction: row;
     justify-content: center;
+    width: 100%;
 
     .agregator {
       display: flex;
@@ -52,22 +60,29 @@
 
       .right_content {
         padding-left: 40px;
+        width: 100%;
 
         .top_infos {
+          width: 100%;
           display: flex;
           flex-direction: column;
-          height: 250px;
+          height: 30%;
           padding-top: 20px;
 
           .info_cards {
+            display: flex;
+            flex-direction: column;
             margin-top: 20px;
+            gap: 0.1rem;
+
             .label {
-              font-weight: bold;
+              font-family: PoppinsBold;
               font-size: 24px;
               color: $black;
             }
 
-            .btn_div{
+            .btn_div {
+              width: 100%;
               display: flex;
               justify-content: right;
               padding-top: 10px;
@@ -76,12 +91,26 @@
         }
 
         .bottom_infos {
+          font-family: PoppinsNormal;
+          width: 100%;
           display: flex;
+          max-height: 400px;
           flex-direction: column;
           justify-content: space-between;
           overflow-y: auto;
-          height: 450px;
         }
+
+        .pagination {
+          font-family: PoppinsNormal;
+        }
+      }
+      .bottom_infos::-webkit-scrollbar {
+        width: 10px;
+      }
+
+      .bottom_infos::-webkit-scrollbar-thumb {
+        border-radius: 5px;
+        background-color: $blue-700;
       }
     }
   }

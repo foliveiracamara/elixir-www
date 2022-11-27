@@ -2,7 +2,7 @@ import style from "./Select.module.scss";
 
 import { Dropdown as PrimeDropdown, } from "primereact/dropdown";
 
-export default function Dropdown({ errors, disabled, options, title, ...rest }) {
+export default function Dropdown({ defaultValue, errors, disabled, options, title, ...rest }) {
   return (
     <div className={style.dropdown_demo}>
       <label>{title}</label>
@@ -13,6 +13,7 @@ export default function Dropdown({ errors, disabled, options, title, ...rest }) 
         options={options || []}
         placeholder="Selecione"
         emptyMessage="Nenhum Item encontrado"
+        defaultValue={defaultValue}
       />
 
       <div className={style.error}>{errors?.message}</div>

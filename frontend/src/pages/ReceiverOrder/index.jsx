@@ -2,18 +2,20 @@ import { useForm } from "react-hook-form";
 import Button from "../../components/Button";
 import Header from "../../components/Header";
 
-import InputControlled from "../../components/InputControlled";
+import InputControlled, {
+  InputControlledMask,
+} from "../../components/InputControlled";
 import Title from "../../components/Title";
 import style from "./ReceiverOrder.module.scss";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { schema } from "./validation";
+import { maskCep, maskCpf, maskTel, schema } from "./validation";
 import Subtitle from "../../components/Subtitle";
 import DropdownControlled from "../../components/DropdownControlled";
 import api from "../../service/axios";
 import { Toast } from "primereact/toast";
 import React, { useRef, useState } from "react";
 import Link from "next/link";
-import emailjs from "@emailjs/browser"
+import emailjs from "@emailjs/browser";
 
 export default function ReceiverOrder() {
   const toast = useRef(null);
@@ -40,13 +42,17 @@ export default function ReceiverOrder() {
           life: 3000,
         });
       });
-    
-      emailjs.send("service_bg5fl7p","template_rjf470s",this,"HiTQaUGkLFUR5G4Ft")
-      .then((response) => {
-        console.log("EMAIL ENVIADO", response.status, response.text)
-      }, (err) => {
-        console.log("ERRO: ", err)
-      }) 
+
+    emailjs
+      .send("service_bg5fl7p", "template_rjf470s", this, "HiTQaUGkLFUR5G4Ft")
+      .then(
+        (response) => {
+          console.log("EMAIL ENVIADO", response.status, response.text);
+        },
+        (err) => {
+          console.log("ERRO: ", err);
+        }
+      );
   };
 
   const {
@@ -58,7 +64,7 @@ export default function ReceiverOrder() {
     resolver: yupResolver(schema),
   });
 
-  const bloodtypes = [
+   const bloodtypes = [
     { label: "A+", value: "A+" },
     { label: "B+", value: "B+" },
     { label: "AB+", value: "AB+" },
@@ -108,13 +114,14 @@ export default function ReceiverOrder() {
           <div className={style.contentQuestions}>
             <div className={style.otherQuestions}>
               <div className={style.name}>
-                <InputControlled
+                <InputControlledMask
                   title="CPF:"
                   name="cpf"
                   id="cpf"
                   placeholder="405-897-958-60"
                   errors={errors.cpf}
                   control={control}
+                  mask={maskCpf}
                 />
               </div>
               <div className={style.name}>
@@ -129,13 +136,14 @@ export default function ReceiverOrder() {
                 />
               </div>
               <div className={style.name}>
-                <InputControlled
+                <InputControlledMask
                   title="Telefone:"
                   name="tel"
                   id="tel"
                   placeholder="09999-000"
                   errors={errors.tel}
                   control={control}
+                  mask={maskTel}
                 />
               </div>
             </div>
@@ -161,13 +169,14 @@ export default function ReceiverOrder() {
               </div>
 
               <div className={style.name}>
-                <InputControlled
+                <InputControlledMask
                   title="CEP do Hospital:"
                   name="cep"
                   id="cep"
                   placeholder="09540-300"
                   errors={errors.cep}
                   control={control}
+                  mask={maskCep}
                 />
               </div>
             </div>
