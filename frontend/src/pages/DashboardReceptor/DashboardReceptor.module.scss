@@ -174,10 +174,23 @@
               width: 100%;
 
               .label {
+                display: flex;
+                align-items: center;
                 font-family: PoppinsBold;
                 flex-wrap: wrap;
                 font-size: 18px;
                 color: $white;
+
+                .map_label{
+                  cursor: pointer;
+
+                  .map_icon{
+                    animation: slide 1s infinite alternate;
+                    font-size: 18px;
+                    font-weight: bolder;
+                    margin-left: 10px;
+                  }
+                }
               }
             }
             .list_cards {
@@ -226,5 +239,14 @@
         }
       }
     }
+  }
+}
+
+@keyframes slide {
+  0% {
+    transform: translatex(0px);
+  }
+  100% {
+    transform: translatex(-10px);
   }
 }
