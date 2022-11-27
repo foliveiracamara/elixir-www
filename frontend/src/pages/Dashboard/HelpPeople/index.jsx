@@ -53,7 +53,7 @@ export default function Dashboard() {
           <div className={style.right_content}>
             <div className={style.top_infos}>
               <span className={style.pagination}>
-                <Link href={"/dashboard/infos"}>Início</Link> {">"}{" "}
+                <Link href={"/dashboard/receptor"}>Início</Link> {">"}{" "}
                 <b>Lista de receptores</b>
               </span>
               <div className={style.info_cards}>

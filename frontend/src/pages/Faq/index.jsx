@@ -6,7 +6,7 @@ import style from "./Faq.module.scss";
 export default function Faq() {
   return (
     <section className={style.container}>
-      <Header textColor={"#FFF"}  labelColorFour="red"/>
+      <Header textColor={"#FFF"} labelColorFour="red" />
       <div className={style.content}>
         <div className={style.left_side}>
           <div className={style.text}>
@@ -24,14 +24,20 @@ export default function Faq() {
           <img src={"/images/blood-bag.svg"} className={style.blood_bag} />
         </div>
 
-          <div className={style.card1}>Pergunta: Content here, content here'<br />,making it look like readable English.</div>
-          <div className={style.card2}>Pergunta: Content here, content here',<br />
-                                        making it looh.</div>
-          <div className={style.card3}>Resposta:  Pergunta: Content here, content here',<br />
-                                        making it look like readable English.Content here,<br />
-                                        making it look like readable English.</div>
-          <div className={style.card4}>Resposta:  Pergunta: Content here, content here',<br />
-                                        making it look like. </div>
+        <div className={style.card1}>
+          Pergunta: Como funciona a doação de <br /> sangue através da elixir?
+        </div>
+        <div className={style.card2}>
+          Pergunta: E como funciona a aplicação?
+        </div>
+        <div className={style.card3}>
+          Resposta: Nossa aplicação serve para incentivar o usuário de realizar
+          doações. Não agendamos horários de doações, apenas informamos locais.
+        </div>
+        <div className={style.card4}>
+          Resposta: Nossa aplicação serve para incentivar o usuário de realizar
+          doações. Não agendamos horários de doações, apenas informamos locais.
+        </div>
       </div>
     </section>
   );

@@ -4,7 +4,7 @@ import { useForm } from "react-hook-form";
 import { schema } from "./validation";
 import Button from "../../components/Button";
 import Header from "../../components/Header";
-import InputControlled from "../../components/InputControlled";
+import InputControlled, { InputControlledMask } from "../../components/InputControlled";
 import Title from "../../components/Title";
 import api from "../../service/axios";
 import style from "./Cadastro.module.scss";
@@ -12,6 +12,7 @@ import DropdownControlled from "../../components/DropdownControlled";
 import Link from "next/link";
 import { Toast } from "primereact/toast";
 import { useRouter } from "next/router";
+import { maskCep, maskCpf } from "../ReceiverOrder/validation";
 
 export default function Cadastro() {
   const [btnWidth, setBtnWidth] = useState();
@@ -137,13 +138,14 @@ export default function Cadastro() {
                   control={control}
                 />
 
-                <InputControlled
+                <InputControlledMask
                   title="CPF:"
                   name="cpf"
                   id="cpf"
-                  placeholder="000.000.000-90"
+                  placeholder="000.000.000-00"
                   errors={errors.cpf}
                   control={control}
+                  mask={maskCpf}
                 />
 
                 <DropdownControlled
