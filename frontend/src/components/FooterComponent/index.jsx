@@ -19,7 +19,7 @@ export default function FooterComponent() {
               <li>Cadastrar</li>
             </Link>
 
-          <Link href={"/FAQ"}>
+          <Link href={"/Faq"}>
               <li>FAQ</li>
             </Link>
           </ul>

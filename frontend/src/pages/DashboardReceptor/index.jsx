@@ -22,7 +22,7 @@ export default function DashboardReceptor() {
             </Link>
             <li>Contato</li>
             <Link href={"/"}>
-              <li>Sair</li>
+              <li onClick={() => sessionStorage.clear()}>Sair</li>
             </Link>
           </div>
         </div>
