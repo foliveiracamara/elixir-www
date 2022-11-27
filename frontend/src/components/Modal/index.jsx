@@ -16,7 +16,7 @@ const contentShow = keyframes({
 });
 
 const StyledOverlay = styledStitches(DialogPrimitive.Overlay, {
-  backgroundColor: "#00000050",
+  backgroundColor: "#00000080",
   position: "fixed",
   inset: 0,
   "@media (prefers-reduced-motion: no-preference)": {

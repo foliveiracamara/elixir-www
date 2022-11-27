@@ -69,7 +69,7 @@
   }
 }
 .divContainerModal {
-  padding: 2rem;
+  padding: 1rem;
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
@@ -82,6 +82,9 @@
     width: 100%;
     display: flex;
     flex-direction: flex-start;
+    font-family: PoppinsBolder;
+    font-size: 24px;
+    color: $blue-700;
   }
 
   .inputsModal {
@@ -120,14 +123,14 @@
       height: 35px;
     }
   }
-  
+
   .questionsRigth {
     position: relative;
-  
+
     width: 100%;
     flex-direction: column;
     align-items: center;
-  
+
     input {
       width: 100%;
       height: 35px;

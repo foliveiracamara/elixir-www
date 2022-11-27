@@ -157,7 +157,7 @@ export default function Menu({
               >
                 <form onSubmit={handleSubmit(onSubmit)}>
                   <div className={style.divContainerModal}>
-                    <div className={style.titleModal}>Editar Perfil</div>
+                    <div className={style.titleModal}>Editar Perfil {">"}</div>
                     <img
                       width={100}
                       src={
@@ -218,7 +218,7 @@ export default function Menu({
                           />
                         </div>
                       </div>
-                      <div>
+                      <div className={style.inputsModal}>
                         <div className={style.questionsRigth}>
                           <InputControlled
                             title="Data de Nascimento:"
