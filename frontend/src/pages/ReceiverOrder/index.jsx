@@ -11,8 +11,9 @@ import Subtitle from "../../components/Subtitle";
 import DropdownControlled from "../../components/DropdownControlled";
 import api from "../../service/axios";
 import { Toast } from "primereact/toast";
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import Link from "next/link";
+import emailjs from "@emailjs/browser"
 
 export default function ReceiverOrder() {
   const toast = useRef(null);
@@ -39,6 +40,13 @@ export default function ReceiverOrder() {
           life: 3000,
         });
       });
+    
+      emailjs.send("service_bg5fl7p","template_rjf470s",this,"HiTQaUGkLFUR5G4Ft")
+      .then((response) => {
+        console.log("EMAIL ENVIADO", response.status, response.text)
+      }, (err) => {
+        console.log("ERRO: ", err)
+      }) 
   };
 
   const {

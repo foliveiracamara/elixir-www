@@ -43,9 +43,19 @@
         .arrow {
           font-size: 14px;
           margin-left: 5px;
+          animation: slide 1s infinite alternate;
         }
       }
 
     }
+  }
+}
+
+@keyframes slide {
+  0% {
+    transform: translatex(0px);
+  }
+  100% {
+    transform: translatex(-5fpx);
   }
 }

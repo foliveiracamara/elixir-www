@@ -13,6 +13,7 @@ export default function Dashboard() {
   const [receiverList, setReceiverList] = useState([]);
 
   useEffect(() => {
+
     api
       .get("http://localhost:8080/receptor")
       .then((res) => {
@@ -28,6 +29,7 @@ export default function Dashboard() {
   const downloadImage = () => {
     saveAs("http://localhost:8080/doador/download-csv");
   };
+
 
   return (
     <div className={style.container}>
