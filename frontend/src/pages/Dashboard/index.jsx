@@ -16,7 +16,9 @@ export default function Dashboard() {
             <span className={style.elixir}>elixir</span>
           </div>
           <div className={style.options}>
-            <li>Início</li>
+            <Link href={"/DashboardReceptor"}>
+              <li>Início</li>
+            </Link>
             <li>Contato</li>
             <Link href={"/"}>
               <li onClick={() => sessionStorage.clear()}>Sair</li>
@@ -40,11 +42,11 @@ export default function Dashboard() {
                 <label className={style.label}>Informações:</label>
                 <LastDonationCard
                   text={"Você realizou sua última doação no dia"}
-                  date={"01/01/2023"} // mudar para algo dinâmico
+                  date={"10/01/2022"} // mudar para algo dinâmico
                 />
                 <LastDonationCard
                   text={"Você poderá doar novamente a partir de"}
-                  date={"01/01/2023"} // mudar para algo dinâmico
+                  date={"16/02/2022"} // mudar para algo dinâmico
                 />
               </div>
             </div>
@@ -64,7 +66,7 @@ export default function Dashboard() {
                   <span className={style.square_title}>
                     Atualizar última doação
                   </span>
-                  <span className={style.square_date}>12/01/1990</span>
+                  <span className={style.square_date}>12/01/2022</span>
                   <CreateIcon className={style.pen} />
                 </div>
               </div>
@@ -75,15 +77,15 @@ export default function Dashboard() {
                   </label>
                 </div>
                 <div className={style.list_cards}>
-                  <LastDonationCardd children={"01/01/1945"} />
-                  <LastDonationCardd children={"01/01/1945"} />
-                  <LastDonationCardd children={"01/01/1945"} />
-                  <LastDonationCardd children={"01/01/1945"} />
-                  <LastDonationCardd children={"01/01/1945"} />
-                  <LastDonationCardd children={"01/01/1945"} />
-                  <LastDonationCardd children={"01/01/1945"} />
-                  <LastDonationCardd children={"01/01/1945"} />
-                  <LastDonationCardd children={"01/01/1945"} />
+                  <LastDonationCardd children={"03/05/2021"} />
+                  <LastDonationCardd children={"22/07/2021"} />
+                  <LastDonationCardd children={"07/09/2021"} />
+                  <LastDonationCardd children={"17/12/2021"} />
+                  <LastDonationCardd children={"10/02/2022"} />
+                  <LastDonationCardd children={"05/04/2022"} />
+                  <LastDonationCardd children={"31/06/2022"} />
+                  <LastDonationCardd children={"24/09/2022"} />
+                  <LastDonationCardd children={"01/10/2022"} />
                 </div>
               </div>
             </div>

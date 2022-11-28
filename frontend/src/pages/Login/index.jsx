@@ -137,15 +137,9 @@ export default function Login() {
                 errors={errors.senha}
                 control={control}
                 type={tipo}
+                icon={<VisibilityOutlinedIcon />}
               />
 
-              <span onClick={mudar} className={style.passwordIcon}>
-                {tipo === "password" ? (
-                  <VisibilityOutlinedIcon />
-                ) : (
-                  <VisibilityOffOutlinedIcon />
-                )}
-              </span>
               <p className={style.markdown}>Esqueceu sua senha?</p>
               <Button
                 label="Entrar"

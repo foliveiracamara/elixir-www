@@ -39,8 +39,10 @@ export default function Dashboard() {
             <span className={style.elixir}>elixir</span>
           </div>
           <div className={style.options}>
-            <span>Início</span>
-            <span>Contato</span>
+            <Link href={"/DashboardReceptor"}>
+              <li>Início</li>
+            </Link>
+            <li>Contato</li>
             <Link href={"/"}>
               <li onClick={() => sessionStorage.clear()}>Sair</li>
             </Link>

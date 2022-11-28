@@ -4,7 +4,9 @@ import { useForm } from "react-hook-form";
 import { schema } from "./validation";
 import Button from "../../components/Button";
 import Header from "../../components/Header";
-import InputControlled, { InputControlledMask } from "../../components/InputControlled";
+import InputControlled, {
+  InputControlledMask,
+} from "../../components/InputControlled";
 import Title from "../../components/Title";
 import api from "../../service/axios";
 import style from "./Cadastro.module.scss";
@@ -192,16 +194,18 @@ export default function Cadastro() {
                   placeholder="••••••••••"
                   errors={errors.senha}
                   control={control}
+                  type="password"
                 />
 
                 <div>
                   <InputControlled
                     title="Confirme sua senha:"
-                    name="confirmeSenha"
-                    id="senha"
+                    name="  passwordConfirmation"
+                    id="passwordConfirmation"
                     placeholder="••••••••••"
-                    errors={errors.senha}
+                    errors={errors.passwordConfirmation}
                     control={control}
+                    type="password"
                   />
                 </div>
 

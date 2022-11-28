@@ -8,6 +8,7 @@ import "aos/dist/aos.css";
 
 import style from "./Geolocation.module.scss";
 import Link from "next/link";
+import Mapbox from "../../Dashboard/components/Mapbox";
 
 export default function Geolocation() {
   useEffect(() => {
@@ -31,7 +32,9 @@ export default function Geolocation() {
           label={"Geolocalizar hemocentros com mapa de geolocalização"}
         />
       </div>
-      <img src="/images/map-placeholder.svg" className={style.image} />
+      {/* <img src="/images/map-placeholder.svg" className={style.image} /> */}
+      <Mapbox></Mapbox>
+
       <div className={style.redirect}>
         <Title
           fontSize={32}
