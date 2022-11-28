@@ -34,8 +34,8 @@ const StyledContent = styledStitches(DialogPrimitive.Content, {
   left: "50%",
   transform: "translate(-50%, -50%)",
   // width: "90vw",
-  maxWidth: "85vw",
-  maxHeight: "85vh",
+  maxWidth: "100vw",
+  maxHeight: "90vh",
   // padding: 25,
   "@media (prefers-reduced-motion: no-preference)": {
     animation: `${contentShow} 150ms cubic-bezier(0.16, 1, 0.3, 1)`,
@@ -70,6 +70,7 @@ const IconButton = styledStitches("button", {
   position: "absolute",
   top: 10,
   right: 10,
+  cursor: "pointer",
 
   "&:hover": { color: " #00000080" },
   // "&:focus": { boxShadow: `0 0 0 2px ${color.bluePrimary}` },

@@ -26,7 +26,7 @@ export const InputControlledMask = ({
     />
   );
 };
-const InputControlled = ({ defaultValue, name, control, ...rest }) => {
+const InputControlled = ({ icon, defaultValue, name, control, ...rest }) => {
   return (
     <Controller
       control={control}
@@ -39,6 +39,7 @@ const InputControlled = ({ defaultValue, name, control, ...rest }) => {
           onChange={onChange}
           ref={ref}
           defaultValue={defaultValue}
+          icon={icon}
         />
       )}
     />

@@ -10,10 +10,9 @@ import LastDonationCardd from "./LastDonationCardd";
 import Link from "next/link";
 import PopUp from "../../components/Modal";
 import Mapbox from "../Dashboard/components/Mapbox";
-import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
+import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 
 export default function DashboardReceptor() {
-
   return (
     <div className={style.container}>
       <div className={style.header}>
@@ -23,7 +22,7 @@ export default function DashboardReceptor() {
             <span className={style.elixir}>elixir</span>
           </div>
           <div className={style.options}>
-            <Link href={"/"}>
+            <Link href={"/DashboardReceptor"}>
               <li>Início</li>
             </Link>
             <li>Contato</li>
@@ -65,7 +64,13 @@ export default function DashboardReceptor() {
                     </span>
                     <span className={style.footerDescription}>
                       Fonte: CNN Brasil 20/07/2022 ás 19:48
-                      <ExitToAppIcon className={style.goOut} />
+                      <Link
+                        href={
+                          "https://www.cnnbrasil.com.br/saude/pacientes-com-variola-dos-macacos-nao-devem-doar-sangue-ate-fim-dos-sintomas-diz-anvisa/#:~:text=A%20seguir-,Pacientes%20com%20var%C3%ADola%20dos%20macacos%20n%C3%A3o%20devem%20doar,fim%20dos%20sintomas%2C%20diz%20Anvisa&text=A%20Ag%C3%AAncia%20Nacional%20de%20Vigil%C3%A2ncia,var%C3%ADola%20dos%20macacos%20no%20Brasil"
+                        }
+                      >
+                        <ExitToAppIcon className={style.goOut} />
+                      </Link>
                     </span>
                   </div>
 
@@ -79,9 +84,17 @@ export default function DashboardReceptor() {
               <div className={style.mapCenter}>
                 <div className={style.label_div}>
                   <label className={style.label}>
-                    <PopUp trigger={
-                      <span className={style.map_label}>Localizar Hemocentros próximos <ArrowForwardIcon className={style.map_icon}/></span>
-                    }><Mapbox></Mapbox></PopUp>
+                    <PopUp
+                      trigger={
+                        <span className={style.map_label}>
+                          Localizar Hemocentros próximos{" "}
+                          <ArrowForwardIcon className={style.map_icon} />
+                        </span>
+                      }
+                      dropClose
+                    >
+                      <Mapbox></Mapbox>
+                    </PopUp>
                   </label>
                 </div>
                 <img className={style.img} src={"/images/MapDashBoard.png"} />

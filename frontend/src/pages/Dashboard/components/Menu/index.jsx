@@ -5,16 +5,14 @@ import KeyboardArrowRightOutlinedIcon from "@mui/icons-material/KeyboardArrowRig
 
 import style from "./Menu.module.scss";
 import PopUp from "../../../../components/Modal";
-import { display } from "@mui/system";
 import InputControlled, {
   InputControlledMask,
 } from "../../../../components/InputControlled";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { maskCpf, schema } from "../../../ReceiverOrder/validation";
-import styled from "styled-components";
-import DropdownControlled from "../../../../components/DropdownControlled";
 import { Toast } from "primereact/toast";
+import api from "../../../../service/axios";
 
 export default function Menu({
   profileName,
@@ -52,46 +50,49 @@ export default function Menu({
     { label: "O-", value: "O-" },
   ];
 
-  const onSubmit = (data) => {
-    let dataNova = {
-      idDoador: sessionStorage.getItem("idDoador"),
-      nome: data.nome,
-      cpf: data.cpf,
-      email: data.email,
-      senha: data.senha,
-      sexo: sessionStorage.getItem("sexo"),
-      tipoSanguineo: sessionStorage.getItem("tipoSanguineo"),
-      doadorOrgao: "Não",
-      dtDoacao: "2020-11-24",
-      dtNascimento: data.dtNascimento,
-      imagemPessooa: null,
-    };
+  const onChange = (data) => {
+    // let dataNova = {
+    //   idDoador: sessionStorage.getItem("idDoador"),
+    //   nome: data.nome,
+    //   cpf: data.cpf,
+    //   email: data.email,
+    //   senha: data.senha,
+    //   sexo: sessionStorage.getItem("sexo"),
+    //   tipoSanguineo: sessionStorage.getItem("tipoSanguineo"),
+    //   doadorOrgao: "Não",
+    //   dtDoacao: "2020-11-24",
+    //   dtNascimento: data.dtNascimento,
+    //   imagemPessooa: null,
+    // };
 
-    console.log(dataNova);
-    api
-      .put(
-        `http://localhost:8080/doador/${sessionStorage.getItem("idDoador")}`,
-        dataNova
-      )
-      .then((res) => {
-        console.log(res);
-        toast.current.show({
-          severity: "success",
-          summary: "Doação Solicitada com sucesso",
-          detail: "Seus dados foram registrados com sucesso",
-          life: 3000,
-        });
-      })
-      .catch((err) => {
-        console.log(err);
-        toast.current.show({
-          severity: "error",
-          summary: "Doação não foi solicidata",
-          detail:
-            "Seu pedido de doação não foi solicitado, entrar em contato com a empresa",
-          life: 3000,
-        });
-      });
+    // api
+    //   .post(
+    //     `http://localhost:8080/doador/${data.idDoador}}`,
+    //     dataNova
+    //   )
+    //   .then((res) => {
+    //     console.log(res);
+    //     toast.current.show({
+    //       severity: "success",
+    //       summary: "Doação Solicitada com sucesso",
+    //       detail: "Seus dados foram registrados com sucesso",
+    //       life: 3000,
+    //     });
+
+    //     console.log(dataNova);
+    //   })
+    //   .catch((err) => {
+    //     console.log(err);
+    //     toast.current.show({
+    //       severity: "error",
+    //       summary: "Doação não foi solicidata",
+    //       detail:
+    //         "Seu pedido de doação não foi solicitado, entrar em contato com a empresa",
+    //       life: 3000,
+    //     });
+
+    //     console.log(dataNova);
+    //   });
   };
 
   const {
@@ -103,15 +104,9 @@ export default function Menu({
     resolver: yupResolver(schema),
   });
 
-  const InputName = styled.div`
-    width: 100%;
-    font-family: PoppinsBolder;
-    font-size: 16px;
-  `;
-
-  function clicou() {
-    alert("foi");
-  }
+  // function clicou() {
+  //   alert("foi");
+  // }
 
   return (
     <div className={style.container}>
@@ -155,7 +150,7 @@ export default function Menu({
                 }
                 // dropClose
               >
-                <form onSubmit={handleSubmit(onSubmit)}>
+                <form onSubmit={handleSubmit(onChange)}>
                   <div className={style.divContainerModal}>
                     <div className={style.titleModal}>Editar Perfil {">"}</div>
                     <img
@@ -245,23 +240,16 @@ export default function Menu({
                         </div>
                       </div>
                     </div>
-                    <div
-                      style={{
-                        display: "flex",
-                        width: "100%",
-                        justifyContent: "center",
-                      }}
-                    >
-                      <Button
-                        width="50%"
-                        backgroundColor="#FF2939"
-                        textColor="white"
-                        type="submit"
-                        label="Salvar Alterações"
-                        fontFamily="PoppinsBolder"
-                        onClick={clicou}
-                      />
-                    </div>
+                  <div className={style.modalButton}>
+                  <Button
+                    width="50%"
+                    backgroundColor="#FF2939"
+                    textColor="white"
+                    type="submit"
+                    label="Envie seu Pedido"
+                    fontFamily="PoppinsBolder"
+                  />
+                  </div>
                   </div>
                 </form>
               </PopUp>
