@@ -8,8 +8,7 @@ export default function Mapbox() {
   const [state, setState] = useState();
   const [coordinates, setCoord] = useState([]);
 
-  const KEY =
-    "pk.eyJ1IjoiZmNhbWFyYSIsImEiOiJjbDhxNWU0c2owN21wM3dtYmZvYnowMmRoIn0.fZ3Y5spD9ER1GlQVkd69AA";
+  const KEY = ''
   // const KEY = ''
   const API_URL = "https://api.mapbox.com/geocoding/v5/mapbox.places";
 
