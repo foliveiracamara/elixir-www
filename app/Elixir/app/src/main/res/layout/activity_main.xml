@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#1E344F"
+        >
+
+        <ImageView
+            android:id="@+id/iv_logo"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="50dp"
+            android:src="@mipmap/logoElixir" />
+
+        <TextView
+            android:id="@+id/tv_titulo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/iv_logo"
+            android:layout_centerHorizontal="true"
+            android:text="Elixir"
+            android:textColor="#FFFF"
+            android:fontFamily="@font/poppins"
+            android:textSize="50sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:layout_width="300dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="490dp"
+            android:text="Entrar"
+            android:backgroundTint="#FF2939"
+            android:textStyle="bold"
+            android:textSize="15dp"
+            android:layout_centerHorizontal="true"/>
+
+        <Button
+            android:layout_width="300dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="550dp"
+            android:layout_marginLeft="80dp"
+            android:text="Seja um doador"
+            android:textStyle="bold"
+            android:backgroundTint="#FF2939"
+            android:textSize="15dp"
+            android:layout_centerHorizontal="true"
+            />
+        <Button
+            android:layout_width="300dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="610dp"
+            android:text="Solicite transfusão"
+            android:textStyle="bold"
+            android:textColor="#FF2939"
+            android:backgroundTint="#FFFF"
+            android:textSize="15dp"
+            android:layout_centerHorizontal="true"
+            />
+
+
+
+
+
+
+
+
+
+
+
+    </RelativeLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

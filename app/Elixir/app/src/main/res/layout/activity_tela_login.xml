@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".TelaLogin">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#DCDCDC"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            >
+
+        <ImageView
+            android:id="@+id/iv_logo"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginLeft="20dp"
+            android:src="@drawable/ic_baseline_arrow_back_ios_24" />
+
+            <TextView
+                android:layout_width="30dp"
+                android:layout_height="15dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="31dp"
+                android:text="Voltar"
+                android:textColor="#4F555A"
+                android:textSize="10sp"
+                android:textStyle="bold" />
+
+
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_titulo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="40dp"
+            android:text="elixir"
+            android:textColor="#363F5F"
+            android:textSize="30sp"
+            android:fontFamily="@font/poppins"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tv_input1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="35dp"
+            android:layout_marginTop="200dp"
+            android:text="E-mail"
+            android:textColor="#000000"
+            android:textSize="15sp"
+            android:textStyle="normal" />
+
+        <EditText
+            android:id="@+id/et_input1"
+            android:layout_width="350dp"
+            android:layout_height="45dp"
+            android:layout_below="@id/tv_input1"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="5dp"
+            android:width="300dp"
+            android:background="@drawable/rounded_corner_view"
+            android:hint="exemplo@gmail.com"
+            android:padding="10dp" />
+
+        <TextView
+            android:id="@+id/tv_input2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="35dp"
+            android:layout_marginTop="290dp"
+            android:text="Senha"
+            android:textColor="#000000"
+            android:textSize="15sp"
+            android:textStyle="normal" />
+
+        <EditText
+            android:id="@+id/et_input2"
+            android:layout_width="350dp"
+            android:layout_height="45dp"
+            android:layout_below="@id/tv_input2"
+            android:layout_marginLeft="30dp"
+            android:width="300dp"
+            android:hint="*****************"
+            android:background="@drawable/rounded_corner_view"
+            android:layout_marginTop="5dp"
+            android:drawableEnd="@drawable/ic_baseline_remove_red_eye_24"
+            android:padding="10dp"
+            />
+
+        <TextView
+            android:id="@+id/tv_esqueceu_senha"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Esqueceu sua senha?"
+            android:textColor="#000000"
+            android:textSize="15sp"
+            android:layout_marginLeft="240dp"
+            android:textStyle="italic"
+            android:layout_below="@id/et_input2"
+            android:layout_marginTop="5dp"/>
+
+        <Button
+            android:id="@+id/b_botao_login"
+            android:layout_width="200dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="490dp"
+            android:text="Entrar"
+            android:backgroundTint="#FF2939"
+            android:textStyle="bold"
+            android:textSize="15dp"
+            android:layout_centerHorizontal="true"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/b_botao_login"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tv_nao_possui_conta"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/et_input2"
+                android:layout_marginLeft="90dp"
+                android:text="Não possui conta?"
+                android:textColor="#000000"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/tv_seja_doador"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/et_input2"
+                android:layout_marginLeft="5dp"
+                android:text="Seja um doador"
+                android:textColor="#FF2939"
+                android:textSize="15sp"
+                android:textStyle="bold"
+
+                />
+        </LinearLayout>
+
+
+
+
+
+
+
+
+
+    </RelativeLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
