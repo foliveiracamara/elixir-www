@@ -41,12 +41,7 @@ public class PublicacaoController {
     public ResponseEntity<List<Publicacao>> getListarPublicacoes() {
         List<Publicacao> listaPublicacoes = publicacaoRepository.findAll();
 
-        for (Publicacao p : listaPublicacoes) {
-            filaPublicacao.insert(p);
-        }
-        if (filaPublicacao.peek().getDtPublicacao().plusDays(7).equals(LocalDate.now())){
-            publicacaoRepository.deleteById(filaPublicacao.poll().getIdPublicacao());
-        }
+
         return ResponseEntity.status(200).body(listaPublicacoes);
     }
 
